@@ -1,0 +1,221 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	<title>
+		Uncertainty Visualization
+	</title>
+
+	<style>
+
+		/* Styling the Body element i.e. Color,
+		Font, Alignment */
+		body {
+			background-color: #FFFFFF; //#05c46b;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Evaluation: Uncertainty Visualization</h1>
+     <label for="name" id="label-name">
+				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that add non-uniform variations, hence, making the fiber tract results unreliable. In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow. The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects the decision-making process in surgery planning.
+			</label>
+	<!-- Create Form -->
+	
+	<form id="form">
+
+		<!-- Details -->
+		<div class="form-control">
+			<label for="name" id="label-name">
+				Name
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="name"
+				placeholder="Enter your name" />
+		</div>
+		<div class="form-control">
+			<label for="email" id="label-email">
+				Email
+			</label>
+
+			<!-- Input Type Email-->
+			<input type="email"
+				id="email"
+				placeholder="Enter your email" />
+		</div>
+		
+		<div class="form-control">
+			<label>Have you ever used tractography in your patients?
+				
+			</label>
+			<!-- Input Type Checkbox -->
+			<label for="inp-1">
+				<input type="checkbox"
+					name="inp">Yes</input></label>
+			<label for="inp-2">
+				<input type="checkbox"
+					name="inp">No</input></label>
+			
+		</div>
+		
+        </form>
+		
+		
+
+
+<!-- <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /> -->
+
+<table style="margin-left:900px;">
+    <tr>
+        <td>Slice I</td>
+        <td>
+            <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" />
+        </td>
+    </tr>
+    <tr>
+        <td>Slice J</td>
+        <td>
+            <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" />
+        </td>
+    </tr>
+    <tr>
+        <td>Slice K</td>
+        <td>
+            <input class='sliceK' type="range" min="0" max="100" step="1" value="1" />
+        </td>
+    </tr>
+    <tr>
+        <td>Color level</td>
+        <td>
+            <input class='colorLevel' type="range" min="-3926" max="3926" step="1" value="1" />
+        </td>
+    </tr>
+    <tr>
+        <td>ColorWindow</td>
+        <td>
+            <input class='colorWindow' type="range" min="0" max="3926" step="1" value="1" />
+        </td>
+    </tr>
+</table>
+
+	<body>
+           <script src="./main.js"></script>
+		   
+  </body>
+
+		
+
+		  
+		<form id="form">
+		<div class="form-control">
+			<label for="email" id="label-email">
+				Case-1
+
+The tumor is present in the left frontal lobe and nearby corticospinal tract.
+Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
+Right: 150 variations of the same bundle based on uncertainty simulation.
+			</label>
+
+			<!-- Input Type Email-->
+			<input type="email"
+				id="email"
+				placeholder="" />
+		</div>
+        </form>
+		
+		
+		<div class="form-control">
+		  <body>
+		  <script src="./main.js"></script>
+		  </body>
+		  </div>
+		
+		<form id="form">
+		<div class="form-control">
+			<label for="age" id="label-age">
+				Age
+			</label>
+
+			<!-- Input Type Text -->
+			<input type="text"
+				id="age"
+				placeholder="Enter your age" />
+		</div>
+
+
+	
+	
+		
+		<!-- Multi-line Text Input Control -->
+		<button type="submit" value="submit">
+			Submit
+		</button>
+	</form>
+</body>
+  
+  
+</html>
