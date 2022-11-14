@@ -282,12 +282,12 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
   renderWindow.render();
 });
 
-document
-  .querySelector('.colorLevel')
-  .addEventListener('input', updateColorLevel);
-document
-  .querySelector('.colorWindow')
-  .addEventListener('input', updateColorWindow);
+// document
+  // .querySelector('.colorLevel')
+  // .addEventListener('input', updateColorLevel);
+// document
+  // .querySelector('.colorWindow')
+  // .addEventListener('input', updateColorWindow);
     
 
 
