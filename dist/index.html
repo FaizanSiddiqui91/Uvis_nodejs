@@ -81,26 +81,30 @@
 	<h1>Evaluation: Uncertainty Visualization</h1>
      <label for="name" id="label-name">
 				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that add non-uniform variations, hence, making the fiber tract results unreliable. In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow. The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects the decision-making process in surgery planning.
-			</label>
+	 </label>
 	<!-- Create Form -->
 	
+	
+	<table>
 	<form name="form" method="POST" data-netlify="true">
-  <p>
+    <p>
+	<tr>
     <label>Your Name: <input type="text" name="name" /></label>
-  </p>
-  <p>
+	</tr>
+    </p>
+    <p>
+	<tr>
     <label>Your Email: <input type="email" name="email" /></label>
+    <tr>
+	</p>
+    <p>
   </p>
   <p>
-    <label>Your Role: <select name="role[]" multiple>
-      <option value="leader">Leader</option>
-      <option value="follower">Follower</option>
-    </select></label>
-  </p>
-  <p>
+  <tr>
     <label>Message: <textarea name="message"></textarea></label>
+	<tr>
   </p>
-
+</table>
 <!-- </form> -->
 		
 
@@ -178,14 +182,11 @@
 			<!-- Input Type Text -->
 			<input type="text"
 				id="age"
-				placeholder="Enter your age" />
-				
+				placeholder="Enter your age" />				
 				 <p>
     <label>Your Name phr se test: <input type="text" name="name" /></label>
-  </p>
-  
-  
-		</div>
+  </p> 
+</div>
 
 
 		
