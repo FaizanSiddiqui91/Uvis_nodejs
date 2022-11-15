@@ -97,17 +97,16 @@
       <option value="follower">Follower</option>
     </select></label>
   </p>
-  
-    	  <p>
-    <button type="submit">Send</button>
-  </p>
-  
-  
   <p>
     <label>Message: <textarea name="message"></textarea></label>
   </p>
-  
-  <table style="margin-left:900px;">
+
+</form>
+		
+
+
+
+<table style="margin-left:900px;">
     <tr>
         <td>Slice I</td>
         <td>
@@ -144,45 +143,33 @@
            <script src="./main.js"></script>
 		   
   </body>
-  
-		
-		
-		
-
-
-</form>
-		
-
-<!-- <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /> -->
-
-
 
 		  
-		<!-- <form id="form"> -->
-		<!-- <div class="form-control"> -->
-		<!-- <label for="email" id="label-email"> -->
-		<!-- Case-1 -->
+		<form name="form" method="POST" data-netlify="true">
+		<div class="form-control">
+		<label for="email" id="label-email">
+		Case-1
 
-	<!-- The tumor is present in the left frontal lobe and nearby corticospinal tract. -->
-	<!-- Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue. -->
-	<!-- Right: 150 variations of the same bundle based on uncertainty simulation. -->
-			<!-- </label> -->
+	The tumor is present in the left frontal lobe and nearby corticospinal tract.
+	Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
+	Right: 150 variations of the same bundle based on uncertainty simulation.
+			</label>
 
-			<!-- <!-- Input Type Email--> -->
-			<!-- <input type="email" -->
-				<!-- id="email" -->
-				<!-- placeholder="" /> -->
-		<!-- </div> -->
-        <!-- </form> -->
+			<!-- Input Type Email-->
+			<input type="email"
+				id="email"
+				placeholder="" />
+		</div>
+        </form>
 		
 		
-		<!-- <div class="form-control"> -->
-		  <!-- <body> -->
-		  <!-- <script src="./main.js"></script> -->
-		  <!-- </body> -->
-		  <!-- </div> -->
+		<div class="form-control">
+		  <body>
+		  <script src="./main.js"></script>
+		  </body>
+		  </div>
 		
-		<form id="form">
+		<form name="form" method="POST" data-netlify="true">
 		<div class="form-control">
 			<label for="age" id="label-age">
 				Age
@@ -192,14 +179,20 @@
 			<input type="text"
 				id="age"
 				placeholder="Enter your age" />
+				
+				 <p>
+    <label>Your Name phr se test: <input type="text" name="name" /></label>
+  </p>
+  
+  
 		</div>
 
 
 		
 		<!-- Multi-line Text Input Control -->
-		  <p>
-    <button type="submit">Send</button>
-  </p>
+		<button type="submit" value="submit">
+			Submit
+		</button>
 	</form>
 </body>
   
