@@ -88,45 +88,6 @@ actor.setMapper(mapper);
 
 
 
-
-function updateColorLevel(e) {
-  const colorLevel = Number(
-    (e ? e.target : document.querySelector('.colorLevel')).value
-  );
-  imageActorI.getProperty().setColorLevel(3926);
-  imageActorJ.getProperty().setColorLevel(3926);
-  imageActorK.getProperty().setColorLevel(3926);
-  renderWindow.render();
-}
-
-function updateColorWindow(e) {
-  const colorLevel = Number(
-    (e ? e.target : document.querySelector('.colorWindow')).value
-  );
-  imageActorI.getProperty().setColorWindow(3926);
-  imageActorJ.getProperty().setColorWindow(1963);
-  imageActorK.getProperty().setColorWindow(1963);
-  renderWindow.render();
-}
-
-	 // const reader = vtkPolyDataReader.newInstance();
-   // reader.setUrl(`https://faizansiddiqui91.github.io/Data/Fiber_samples.vtp`).then(() => {
-   // const polydata = reader.getOutputData();
-   // const mapper1 = vtkMapper.newInstance();
-   // const actor1 = vtkActor.newInstance();
-
-   // actor1.setMapper(mapper1);
-   // mapper1.setInputData(polydata);
-
-   // renderer.addActor(actor1);
-
-  // renderer.resetCamera();
-  // renderer.resetCameraClippingRange();
-  // renderWindow.render();	
- // });
- 
-
-
  
  
   async function update() {
@@ -149,13 +110,7 @@ function updateColorWindow(e) {
 	const dataRange = vtkImage.getPointData().getScalars().getRange();
     const extent = vtkImage.getExtent();
 
-   // mapper.setInputData(vtkImage);
-    //renderer.addVolume(actor);
-    //renderer.resetCamera();
-    //renderer.getActiveCamera().zoom(1.5);
-    //renderer.getActiveCamera().elevation(70);
-    //renderer.updateLightsGeometryToFollowCamera();
-    //renderWindow.render();
+
 	
 	
 	   const imageMapperK = vtkImageMapper.newInstance();
@@ -186,13 +141,7 @@ function updateColorWindow(e) {
        });
 
 
-       // ['.colorLevel', '.colorWindow'].forEach((selector) => {
-         // document.querySelector(selector).setAttribute('max', dataRange[1]);
-         // document.querySelector(selector).setAttribute('value', dataRange[1]);
-      // });
-       // document
-        // .querySelector('.colorLevel')
-         // .setAttribute('value', (dataRange[0] + dataRange[1]) / 2);
+
 		   imageActorI.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
   imageActorJ.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
   imageActorK.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
@@ -201,8 +150,7 @@ function updateColorWindow(e) {
   imageActorJ.getProperty().setColorWindow(dataRange[1]);
   imageActorK.getProperty().setColorWindow(dataRange[1]);
 		 
-       //updateColorLevel();
-       //updateColorWindow();
+      
 
   }
   update();
