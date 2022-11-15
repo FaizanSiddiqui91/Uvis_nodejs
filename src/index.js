@@ -93,9 +93,9 @@ function updateColorLevel(e) {
   const colorLevel = Number(
     (e ? e.target : document.querySelector('.colorLevel')).value
   );
-  imageActorI.getProperty().setColorLevel(colorLevel);
-  imageActorJ.getProperty().setColorLevel(colorLevel);
-  imageActorK.getProperty().setColorLevel(colorLevel);
+  imageActorI.getProperty().setColorLevel(3926);
+  imageActorJ.getProperty().setColorLevel(3926);
+  imageActorK.getProperty().setColorLevel(3926);
   renderWindow.render();
 }
 
@@ -103,9 +103,9 @@ function updateColorWindow(e) {
   const colorLevel = Number(
     (e ? e.target : document.querySelector('.colorWindow')).value
   );
-  imageActorI.getProperty().setColorWindow(colorLevel);
-  imageActorJ.getProperty().setColorWindow(colorLevel);
-  imageActorK.getProperty().setColorWindow(colorLevel);
+  imageActorI.getProperty().setColorWindow(3926);
+  imageActorJ.getProperty().setColorWindow(1963);
+  imageActorK.getProperty().setColorWindow(1963);
   renderWindow.render();
 }
 
@@ -186,15 +186,23 @@ function updateColorWindow(e) {
        });
 
 
-       ['.colorLevel', '.colorWindow'].forEach((selector) => {
-         document.querySelector(selector).setAttribute('max', dataRange[1]);
-         document.querySelector(selector).setAttribute('value', dataRange[1]);
-      });
-       document
-        .querySelector('.colorLevel')
-         .setAttribute('value', (dataRange[0] + dataRange[1]) / 2);
-       updateColorLevel();
-       updateColorWindow();
+       // ['.colorLevel', '.colorWindow'].forEach((selector) => {
+         // document.querySelector(selector).setAttribute('max', dataRange[1]);
+         // document.querySelector(selector).setAttribute('value', dataRange[1]);
+      // });
+       // document
+        // .querySelector('.colorLevel')
+         // .setAttribute('value', (dataRange[0] + dataRange[1]) / 2);
+		   imageActorI.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
+  imageActorJ.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
+  imageActorK.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
+  renderWindow.render();
+    imageActorI.getProperty().setColorWindow(dataRange[1]);
+  imageActorJ.getProperty().setColorWindow(dataRange[1]);
+  imageActorK.getProperty().setColorWindow(dataRange[1]);
+		 
+       //updateColorLevel();
+       //updateColorWindow();
 
   }
   update();

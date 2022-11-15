@@ -74,6 +74,15 @@
 			margin-top: 50px;
 			margin-bottom: 20px;
 		}
+		table,
+      table td {
+        height: 30px;
+        width: 1060px;
+        text-align: center;
+        vertical-align: middle;
+		horizontal-align: middle;
+		margin-left: 500px
+      }
 	</style>
 </head>
 
@@ -104,68 +113,53 @@
     <label>Message: <textarea name="message"></textarea></label>
 	</tr>
   </p>
-</table>
+
 <!-- </form> -->
 		
+<tr>
+    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
+    </tr>
 
-
-
-<table style="margin-left:900px;">
-    <tr>
-        <td>Slice I</td>
-        <td>
-            <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" />
-        </td>
-    </tr>
-    <tr>
-        <td>Slice J</td>
-        <td>
-            <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" />
-        </td>
-    </tr>
-    <tr>
-        <td>Slice K</td>
-        <td>
-            <input class='sliceK' type="range" min="0" max="100" step="1" value="1" />
-        </td>
-    </tr>
-    <tr>
-        <td>Color level</td>
-        <td>
-            <input class='colorLevel' type="range" min="-3926" max="3926" step="1" value="1" />
-        </td>
-    </tr>
-    <tr>
-        <td>ColorWindow</td>
-        <td>
-            <input class='colorWindow' type="range" min="0" max="3926" step="1" value="1" />
-        </td>
-    </tr>
-</table>
-
-	<body>
+<tr>
+	
            <script src="./main.js"></script>
 		   
-  </body>
-
+  
+  </tr>
+</table>
+<table style="margin-left:auto;margin-right:auto;">
 		  
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
-		<div class="form-control">
-		<label for="email" id="label-email">
+		
+		<tr>
+		
+		<td>
 		Case-1
 
 	The tumor is present in the left frontal lobe and nearby corticospinal tract.
 	Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
 	Right: 150 variations of the same bundle based on uncertainty simulation.
-			</label>
-
+			
+			</td>
+		</tr>
+		<tr>
+		<td>
+		<label> 
 			<!-- Input Type Email-->
 			<input type="email"
 				id="email"
 				placeholder="" />
-		</div>
+				</label>
+				</td>
+		</tr>
         <!-- </form> -->
-		
+</table>
 		
 		<div class="form-control">
 		  <body>
