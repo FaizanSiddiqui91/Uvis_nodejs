@@ -42,9 +42,13 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 // ----------------------------------------------------------------------------
 
 
+
+
+ 
+ 
  
 const renderWindow = vtkRenderWindow.newInstance();
-const renderer = vtkRenderer.newInstance({ background: [0.2, 0.3, 0.4] });
+const renderer = vtkRenderer.newInstance({ background: [0, 0, 0] });
 renderWindow.addRenderer(renderer);
 
 

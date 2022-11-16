@@ -1,4 +1,6 @@
 import '@kitware/vtk.js/favicon';
+//import './index2.js';
+
 
 // Load the rendering pieces we want to use (for both WebGL and WebGPU)
 import '@kitware/vtk.js/Rendering/Profiles/Geometry';
@@ -40,6 +42,18 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 // ----------------------------------------------------------------------------
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
+
+
+// const button = document.getElementById('myButton');
+// button.addEventListener('click', function(e) {
+  
+  
+  
+ const link_fibers = document.getElementById('link_fibers');
+ const link_tumor = document.getElementById('link_tumor');
+ const link_data = document.getElementById('link_data');
+  
+  
 
 
  
@@ -88,16 +102,18 @@ actor.setMapper(mapper);
 
 
 
- 
+
+
+ // show_graph({{ chart_type }}, {{ data }}, {{ options }});
  
   async function update() {
     const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
-     `https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha`	
-	 // `https://github.com/FaizanSiddiqui91/TestData/raw/290952b4cc733fa991889cfe6ce744fe1c46102e/T1_dwireg_fullsize.mha`
+     link_data.innerHTML	
+
 
     );
   
- // // // 'https://github.com/FaizanSiddiqui91/TestData/blob/5912b1ed5504f076850f17de43a884277506965d'/DWI_tumor.nrrd'
+
 
     const { image: itkImage, webWorker } = await window.itk.readImageArrayBuffer(
       null,
@@ -139,6 +155,20 @@ actor.setMapper(mapper);
          el.setAttribute('max', extent[idx * 2 + 1]);
          el.setAttribute('value', 30);
        });
+	   	   ['.sliceI2', '.sliceJ2', '.sliceK2'].forEach((selector, idx) => {
+         const el = document.querySelector(selector);
+         el.setAttribute('min', extent[idx * 2 + 0]);
+         el.setAttribute('max', extent[idx * 2 + 1]);
+         el.setAttribute('value', 30);
+       });
+	    ['.sliceI3', '.sliceJ3', '.sliceK3'].forEach((selector, idx) => {
+         const el = document.querySelector(selector);
+         el.setAttribute('min', extent[idx * 2 + 0]);
+         el.setAttribute('max', extent[idx * 2 + 1]);
+         el.setAttribute('value', 30);
+       });
+	   
+	
 
 
 
@@ -153,6 +183,10 @@ actor.setMapper(mapper);
       
 
   }
+  
+  
+  
+  
   update();
 
 // // // After the itk-wasm UMD script has been loaded, `window.itk` provides the itk-wasm API.
@@ -163,30 +197,14 @@ actor.setMapper(mapper);
     .then(update);
 
 
-//https://kitware.github.io/vtk-js/data/cow.vtp
 
-	 // const reader = vtkHttpDataSetReader.newInstance({ fetchGzip: true });
-// reader.setUrl(`https://faizansiddiqui91.github.io/Data/cow.vtp`).then(() => {  //https://faizansiddiqui91.github.io/Data/tumor_model.vtp
-  // reader.loadData().then(() => {
-    // renderer.resetCamera();
-    // renderWindow.render();
-  // });
-// });
+ //test_text = myTab.item(1).innerHTML;
+//alert(myTab.innerHTML);  
 
-// const mapper1 = vtkMapper.newInstance();
-// mapper1.setInputConnection(reader.getOutputPort());
-
-// const actor1 = vtkActor.newInstance();
-// actor1.setMapper(mapper1);
-
-// actor1.setVisibility(1);
-
-
-// renderer.addActor(actor1);
-// renderWindow.render();
 
 const reader = vtkPolyDataReader.newInstance();
-reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader.setUrl(link_fibers.innerHTML).then(() => {
   const polydata = reader.getOutputData(0);
   const mapper1 = vtkMapper.newInstance();
   const actor1 = vtkActor.newInstance();
@@ -203,7 +221,7 @@ reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 
 
 const reader2 = vtkPolyDataReader.newInstance();
-reader2.setUrl(`https://faizansiddiqui91.github.io/Data/tumor.vtk`).then(() => {
+reader2.setUrl(link_tumor.innerHTML).then(() => {
   const polydata2 = reader2.getOutputData(0);
   const mapper2 = vtkMapper.newInstance();
   const actor2 = vtkActor.newInstance();
@@ -219,63 +237,8 @@ reader2.setUrl(`https://faizansiddiqui91.github.io/Data/tumor.vtk`).then(() => {
 });
 
 
-
-
-
-	
-	document.querySelector('.sliceI').addEventListener('input', (e) => {
-  imageActorI.getMapper().setISlice(Number(e.target.value));
-  renderWindow.render();
-});		 
-
-document.querySelector('.sliceJ').addEventListener('input', (e) => {
-  imageActorJ.getMapper().setJSlice(Number(e.target.value));
-  renderWindow.render();
-});
-
-document.querySelector('.sliceK').addEventListener('input', (e) => {
-  imageActorK.getMapper().setKSlice(Number(e.target.value));
-  renderWindow.render();
-});
-
-// document
-  // .querySelector('.colorLevel')
-  // .addEventListener('input', updateColorLevel);
-// document
-  // .querySelector('.colorWindow')
-  // .addEventListener('input', updateColorWindow);
-    
-
-
- 
-// ----------------------------------------------------------------------------
-// Use OpenGL as the backend to view the all this
-// ----------------------------------------------------------------------------
-
-// const openglRenderWindow = vtkOpenGLRenderWindow.newInstance();
-// renderWindow.addView(openglRenderWindow);
-
-// // ----------------------------------------------------------------------------
-// // Create a div section to put this into
-// // ----------------------------------------------------------------------------
-
-// const container = document.createElement('div');
-// container.style.width = "500px";
-// container.style.paddingLeft = "800px";
-// document.querySelector('body').appendChild(container);
-// openglRenderWindow.setContainer(container);
-
-
-
-// ----------------------------------------------------------------------------
-// Capture size of the container and set it to the renderWindow
-// ----------------------------------------------------------------------------
-
 const { width, height } = container.getBoundingClientRect();
 openglRenderWindow.setSize(width, height);
-
-
-
 
 
 const interactor = vtkRenderWindowInteractor.newInstance();
@@ -289,12 +252,70 @@ interactor.bindEvents(container);
 
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
+
+	
+document.querySelector('.sliceI').addEventListener('input', (e) => {
+ imageActorI.getMapper().setISlice(Number(e.target.value));
+ renderWindow.render();
+});		 
+
+document.querySelector('.sliceJ').addEventListener('input', (e) => {
+  imageActorJ.getMapper().setJSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+document.querySelector('.sliceK').addEventListener('input', (e) => {
+  imageActorK.getMapper().setKSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+document.querySelector('.sliceI2').addEventListener('input', (e) => {
+ imageActorI.getMapper().setISlice(Number(e.target.value));
+ renderWindow.render();
+});		 
+
+document.querySelector('.sliceJ2').addEventListener('input', (e) => {
+  imageActorJ.getMapper().setJSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+document.querySelector('.sliceK2').addEventListener('input', (e) => {
+  imageActorK.getMapper().setKSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+
+document.querySelector('.sliceI3').addEventListener('input', (e) => {
+ imageActorI.getMapper().setISlice(Number(e.target.value));
+ renderWindow.render();
+});		 
+
+document.querySelector('.sliceJ3').addEventListener('input', (e) => {
+  imageActorJ.getMapper().setJSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+document.querySelector('.sliceK3').addEventListener('input', (e) => {
+  imageActorK.getMapper().setKSlice(Number(e.target.value));
+  renderWindow.render();
+});
+
+
+
+
+
+
+
+
+
+
             
 
-global.source = reader;
-global.mapper = mapper1;
-global.actor = actor1;
-global.renderer = renderer;
-global.renderWindow = renderWindow;
+// global.source = reader;
+// global.mapper = mapper1;
+// global.actor = actor1;
+// global.renderer = renderer;
+// global.renderWindow = renderWindow;
 
-			
+
+// });
