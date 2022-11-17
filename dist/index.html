@@ -110,7 +110,7 @@
 
 <!-- <body>   -->
 <!-- <p>Click the following button to see the function in action</p>   -->
-<!-- <input type = "button" onclick = "myfunction()" value = "Display">   -->
+<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
 <!-- </body>  -->
 
 
@@ -138,7 +138,11 @@
     <tr>
 	</p>
 
+	
+		
 		<tr>
+		
+		
 		<p>
 		
 		Case-1
@@ -150,13 +154,17 @@
 			
 			</p>
 		</tr>
+		
+		<iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe>
 		  <p>
   <tr>
     <label><textarea name="message1"></textarea></label>
 	</tr>
   </p>
 		
-		
+		<p id="case">
+		lol
+		</p>
 <!-- </form> -->
 		
 <tr>
@@ -192,7 +200,13 @@
 		  
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
+		
+		<script>
+		document.getElementById("case").innerHTML = 'case2';
+		</script>
 		<tr>
+		
+		
 		<p>
 		
 		Case-2
@@ -203,11 +217,20 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
 			
 			
 			</p>
+			
+<!-- <body>  			 -->
+<!-- <p>Click the following button to see the function in action</p>   -->
+<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
+<!-- </body>  -->
+
+			
+			
+			
 		</tr>
 		
-		
+		<iframe id= 'trigger2' onload = "e()" height="2" width="3"> </iframe>
 
-
+<!-- <body id= 'trigger2' > </body> -->
 
   <p>
   <tr>
@@ -229,13 +252,13 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
     </tr>
 	
 	<tr>
-	<th id="link_fibers" style="visibility:hidden;"> 
+	<th id="link_fibers2" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/fibers.vtk
      </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
+	 <th id="link_tumor2" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/tumor.vtk
      </th>
-	 <th id="link_data" style="visibility:hidden;"> 
+	 <th id="link_data2" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
      </th>
 	 <td>
@@ -254,6 +277,8 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
 		  
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
+			<iframe id= 'trigger3' onload = "e()" height="2" width="3"> </iframe>
+
 		<tr>
 		<p>
 		
@@ -271,6 +296,7 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
 
 
 
+
   <p>
   <tr>
     <label><textarea name="message3"></textarea></label>
@@ -278,7 +304,7 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
   </p>
 		
 		
-
+ 
 		
 		<tr>
     <label>Slice I <input class='sliceI3' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -288,8 +314,7 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
     </tr>
 	<tr>
     <label>Slice K <input class='sliceK3' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-	
+    </tr>	
 	<tr>
 	<th id="link_fibers" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/fibers.vtk
@@ -301,10 +326,10 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
      </th>
 	 <td>
-           <script src="./main.js"></script>		 
+           <!-- <script src="./main.js"></script>		  -->
   </td>
   </tr>
-        	 
+        
 	 </table>		
 
 
