@@ -118,7 +118,7 @@ renderWindow.addView(openglRenderWindow);
 const container = document.createElement('div');
 //container.style.zIndex = "5";
 container.style.width = "500px";
-container.style.paddingLeft = "800px";
+container.style.paddingLeft = "200px";
 document.querySelector('body').appendChild(container);
 openglRenderWindow.setContainer(container);
 
