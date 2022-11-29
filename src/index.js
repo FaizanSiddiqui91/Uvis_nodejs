@@ -49,10 +49,11 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 	// alert ('check')
  //});
  
- const trigger = document.getElementById('trigger');
-  trigger.addEventListener('load', function(e) {
+  // const trigger = document.getElementById('trigger');
+   // trigger.addEventListener('load', function(e) {
 	  //alert ('checffk')
-
+//const button = document.getElementById('myButton1');
+ //button.addEventListener('click', function(e) {
   
  
    const cases = document.getElementById('case');
@@ -114,13 +115,13 @@ renderWindow.addView(openglRenderWindow);
 // Create a div section to put this into
 // ----------------------------------------------------------------------------
 
-
 const container = document.createElement('div');
 //container.style.zIndex = "5";
 container.style.width = "500px";
 container.style.paddingLeft = "800px";
 document.querySelector('body').appendChild(container);
 openglRenderWindow.setContainer(container);
+
 
 
 
@@ -291,6 +292,21 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
 });
 
 
+// const container = document.createElement('div');
+// //container.style.zIndex = "5";
+// container.style.width = "500px";
+// container.style.paddingLeft = "800px";
+// document.querySelector('body').appendChild(container);
+// openglRenderWindow.setContainer(container);
+
+
+ // const container = document.createElement('div');
+ // container.style.width = "500px";
+ // container.style.paddingLeft = "800px";
+ // document.querySelector('body').appendChild(container);
+ // openglRenderWindow.setContainer(container);
+
+
 const { width, height } = container.getBoundingClientRect();
 openglRenderWindow.setSize(width, height);
 
@@ -361,7 +377,7 @@ document.querySelector('.sliceK3').addEventListener('input', (e) => {
 
    }
 
- });
+ // });
  
  
  
@@ -616,7 +632,7 @@ document.querySelector('.sliceK2').addEventListener('input', (e) => {
  const trigger3 = document.getElementById('trigger3');
   trigger3.addEventListener('load', function(e) {
 	  //alert ('checffk')
-alert(hey)
+alert('hey')
   
  
    const cases = document.getElementById('case');
