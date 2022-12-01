@@ -137,23 +137,70 @@
     <label>Your Email: <input type="email" name="email" /></label>
     <tr>
 	</p>
-
 	
-		
-		<tr>
-		
-		
+	<p>
+	<tr>
+    <legend>Have you ever used tractography in your patients? </legend>
+    </tr>
+	</p>
+	<label>
+        <input type="radio" name="attendance" value="Attending"> Yes
+      </label>
+	  <label>
+        <input type="radio" name="attendance" value="Attending"> No
+      </label>
+	 
+	
+	<p>
+	<tr>
+    <label>If yes, for how long you have been using tractography? <input type="text" name="tractography_yes" /></label>
+	</tr>
+    </p>
+	
+	<p>
+	<tr>
+    <label>If no, what are the reasons for you not to use tractography? <input type="text" name="tractography_no" /></label>
+	</tr>
+    </p>
+	
+	<p>
+	<tr>
+    <legend>Do you think that the use of tractography can potentially change clinical decision-making in your patients? </legend>
+    </tr>
+	</p>
+	<label>
+        <input type="radio" name="attendance" value="Attending"> Yes
+      </label>
+	  <label>
+        <input type="radio" name="attendance" value="Attending"> No
+      </label>
+
+	<p>
+	<tr>
+    <label>If yes, How? <input type="text" name="tractography_yes" /></label>
+	</tr>
+    </p>
+	
+	
+      <p style = "font-size:21px ;display: block;text-align: left;">		
+         VISUALIZATION
+      </p>
+	  
+	  
+	  <tr>
 		<p>
 		
-		Case-1
+Our simulation generates many possible variations of the same fiber tract (i.e., originated from the same ROI). 
+The variations in the fiber tracts arises due to the underlying uncertainty sources present in the pipeline.
 
-	The tumor is present in the left frontal lobe and nearby corticospinal tract.
-	Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
-	Right: 150 variations of the same bundle based on uncertainty simulation.
-			
+ A 3D view below shows an example case where the tumor is present in the left frontal lobe and nearby corticospinal tract.
+ Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices. 
 			
 			</p>
 		</tr>
+		
+		
+
 		
 		
 	 
@@ -161,19 +208,38 @@
 
 <!-- <iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe> -->
 
-
- 
-		
-		
-		  <p>
-  <tr>
-    <label><textarea name="message1"></textarea></label>
-	</tr>
-  </p>
+	 
+  <!-- <tr> -->
+    <!-- <label><textarea name="message1"></textarea></label> -->
+	<!-- </tr> -->
+  <!-- </p> -->
 		
 
 <!-- </form> -->
-		
+	
+    	   <p>
+	<tr>
+	<input type="radio" name="Season" id="without" value="Without"> No uncertainty <br>   
+	</tr>
+	
+	
+	  
+	<tr>
+	<input type="radio" name="Season" id="with" value="With"> With uncertainty <br>   
+	</tr>
+	</p>
+	<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fibers.vtk
+     </th>
+	<th id="link_fibers" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_original.vtk
+     </th>
+	 <th id="link_tumor" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/tumor.vtk
+     </th>
+	 <th id="link_data" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
+     </th>
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
     </tr>
@@ -183,23 +249,22 @@
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr>
-
-<tr >
-	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fibers.vtk
-     </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
-     </th>
+	
+<tr > 
 	 <td>
            <script src="./main.js"></script>		 
   </td>
+  
+
   </tr>
+
   <!-- </form> -->
 </table>
+
+	   <p>
+   So far we explain the visualization of the uncertainty in our system. 
+   We have generated some test cases and we would like you to answer the questions in relation to each case below.
+  </p>
   	     <nav>
      
 	  <a href="./index1.html">next</a>
@@ -209,139 +274,19 @@
     </nav>
 
 
-<table style="margin-left:auto;margin-right:auto;">
-		  
-		<!-- <form name="form" method="POST" data-netlify="true"> -->
-		<!-- <form name="form" method="POST" data-netlify="true"> -->
-		
 
-		<tr>
-		
-		
-		<p>
-		
-		Case-2
-
-The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract.
-Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
-Right: 150 variations of the same bundle based on uncertainty simulation.
-			
-			
-			</p>
-			
-<!-- <body>  			 -->
-<!-- <p>Click the following button to see the function in action</p>   -->
-<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
-<!-- </body>  -->
-
-			
-			
-			
-		</tr>
-		
-		<!-- <iframe id= 'trigger2' onload = "e()" height="2" width="3"> </iframe> -->
-
-<!-- <body id= 'trigger2' > </body> -->
-
-  <p>
-  <tr>
-    <label><textarea name="message2"></textarea></label>
-	</tr>
-  </p>
-		
-		
-		<tr>
-    <label>Slice I <input class='sliceI2' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice J <input class='sliceJ2' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice K <input class='sliceK2' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-	
-	
-	<tr>
-	<th id="link_fibers2" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fibers.vtk
-     </th>
-	 <th id="link_tumor2" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor.vtk
-     </th>
-	 <th id="link_data2" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
-     </th>
-	 <td>
-           <script src="./main.js"></script>		 
-  </td>
-  </tr>
-     <!-- </form>     -->
-
-	 
-	 </table>
 
 		<!-- <form name="form" method="POST" data-netlify="true"> -->
 
-		
-<table style="margin-left:auto;margin-right:auto;">
-		  
-		<!-- <form name="form" method="POST" data-netlify="true"> -->
-		<!-- <form name="form" method="POST" data-netlify="true"> -->
-			
-
-		<tr>
-		<p>
-		
-		Case-3
-
-The tumor is present in the left frontal lobe and nearby corticospinal tract.
-Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
-Right: 150 variations of the same bundle based on uncertainty simulation.						
-		</p>
-		</tr>
-		
-		<!-- <iframe id= 'trigger3' onload = "e()" height="2" width="3"> </iframe> -->
-
-
-  <p>
-  <tr>
-    <label><textarea name="message3"></textarea></label>
-	</tr>
-  </p>
 		
 	
-		<tr>
-    <label>Slice I <input class='sliceI3' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice J <input class='sliceJ3' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice K <input class='sliceK3' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>	
-	<tr>
-	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fibers.vtk
-     </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
-     </th>
-	 <td>
-           <!-- <script src="./main.js"></script>		  -->
-  </td>
-  </tr>
-        
-	 </table>		
 
 
 		
 		<!-- Multi-line Text Input Control -->
-		<button type="submit" value="submit">
-			Submit
-		</button>
+		<!-- <button type="submit" value="submit"> -->
+			<!-- Submit -->
+		<!-- </button> -->
 	</form>
 
 </body>

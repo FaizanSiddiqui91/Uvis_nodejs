@@ -119,24 +119,13 @@
 
 
 	<h1>Cases</h1>
-     <label for="name" id="label-name">
-				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that add non-uniform variations, hence, making the fiber tract results unreliable. In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow. The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects the decision-making process in surgery planning.
-	 </label>
+
 	<!-- Create Form -->
 	 
 
 	<table>
 	<form name="form" method="POST" data-netlify="true">
-    <p>
-	<tr>
-    <label>Your Name: <input type="text" name="name" /></label>
-	</tr>
-    </p>
-    <p>
-	<tr>
-    <label>Your Email: <input type="email" name="email" /></label>
-    <tr>
-	</p>
+
 
 	
 		
@@ -145,11 +134,11 @@
 		
 		<p>
 		
-		Case-3
+			Case-1
 
-The tumor is present in the left frontal lobe and nearby corticospinal tract.
-Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
-Right: 150 variations of the same bundle based on uncertainty simulation.
+	The tumor is present in the left frontal lobe and nearby corticospinal tract.
+	Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
+	Right: 150 variations of the same bundle based on uncertainty simulation.
 			
 			
 			</p>
@@ -170,11 +159,20 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
     <label><textarea name="message1"></textarea></label>
 	</tr>
   </p>
-		
-		<p id="case">
-		lol
-		</p>
+
 <!-- </form> -->
+
+    	   <p>
+	<tr>
+	<input type="radio" name="Season" id="without" value="Without"> Without uncertainty <br>   
+	</tr>
+	</p>
+	
+	  <p>
+	<tr>
+	<input type="radio" name="Season" id="with" value="With"> With uncertainty <br>   
+	</tr>
+	</p>
 		
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -187,18 +185,25 @@ Right: 150 variations of the same bundle based on uncertainty simulation.
     </tr>
 
 <tr >
+<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_samples_3.vtk
+     </th>
 	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fibers.vtk
+	https://faizansiddiqui91.github.io/Data/Fiber_original_3.vtk
      </th>
 	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor.vtk
+	https://faizansiddiqui91.github.io/Data/tumor_3.vtk
      </th>
 	 <th id="link_data" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
      </th>
+	 
+	 
 	 <td>
            <script src="./main.js"></script>		 
   </td>
+  
+
   </tr>
   <!-- </form> -->
 </table>

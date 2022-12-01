@@ -75,31 +75,15 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
  
  // if (cases.innerHTML= 'case1')
     // {
+const link_fiber_samples = document.getElementById('link_fiber_samples');
  const link_fibers = document.getElementById('link_fibers');
  const link_tumor = document.getElementById('link_tumor');
  const link_data = document.getElementById('link_data');
 	// }
-	 // if (cases.innerHTML= 'case2')
-    // {
- // const link_fibers = document.getElementById('link_fibers');
- // const link_tumor = document.getElementById('link_tumor');
- // const link_data = document.getElementById('link_data');
-	// }
-	 // if (cases.innerHTML= 'case3')
-    // {
- // const link_fibers = document.getElementById('link_fibers');
- // const link_tumor = document.getElementById('link_tumor');
- // const link_data = document.getElementById('link_data');
-	// }
-  // }
+
   
   const back=[0.2,0.3,0.4]
- // if (cases.innerHTML= 'case3')
-	
-	 // {
-		 // back[2]=[0.8]
-		// alert (cases.innerHTML)
-	 // }
+
 
  
 const renderWindow = vtkRenderWindow.newInstance();
@@ -134,9 +118,20 @@ const imageActorI = vtkImageSlice.newInstance();
 const imageActorJ = vtkImageSlice.newInstance();
 const imageActorK = vtkImageSlice.newInstance();
 
+const actor1 = vtkActor.newInstance();
+  const mapper1 = vtkMapper.newInstance();
+  actor1.setMapper(mapper1);
+
+
+const actor1_2 = vtkActor.newInstance();
+const mapper1_2 = vtkMapper.newInstance();
+actor1_2.setMapper(mapper1_2);
+
 renderer.addActor(imageActorK);
 renderer.addActor(imageActorJ);
 renderer.addActor(imageActorI);
+renderer.addActor(actor1);
+renderer.addActor(actor1_2);
 
 
 const actor = vtkVolume.newInstance();
@@ -196,8 +191,7 @@ actor.setMapper(mapper);
       renderer.resetCameraClippingRange();
       renderWindow.render();	
 	  
-	   // if (cases.innerHTML= 'case1')
-   // {
+
 	   
    
 	   ['.sliceI', '.sliceJ', '.sliceK'].forEach((selector, idx) => {
@@ -207,25 +201,7 @@ actor.setMapper(mapper);
          el.setAttribute('value', 30);
        });
 	   
-   // }
-      // if (cases.innerHTML= 'case2')
-   // {
-	   	   // ['.sliceI2', '.sliceJ2', '.sliceK2'].forEach((selector, idx) => {
-         // const el = document.querySelector(selector);
-         // el.setAttribute('min', extent[idx * 2 + 0]);
-         // el.setAttribute('max', extent[idx * 2 + 1]);
-         // el.setAttribute('value', 30);
-       // });
-   // }
-   // if (cases.innerHTML= 'case3')
-   // {
-	    // ['.sliceI3', '.sliceJ3', '.sliceK3'].forEach((selector, idx) => {
-         // const el = document.querySelector(selector);
-         // el.setAttribute('min', extent[idx * 2 + 0]);
-         // el.setAttribute('max', extent[idx * 2 + 1]);
-         // el.setAttribute('value', 30);
-       // });
-   // }
+
 	
 
 
@@ -259,18 +235,35 @@ actor.setMapper(mapper);
  //test_text = myTab.item(1).innerHTML;
 //alert(myTab.innerHTML);  
 
-
+//const actor1 = vtkActor.newInstance();
 const reader = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 	reader.setUrl(link_fibers.innerHTML).then(() => {
   const polydata = reader.getOutputData(0);
-  const mapper1 = vtkMapper.newInstance();
-  const actor1 = vtkActor.newInstance();
+  //const mapper1 = vtkMapper.newInstance();
+  //const actor1 = vtkActor.newInstance();
 
-  actor1.setMapper(mapper1);
+  //actor1.setMapper(mapper1);
   mapper1.setInputData(polydata);
 
-  renderer.addActor(actor1);
+  //renderer.addActor(actor1);
+
+  renderer.resetCamera();
+   //renderer.resetCameraClippingRange();
+   renderWindow.render();	
+});
+//const actor1_2 = vtkActor.newInstance();
+const reader1_2 = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader1_2.setUrl(link_fiber_samples.innerHTML).then(() => {
+  const polydata1_2 = reader1_2.getOutputData(0);
+  //const mapper1_2 = vtkMapper.newInstance();
+  //const actor1_2 = vtkActor.newInstance();
+
+  //actor1_2.setMapper(mapper1_2);
+  mapper1_2.setInputData(polydata1_2);
+
+  //renderer.addActor(actor1_2);
 
   renderer.resetCamera();
    //renderer.resetCameraClippingRange();
@@ -295,19 +288,7 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
 });
 
 
-// const container = document.createElement('div');
-// //container.style.zIndex = "5";
-// container.style.width = "500px";
-// container.style.paddingLeft = "800px";
-// document.querySelector('body').appendChild(container);
-// openglRenderWindow.setContainer(container);
 
-
- // const container = document.createElement('div');
- // container.style.width = "500px";
- // container.style.paddingLeft = "800px";
- // document.querySelector('body').appendChild(container);
- // openglRenderWindow.setContainer(container);
 
 
 const { width, height } = container.getBoundingClientRect();
@@ -344,8 +325,42 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
    
    
    
+   document.getElementById("without").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+		
+		
+        //imageActorK.getMapper().setKSlice(Number(30));
+		actor1.getProperty().setOpacity(100);
+		actor1_2.getProperty().setOpacity(0);
+		renderWindow.render();
+		
+    }
+});
 
+   document.getElementById("with").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+		actor1.getProperty().setOpacity(0);
+		actor1_2.getProperty().setOpacity(100);
+		renderWindow.render();
+		
+    }
+});
+       
+ // var getSelectedValue = document.querySelector(   
+                // 'input[name="season"]:checked');   
+                
+            // if(getSelectedValue != null) {   
+                // document.getElementById("disp").innerHTML   
+                    // = getSelectedValue.value   
+                    // + " season is selected";   
+            // }   
+            // else {   
+                // document.getElementById("error").innerHTML   
+                    // = "*You have not selected any season";   
+            // }     
 
+   
  // });
  
  
