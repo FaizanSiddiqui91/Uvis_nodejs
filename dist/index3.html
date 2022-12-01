@@ -134,11 +134,11 @@
 		
 		<p>
 		
-			Case-1
+			Case-3
 
 	The tumor is present in the left frontal lobe and nearby corticospinal tract.
-	Left: Fiber bundle obtained from original tensor volume by using deterministic fiber tracking. A fixed safety margin is drawn as an outline in blue.
-	Right: 150 variations of the same bundle based on uncertainty simulation.
+	Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation.
+	Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices.
 			
 			
 			</p>
@@ -170,7 +170,7 @@
 	
 	  <p>
 	<tr>
-	<input type="radio" name="Season" id="with" value="With"> With uncertainty <br>   
+	<input type="radio" name="Season" id="with" value="With"> With uncertainty (100%)<br>   
 	</tr>
 	</p>
 		
@@ -205,6 +205,47 @@
   
 
   </tr>
+  
+  </table>
+
+<p>
+		Would the provided uncertainty informtation affect the surgical planning?
+		</p>
+		
+		
+		<label>
+        <input type="radio" name="attendance" value="Attending"> Yes
+		</label>
+		<label>
+        <input type="radio" name="attendance" value="Attending"> No
+		</label>
+
+
+		<p>
+		<tr>
+		<label>If yes, how? If not, why not? <input type="text" name="tractography_yes" /></label>
+		</tr>
+		</p>
+		
+		<p>
+		Does the uncertainty information give you more confidence in your decision?
+		</p>
+		
+		
+		<label>
+        <input type="radio" name="attendance" value="Attending"> Yes
+		</label>
+		<label>
+        <input type="radio" name="attendance" value="Attending"> No
+		</label>
+
+		<p>
+		<tr>
+		<label>If yes, how? If not, why not? <input type="text" name="tractography_yes" /></label>
+		</tr>
+		</p>
+		
+		
   <!-- </form> -->
 </table>
   	     <nav>
