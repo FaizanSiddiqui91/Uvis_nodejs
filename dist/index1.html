@@ -8,16 +8,16 @@
 	<!-- <meta name="viewport" content= -->
 		<!-- "width=device-width, initial-scale=1.0"> -->
 	
-	 <!-- <!-- <script type="text/javascript" src="index2.js"></script> --> -->
+	 <!-- <!-- <script type="text/javascript" src="index2.js"></script> -->
 	<!-- <title> -->
 		<!-- Uncertainty Visualization -->
 	<!-- </title> -->
 	 
 	 
-	 <!-- <!-- <script type = "text/javascript">   --> -->
-<!-- <!-- function myfunction() {    --> -->
-<!-- <!-- alert("how are you");   --> -->
-         <!-- <!-- }   --> -->
+	 <!-- <!-- <script type = "text/javascript">   --> 
+<!-- <!-- function myfunction() {    --> 
+<!-- <!-- alert("how are you");   --> 
+         <!-- <!-- }   --> 
 <!-- </script>   -->
 	
 
@@ -103,6 +103,49 @@
 		horizontal-align: middle;
 		margin-left: 50px
       }
+	  
+	  .likert ul
+    {	
+		
+        list-style-type: none;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .likert li
+    {
+        float: left;
+        text-align: left;
+        list-style-type: none;
+    }
+	
+	.answers label {
+    display: block
+	float: left;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+}
+input {
+  margin: 0;
+}
+
+
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+}
+
+.div1 {
+  width: 800px;
+  height: 100px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+
+
 	</style>
 </head>
 
@@ -132,15 +175,15 @@
 		<tr>
 		
 		
-		<p>
+		<p align="left">
 		
-			Case-1
+		Case-1
 
 	The tumor is present in the left frontal lobe and nearby corticospinal tract.
 	Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation.
 	Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices.		
 			
-			</p>
+		</p>
 		</tr>
 		
 		
@@ -157,18 +200,18 @@
 
 <!-- </form> -->
 
-    	   <p>
-	<tr>
-	<input type="radio" name="Season" id="without" value="Without"> Without uncertainty <br>   
-	</tr>
-	</p>
+<!-- <div class="answers"> -->
+    
 	
-	  <p>
-	<tr>
-	<input type="radio" name="Season" id="with" value="With"> With uncertainty (100%) <br>   
-	</tr>
-	</p>
-		
+	<!-- <input type="radio" name="answers" id="without" value="Without"/> <label>Without uncertainty</label> <br>    -->
+	
+	
+	
+	 
+	<!-- <input type="radio" name="answers" id="with" value="With"/><label> With uncertainty (100%)</label>    -->
+	
+	<!-- </div>	 -->
+<div align="left">	
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
     </tr>
@@ -178,7 +221,7 @@
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr>
-
+</div>	
 <tr >
 <th id="link_fiber_samples" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/fibers.vtk
@@ -201,50 +244,67 @@
 
   </tr>
   
-  
-		
-
-		
-
   <!-- </form> -->
 </table>
-
-<p>
-		Would the provided uncertainty informtation affect the surgical planning?
+     
+<br>
+<br>
+<br>
+<br>	 
+		<p align="left">
+		<b> Question </b>
+		By anaylzing the fiber tracts, would you go for the awake surgery?
 		</p>
 		
+		<div class="wrap">
 		
-		<label>
-        <input type="radio" name="attendance" value="Attending"> Yes
-		</label>
-		<label>
-        <input type="radio" name="attendance" value="Attending"> No
-		</label>
+        <input type="radio" name="answers" value="Attending"> Yes 
+		
+		
+        <input type="radio" name="answers" value="Attending"> No 
+	
+		</div>
+
+		<br>
 
 
-		<p>
+		
+
+		<p align="left">
 		<tr>
-		<label>If yes, how? If not, why not? <input type="text" name="tractography_yes" /></label>
+		
+		<label> <b> Question </b> If yes, why? If not, why not? </label> 
 		</tr>
 		</p>
 		
-		<p>
-		Does the uncertainty information give you more confidence in your decision?
+		<p align="left">
+		
+		<input class="div1" type="text" name="tractography_yes">
+		
 		</p>
 		
-		
-		<label>
-        <input type="radio" name="attendance" value="Attending"> Yes
-		</label>
-		<label>
-        <input type="radio" name="attendance" value="Attending"> No
-		</label>
-
-		<p>
-		<tr>
-		<label>If yes, how? If not, why not? <input type="text" name="tractography_yes" /></label>
-		</tr>
+		<br>
+		<p align="left">
+		<b> Question </b>How confident are you about your decision?
 		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+   <br>
+   <br>
+<br>
+<br>
+<br>
+	<p>
   	     <nav>
       <a href="./index.html">back</a>
 	  <a href="./index2.html">next</a>
@@ -252,6 +312,7 @@
       <!-- <a href="./service.html">Service</a> -->
       <!-- <a href="./contact.html">Contact</a> -->
     </nav>
+	</p>
 </form>
 
 </body>
