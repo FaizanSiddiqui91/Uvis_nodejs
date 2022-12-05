@@ -177,9 +177,10 @@ input[type="radio"]{
 		
 		<p align="left">
 		
-		Case-2
+		Case-1
 
-	The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract. Fiber bundle are obtained from original tensor volume by deterministic fiber tracking. 
+	The tumor is present in the left frontal lobe and nearby corticospinal tract. Fiber bundle are obtained from original tensor volume by using 150 variations of 
+	the same bundle based on uncertainty simulation. The results below shows 100% of the resulting fiber variations. 
 	Based on the resulting fiber tracts, you have to make a decision for tumor resection surgery.
 	
 
@@ -225,30 +226,46 @@ input[type="radio"]{
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr>
 </div>
-   
-
-	<!-- case 2	 -->
-<tr >
-<th id="link_fiber_samples" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Fiber_original_2.vtk
-     </th>
+     <!-- case 1	 -->
+	<tr >
+	<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fibers.vtk
+    </th>
 	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Fiber_original_2.vtk
-     </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor_2.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_original.vtk
+    </th>
+	<th id="link_tumor" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/tumor.vtk
+    </th>
+	<th id="link_data" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
-     </th>
+    </th>	 
+	<td>
+    <script src="./main.js"></script>		 
+	</td>
+	</tr>
+	<!-- case 2	 -->
+<!-- <tr > -->
+<!-- <th id="link_fiber_samples" style="visibility:hidden;">  -->
+	<!-- https://faizansiddiqui91.github.io/Data/fiber_samples_2.vtk -->
+     <!-- </th> -->
+	<!-- <th id="link_fibers" style="visibility:hidden;">  -->
+	<!-- https://faizansiddiqui91.github.io/Data/Fiber_original_2.vtk -->
+     <!-- </th> -->
+	 <!-- <th id="link_tumor" style="visibility:hidden;">  -->
+	<!-- https://faizansiddiqui91.github.io/Data/tumor_2.vtk -->
+     <!-- </th> -->
+	 <!-- <th id="link_data" style="visibility:hidden;">  -->
+	<!-- https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha -->
+     <!-- </th> -->
 	 
 	 
-	 <td>
-           <script src="./main.js"></script>		 
-  </td>
+	 <!-- <td> -->
+           <!-- <script src="./main.js"></script>		  -->
+  <!-- </td> -->
   
 
-  </tr>
+  <!-- </tr> -->
 	<!-- case 3	 -->
 <!-- <tr > -->
 <!-- <th id="link_fiber_samples" style="visibility:hidden;">  -->
@@ -334,15 +351,14 @@ input[type="radio"]{
 <br>
 <br>
 	<p>
-		
-		
   	     <nav>
-      <a href="./index1_u1.html">back</a>
-	  <a href="./index2_u1.html">next</a>
+      <a href="./index1.html">back</a>
+	  <a href="./index2.html">next</a>
       <!-- <a href="./about.html">About</a> -->
       <!-- <a href="./service.html">Service</a> -->
       <!-- <a href="./contact.html">Contact</a> -->
     </nav>
+	</p>
 </form>
 
 </body>

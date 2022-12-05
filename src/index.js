@@ -101,11 +101,11 @@ renderWindow.addView(openglRenderWindow);
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
-container.style.width = "900px";
-container.style.position = "relative";
-//container.style.paddingLeft = "50px";
-container.style.left="5%"
-//container.style.right="50%"
+container.style.width = "1000px";
+//container.style.position = "relative";
+container.style.paddingLeft = "500px";
+//container.style.left="50%"
+//container.style.right="50%" 
 document.querySelector('body').appendChild(container);
 openglRenderWindow.setContainer(container);
 
@@ -130,7 +130,7 @@ actor1_2.setMapper(mapper1_2);
 renderer.addActor(imageActorK);
 renderer.addActor(imageActorJ);
 renderer.addActor(imageActorI);
-renderer.addActor(actor1);
+//renderer.addActor(actor1);
 renderer.addActor(actor1_2);
 
 
