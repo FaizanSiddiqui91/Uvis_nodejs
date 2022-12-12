@@ -103,6 +103,27 @@
 		horizontal-align: middle;
 		margin-left: 50px
       }
+	  
+	  	  	  .div01 {
+  width:  80px;
+  height: 40px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+	  	  .div0 {
+  width:  200px;
+  height: 40px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
+	  
+	  .div1 {
+  width: 800px;
+  height: 100px;
+  border: 1px solid black;
+  box-sizing: border-box;
+}
 	</style>
 </head>
 
@@ -119,164 +140,112 @@
 
 
 	<h1>Evaluation: Uncertainty Visualization</h1>
-     <label for="name" id="label-name">
-				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that add non-uniform variations, hence, making the fiber tract results unreliable. In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow. The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects the decision-making process in surgery planning.
-	 </label>
+	
+	<b>
+	<p align="left">
+	INTRODUCTION
+	</p>
+	</b>
+     <p align="left">
+				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that 
+				add non-uniform variations, hence, making the fiber tract results unreliable. 
+				In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow.
+				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects 
+				the decision-making process in surgery planning.
+	 </p>
 	<!-- Create Form -->
 	 
+	<br>
+	
 	
 	<table>
 	<form name="form" method="POST" data-netlify="true">
-    <p>
-	<tr>
-    <label>Your Name: <input type="text" name="name" /></label>
-	</tr>
+    <p align="left">	
+    <label>Your Name: <input class="div0" type="text" name="name" /></label>	
     </p>
-    <p>
-	<tr>
-    <label>Your Email: <input type="email" name="email" /></label>
-    <tr>
+    <p align="left">	
+    <label>Your Email: <input class="div0" type="email" name="email" /></label>   
 	</p>
 	
-	<p>
-	<tr>
-    <legend>Have you ever used tractography in your patients? </legend>
-    </tr>
-	</p>
-	<label>
-        <input type="radio" name="attendance" value="Attending"> Yes
-      </label>
-	  <label>
-        <input type="radio" name="attendance" value="Attending"> No
-      </label>
-	 
-	
-	<p>
-	<tr>
-    <label>If yes, for how long you have been using tractography? <input type="text" name="tractography_yes" /></label>
-	</tr>
-    </p>
-	
-	<p>
-	<tr>
-    <label>If no, what are the reasons for you not to use tractography? <input type="text" name="tractography_no" /></label>
-	</tr>
-    </p>
-	
-	<p>
-	<tr>
-    <legend>Do you think that the use of tractography can potentially change clinical decision-making in your patients? </legend>
-    </tr>
-	</p>
-	<label>
-        <input type="radio" name="attendance" value="Attending"> Yes
-      </label>
-	  <label>
-        <input type="radio" name="attendance" value="Attending"> No
-      </label>
 
-	<p>
-	<tr>
-    <label>If yes, How? <input type="text" name="tractography_yes" /></label>
-	</tr>
+	<p align="left">
+    <legend>Have you ever used tractography in your patients? </legend> 
+	</p>
+	<p align="left">
+	<label>
+      <input type="radio" name="attendance" value="Attending"> Yes
+      </label>
+	  
+	  <label>
+      <input type="radio" name="attendance" value="Attending"> No
+      </label>
+	 </p>
+	
+	<p align="left">
+	
+    <label>If yes, for how long you have been using tractography? <br><input class="div01" type="text" name="tractography_yes" /></label> years
+	
+    </p>
+	
+		
+		
+	<p align="left">
+	
+    <label>If no, what are the reasons for you not to use tractography?
+	
     </p>
 	
 	
-      <p style = "font-size:21px ;display: block;text-align: left;">		
-         VISUALIZATION
-      </p>
-	  
-	  
-	  <tr>
 		<p align="left">
 		
-Our simulation generates many possible variations of the same fiber tract (i.e., originated from the same ROI). 
-The variations in the fiber tracts arises due to the underlying uncertainty sources present in the pipeline.
-A 3D view below shows an example case where the tumor is present in the left frontal lobe and nearby corticospinal tract.
-Fiber bundle obtained from original tensor volume by 150 variations of the same bundle based on uncertainty simulation.
-Based on the resulting fiber tracts, you have to make a decision to choose awake procedure or not for the tumor resection surgery .
- <!-- Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices.  -->
-			
-			</p>
-		</tr>
+		<input class="div1" type="text" name="tractography_no">
+		
+		</p>
 		
 		
-
+	<p align="left">
 	
+    <legend>Do you think that the use of tractography can potentially change clinical decision-making in your patients? </legend>
+    
+	</p>
+	<p align="left">
+	<label>
+        <input type="radio" name="attendance" value="Attending"> Yes
+      </label>
+	  <label>
+        <input type="radio" name="attendance" value="Attending"> No
+      </label>
+ </p>
+	<p align="left">
+	
+    <label>If yes, How? 
+	
+    </p>
+			<p align="left">
 		
+		<input class="div1" type="text" name="tractography_no">
 		
-    	   <!-- <p> -->
-	<!-- <tr> -->
-	<!-- <input type="radio" name="Season" id="without" value="Without"> No uncertainty <br>    -->
-	<!-- </tr> -->
+		</p>
 	
+
 	
-	  
-	<!-- <tr> -->
-	<!-- <input type="radio" name="Season" id="with" value="With"> With uncertainty <br>    -->
-	<!-- </tr> -->
-	<!-- </p> -->
-	<th id="link_fiber_samples" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_samples_2.vtk
-     </th>
-	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_original.vtk
-     </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
-     </th>
-  
-	<tr>
-    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-	
-<tr > 
-	 <td>
-           <script src="./main.js"></script>		 
-  </td>
-  
+<p align="left">
+       <a href="./index0.html">next</a>
+		
+</p>
 
-  </tr>
-
-  <!-- </form> -->
-</table>
-
-	   <p>
-   So far we explain the visualization of the uncertainty in our system. 
-   We have generated some test cases and we would like you to answer the questions in relation to each case below.
-  </p>
-  	     <nav>
-     
-	  <a href="./index1.html">next</a>
-      <!-- <a href="./about.html">About</a> -->
-      <!-- <a href="./service.html">Service</a> -->
-      <!-- <a href="./contact.html">Contact</a> -->
-    </nav>
-
-
-
-
-		<!-- <form name="form" method="POST" data-netlify="true"> -->
+		<!-- <!-- <form name="form" method="POST" data-netlify="true"> --> 
 
 		
 	
 
 
 		
-		<!-- Multi-line Text Input Control -->
-		<!-- <button type="submit" value="submit"> -->
-			<!-- Submit -->
-		<!-- </button> -->
-	</form>
+		<!-- <!-- Multi-line Text Input Control --> 
+		<!-- <!-- <button type="submit" value="submit"> --> 
+			<!-- <!-- Submit --> 
+		<!-- <!-- </button> --> 
+	<!-- </form> -->
 
 </body>
   

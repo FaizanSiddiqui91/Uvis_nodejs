@@ -1,0 +1,229 @@
+
+<!doctype html>
+<html>
+<head> 
+<script type = "text/javascript" src="index2.js"></script> 
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+	
+	 <!-- <script type="text/javascript" src="index2.js"></script> -->
+	<title>
+		Uncertainty Visualization
+	</title>
+	 
+	 
+	 <!-- <script type = "text/javascript">   -->
+<!-- function myfunction() {    -->
+<!-- alert("how are you");   -->
+         <!-- }   -->
+</script>  
+	
+
+	<style>
+
+		/* Styling the Body element i.e. Color,
+		Font, Alignment */
+		body {
+			background-color: #FFFFFF; //#05c46b;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input,
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+		/* Styling Button */
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+		}
+		table,
+      table td {
+        height: 10px;
+        width: 1060px;
+        text-align: center;
+        vertical-align: middle;
+		horizontal-align: middle;
+		margin-left: 500px
+      }
+	  
+	  table th {
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        vertical-align: middle;
+		horizontal-align: middle;
+		margin-left: 50px
+      }
+	</style>
+</head>
+
+<body>
+
+<!-- <body>   -->
+<!-- <p>Click the following button to see the function in action</p>   -->
+<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
+<!-- </body>  -->
+
+
+<!-- <div onclick="doSomething(event,this)"></div> -->
+    
+
+
+	
+     
+	 
+	
+	<table>
+	<form name="form" method="POST" data-netlify="true">
+    
+	 
+	
+	
+	
+
+
+	
+     <h1>Visualization</h1>
+	  
+	  
+	  <tr>
+		<p align="left">
+		
+ A 3D view below shows the variations of the fiber bundle. Each red tube represents 
+the representative fiber of that fiber tract. In this case, <b>75% variance </b> is represented, as shown in the glyph.<br> Sliders can be used to manipulate the anatomical slices.
+ 		
+		</p>
+		</tr>
+		
+		
+
+	
+		
+		
+    	   <!-- <p> -->
+	<!-- <tr> -->
+	<!-- <input type="radio" name="Season" id="without" value="Without"> No uncertainty <br>    -->
+	<!-- </tr> -->
+	
+	
+	  
+	<!-- <tr> -->
+	<!-- <input type="radio" name="Season" id="with" value="With"> With uncertainty <br>    -->
+	<!-- </tr> -->
+	<!-- </p> -->
+	<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Model_75.vtk
+     </th>
+	<th id="link_fibers" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Representative_Fibers.vtk
+     </th>
+	 <th id="link_tumor" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/tumorrr.vtk
+     </th>
+	 <th id="link_data" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
+     </th>
+  <img src="range_75.png" alt="HTML5 Icon" style="width:220px;height:86px;" > <br>
+
+
+	<tr>
+    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
+    </tr>
+	
+  	<tr>
+ 
+           <script src="./main.js"></script>		  
+</tr>
+
+
+
+</table>
+  <!-- </form> -->
+
+
+	
+  	    <nav>
+        <a href="./index0_1.html">back</a>
+		<a href="./index0_3.html">next</a>
+		
+	 
+		<!-- <a href="./about.html">About</a> -->
+		<!-- <a href="./service.html">Service</a> -->
+		<!-- <a href="./contact.html">Contact</a> -->
+		</nav>
+
+
+
+
+		<!-- <form name="form" method="POST" data-netlify="true"> -->
+
+		
+	
+
+
+		
+		<!-- Multi-line Text Input Control -->
+		<!-- <button type="submit" value="submit"> -->
+			<!-- Submit -->
+		<!-- </button> -->
+	</form>
+
+</body>
+  
+  
+</html>

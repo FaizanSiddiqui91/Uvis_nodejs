@@ -1,6 +1,13 @@
 import '@kitware/vtk.js/favicon';
 //import './index2.js';
+// Import our custom CSS
 
+
+// Import our custom CSS
+//import './styles.scss'
+
+// Import all of Bootstrap's JS
+import * as bootstrap from 'bootstrap'
 
 // Load the rendering pieces we want to use (for both WebGL and WebGPU)
 import '@kitware/vtk.js/Rendering/Profiles/Geometry';
@@ -243,17 +250,18 @@ actor.setMapper(mapper);
   //const mapper1 = vtkMapper.newInstance();
   //const actor1 = vtkActor.newInstance();
   actor1.getProperty().setLineWidth(3);
+  
   //actor1.getProperty().renderLinesAsTubesOn();
   //actor1.getProperty().setInterpolationToGouraud() ;
-  actor1.getProperty().setColor(241/255,214/255,145/255);
+  actor1.getProperty().setColor(215.0/255.0, 48.0/255.0, 39.0/255.0);
   //actor1.getProperty().renderLinesAsTubesOn();
   actor1.modified();
-
+ 
   
   //actor1.setMapper(mapper1);
   mapper1.setInputData(polydata);
   mapper1.update();
-  //renderer.addActor(actor1);
+  renderer.addActor(actor1);
 
   renderer.resetCamera();
    //renderer.resetCameraClippingRange();
@@ -267,11 +275,13 @@ const reader1_2 = vtkPolyDataReader.newInstance();
 	//const mapper1_2 = vtkMapper.newInstance();
 	//const actor1_2 = vtkActor.newInstance();
 	//actor1_2.getProperty().setLineWidth(3);
-	actor1_2.getProperty().setColor(241/255,214/255,145/255);
+	actor1_2.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
+	actor1_2.getProperty().setLineWidth(3);
+	actor1_2.getProperty().setOpacity(0.5);
 	//actor1_2.setMapper(mapper1_2);
 	mapper1_2.setInputData(polydata1_2);
 
-	//renderer.addActor(actor1_2);
+	renderer.addActor(actor1_2);
 
 	renderer.resetCamera();
 	//renderer.resetCameraClippingRange();
