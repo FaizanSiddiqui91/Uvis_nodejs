@@ -108,10 +108,10 @@ renderWindow.addView(openglRenderWindow);
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
-container.style.width = "1000px";
-//container.style.position = "relative";
-container.style.paddingLeft = "500px";
-//container.style.left="50%"
+container.style.width = "800px";
+container.style.position = "relative";
+//container.style.paddingLeft = "350px";
+container.style.left="25%"
 //container.style.right="50%" 
 document.querySelector('body').appendChild(container);
 openglRenderWindow.setContainer(container);
@@ -249,7 +249,7 @@ actor.setMapper(mapper);
   const polydata = reader.getOutputData(0);
   //const mapper1 = vtkMapper.newInstance();
   //const actor1 = vtkActor.newInstance();
-  actor1.getProperty().setLineWidth(3);
+  //actor1.getProperty().setLineWidth(2);
   
   //actor1.getProperty().renderLinesAsTubesOn();
   //actor1.getProperty().setInterpolationToGouraud() ;
@@ -277,7 +277,7 @@ const reader1_2 = vtkPolyDataReader.newInstance();
 	//actor1_2.getProperty().setLineWidth(3);
 	actor1_2.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
 	actor1_2.getProperty().setLineWidth(3);
-	actor1_2.getProperty().setOpacity(0.5);
+	actor1_2.getProperty().setOpacity(0.2);
 	//actor1_2.setMapper(mapper1_2);
 	mapper1_2.setInputData(polydata1_2);
 
