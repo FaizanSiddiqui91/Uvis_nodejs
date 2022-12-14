@@ -84,6 +84,7 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
     // {
 const link_fiber_samples = document.getElementById('link_fiber_samples');
  const link_fibers = document.getElementById('link_fibers');
+ const link_deterministic = document.getElementById('link_deterministic');
  const link_tumor = document.getElementById('link_tumor');
  const link_data = document.getElementById('link_data');
 	// }
@@ -134,11 +135,21 @@ const actor1_2 = vtkActor.newInstance();
 const mapper1_2 = vtkMapper.newInstance();
 actor1_2.setMapper(mapper1_2);
 
+
+const actor1_3 = vtkActor.newInstance();
+const mapper1_3 = vtkMapper.newInstance();
+actor1_3.setMapper(mapper1_3);
+
+const actor2 = vtkActor.newInstance();
+const mapper2 = vtkMapper.newInstance();
+actor2.setMapper(mapper2);
+
 renderer.addActor(imageActorK);
 renderer.addActor(imageActorJ);
 renderer.addActor(imageActorI);
 //renderer.addActor(actor1);
 renderer.addActor(actor1_2);
+renderer.addActor(actor2);
 
 
 const actor = vtkVolume.newInstance();
@@ -289,13 +300,35 @@ const reader1_2 = vtkPolyDataReader.newInstance();
 });
 
 
+  const reader1_3 = vtkPolyDataReader.newInstance();
+  //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+  reader.setUrl(link_deterministic.innerHTML).then(() => {
+  const polydata1_3 = reader.getOutputData(0);
+  
+  actor1_3.getProperty().setColor(25.0/255.0, 180.0/255.0, 25.0/255.0);
+  //actor1.getProperty().renderLinesAsTubesOn();
+  actor1_3.modified();
+ 
+  
+  //actor1.setMapper(mapper1);
+  mapper1_3.setInputData(polydata1_3);
+  mapper1_3.update();
+  renderer.addActor(actor1_3);
+
+  renderer.resetCamera();
+   //renderer.resetCameraClippingRange();
+   renderWindow.render();	
+});
+
+
+
 const reader2 = vtkPolyDataReader.newInstance();
 reader2.setUrl(link_tumor.innerHTML).then(() => {
   const polydata2 = reader2.getOutputData(0);
-  const mapper2 = vtkMapper.newInstance();
-  const actor2 = vtkActor.newInstance();
+  //const mapper2 = vtkMapper.newInstance();
+  //const actor2 = vtkActor.newInstance();
 
-  actor2.setMapper(mapper2);
+  //actor2.setMapper(mapper2);
   mapper2.setInputData(polydata2);
 
   renderer.addActor(actor2);
@@ -341,27 +374,50 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
   renderWindow.render();
 });
    
-   
-   
-   // document.getElementById("without").addEventListener('click', function (event) {
-    // if (event.target && event.target.matches("input[type='radio']")) {
-		
-		
-        // //imageActorK.getMapper().setKSlice(Number(30));
-		// actor1.getProperty().setOpacity(100);
-		// actor1_2.getProperty().setOpacity(0);
-		// renderWindow.render();
-		
-    // }
-// });
-
-   // document.getElementById("with").addEventListener('click', function (event) {
-    // if (event.target && event.target.matches("input[type='radio']")) {
+     document.getElementById("withTumor").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
-		// actor1.getProperty().setOpacity(0);
-		// actor1_2.getProperty().setOpacity(100);
-		// renderWindow.render();
 		
-    // }
-// });
+		 actor2.getProperty().setOpacity(1);
+		renderWindow.render();
+		
+    }
+});
+
+   document.getElementById("withoutTumor").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+	
+		 actor2.getProperty().setOpacity(0);
+		renderWindow.render();
+		
+    }
+}); 
+   
+   document.getElementById("without").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+		
+		
+        //imageActorK.getMapper().setKSlice(Number(30));
+		actor1.getProperty().setOpacity(100);
+		actor1_2.getProperty().setOpacity(0);
+		renderWindow.render();
+		
+    }
+});
+
+   document.getElementById("with").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+		actor1.getProperty().setOpacity(100);
+		actor1_2.getProperty().setOpacity(0.2);
+		renderWindow.render();
+		
+    }
+});
+
+
+
+
+
  

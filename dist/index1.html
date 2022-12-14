@@ -176,12 +176,9 @@ input[type="radio"]{
 		
 		
 		<p align="left">
-		
-		Case-1
-
-	The tumor is present in the left frontal lobe and nearby corticospinal tract. Fiber bundle are obtained from original tensor volume by 
-	deterministic fiber tracking. 
-	Based on the resulting fiber tracts, you have to make a decision for tumor resection surgery. 
+			
+	The tumor is present in the left frontal lobe and nearby corticospinal tract. Fiber bundle are obtained by using regular fiber tracking. 
+	Based on the resulting fiber tracts, please answer the questions based on your judgements. 
 	
 
 	<!-- Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation. -->
@@ -215,6 +212,22 @@ input[type="radio"]{
 	<!-- <input type="radio" name="answers" id="with" value="With"/><label> With uncertainty (100%)</label>    -->
 	
 	<!-- </div>	 -->
+	
+	  	    	   <p>
+	
+	<input type="radio" name="Tumor" id="withTumor" value="withTumor"> Show Tumor    
+	
+	  
+	
+	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor"> Hide Tumor <br>   
+	
+	</p>
+	
+	
+	
+	
+	
+	
 <div align="left">	
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -229,8 +242,13 @@ input[type="radio"]{
      <!-- case 1	 -->
 	<tr >
 	<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_originalll.vtk
+    </th>
+	
+	<th id="link_deterministic" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/fiber_original.vtk
     </th>
+	
 	<th id="link_fibers" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/fiber_originall.vtk
     </th>
@@ -291,6 +309,7 @@ input[type="radio"]{
 	
   
   <!-- </form> -->
+
 </table>
      
 <br>
@@ -299,7 +318,7 @@ input[type="radio"]{
 <br>	 
 		<p align="left">
 		<b> Question </b>
-		By anaylzing the fiber tracts, would you choose awake procedure for the tumor resection surgery?
+		By anaylzing the fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
 		</p>
 		
 		<div class="wrap">
@@ -329,6 +348,32 @@ input[type="radio"]{
 		
 		</p>
 		
+		<p align="left">
+		<tr>
+		
+		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
+		</tr>
+		</p>
+		<div class="wrap">
+		
+        <input type="radio" name="answers" value="Attending"> Yes 
+		
+		
+        <input type="radio" name="answers" value="Attending"> No 
+	
+		</div>
+
+		<br>
+		<p align="left">
+		<label> <b> Question </b> If yes, why? If not, why not? </label>
+		</p>
+		<p align="left">
+		
+		<input class="div1" type="text" name="tractography_yes">
+		
+		</p>
+		
+		
 		<br>
 		<p align="left">
 		<b> Question </b>How confident are you about your decision?
@@ -352,7 +397,7 @@ input[type="radio"]{
 <br>
 	<p>
   	     <nav>
-      <a href="./index.html">back</a>
+      <a href="./index0_4.html">back</a>
 	  <a href="./index1_u1.html">next</a>
       <!-- <a href="./about.html">About</a> -->
       <!-- <a href="./service.html">Service</a> -->

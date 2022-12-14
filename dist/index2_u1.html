@@ -177,11 +177,10 @@ input[type="radio"]{
 		
 		<p align="left">
 		
-		Case-2
+		<!-- Case-2 -->
 
 	The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract.
-	Fiber bundle are obtained from original tensor volume by using 150 variations of the same bundle based on uncertainty simulation.  The results below shows 100% of the resulting fiber variations.
-	Based on the resulting fiber tracts, you have to make a decision for tumor resection surgery. 
+	Fiber bundle are obtained by using 150 variations of the same bundle based on uncertainty simulation. <br>  The results below shows <b>100% </b> of the resulting fiber variations. 
 	
 
 	<!-- Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation. -->
@@ -191,7 +190,28 @@ input[type="radio"]{
 		</tr>
 		
 		
-	 
+	 	<img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:86px;" > <br>
+	
+		  	    	   <p>
+	
+	<input type="radio" name="Tumor" id="withTumor" value="withTumor"> Show tumor    
+	
+	  
+	
+	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor"> Hide tumor    
+	
+	
+	
+	
+	    	   
+	
+	<input type="radio" name="Season" id="with" value="Without"> Show fiber samples    
+	
+	  
+	
+	<input type="radio" name="Season" id="without" value="With"> Hide fiber samples <br>   
+	
+	</p>
 	
 
 <!-- <iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe> -->
@@ -236,11 +256,14 @@ input[type="radio"]{
 	<th id="link_fibers" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/Fiber_original_2.vtk
      </th>
+	 	 	<th id="link_deterministic" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/Fiber_original_22.vtk
+    </th>
 	 <th id="link_tumor" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/tumor_2.vtk
      </th>
 	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
+	https://faizansiddiqui91.github.io/Data/Case_2/T1_mha_tumor.mha
      </th>
 	 
 	 
@@ -312,7 +335,30 @@ input[type="radio"]{
 		<input class="div1" type="text" name="tractography_yes">
 		
 		</p>
+		<p align="left">
+		<tr>
 		
+		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
+		</tr>
+		</p>
+		<div class="wrap">
+		
+        <input type="radio" name="answers" value="Attending"> Yes 
+		
+		
+        <input type="radio" name="answers" value="Attending"> No 
+	
+		</div>
+
+		<br>
+		<p align="left">
+		<label> <b> Question </b> If yes, why? If not, why not? </label>
+		</p>
+		<p align="left">
+		
+		<input class="div1" type="text" name="tractography_yes">
+		
+		</p>
 		<br>
 		<p align="left">
 		<b> Question </b>How confident are you about your decision?
@@ -338,8 +384,8 @@ input[type="radio"]{
 		
 		
   	     <nav>
-      <a href="./index1_u1.html">back</a>
-	  <a href="./index1_u2.html">next</a>
+      <a href="./index2.html">back</a>
+	  <a href="./index3.html">next</a>
       <!-- <a href="./about.html">About</a> -->
       <!-- <a href="./service.html">Service</a> -->
       <!-- <a href="./contact.html">Contact</a> -->
