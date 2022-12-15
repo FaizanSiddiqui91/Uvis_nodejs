@@ -152,8 +152,8 @@ evaluation. please accept this as a bundle and evaluate based on added uncertain
 <p align="left">
  In practice, visualizing the variation of the whole bundle (multiple tracts) is more clinically 
 relevant.   <br>An interactive 3D view below shows the variations of 
-the fiber bundle. In this case, <b>100% variance </b> is represented,
- as shown in the glyph.
+the fiber bundle. In this case, three levels of variance are represented <b>25% , 75% , 100% </b> is represented which can be selected by a radio button. 
+
  
  		
 		</p>
@@ -170,6 +170,13 @@ the fiber bundle. In this case, <b>100% variance </b> is represented,
 	<th id="link_fiber_samples" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/AF/Model_100.vtk
      </th>
+	 <th id="link_fiber_samples_25" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Model_25.vtk
+     </th>
+	 <th id="link_fiber_samples_75" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Model_75.vtk
+     </th>
+	 
 	 <th id="link_dete" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/AF/Model_100.vtk
      </th>
@@ -186,7 +193,7 @@ the fiber bundle. In this case, <b>100% variance </b> is represented,
 	 <th id="link_data" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/AF/T1_mha_tumor.mha
      </th>
-  <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:86px;" > <br>
+  
 <p align="left">
 <br> You can interact with the 3D view using mouse and use sliders to manipulate the anatomical slices. Radio buttons can be used to show or hide the fiber samples.
 <br>
@@ -194,23 +201,39 @@ the fiber bundle. In this case, <b>100% variance </b> is represented,
 <b>Scroll:</b> Zoom in/out
 </p>
 
-	  	    	   <p>
-	
-	<input type="radio" name="Tumor" id="withTumor" value="withTumor" style="visibility:hidden;">     
-	
-	  
-	
-	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor" style="visibility:hidden;">  
-	
 
+<script>
+function preLoad() {
+  a1 = new Image; a1.src = 'range_25.png';  
+  a2 = new Image; a2.src = 'range_75.png';
+  a3 = new Image; a3.src = 'range_100.png';
+}
+function im(image) {
+  document.getElementById(image[0]).src = eval(image + ".src")
+}
+</script>
+
+
+	<p align="middle">
 	
-	<input type="radio" name="Season" id="without" value="Without"> Hide fiber samples    
+	<input type="radio" name="Tumor" id="withTumor" value="withTumor" style="visibility:hidden;">     	  
 	
-	  
+	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor" style="visibility:hidden;">  	
 	
-	<input type="radio" name="Season" id="with" value="With"> Show fiber samples <br>   
+ 
+	
 	
 	</p>
+	<body onLoad="preLoad()">
+	<form autocomplete="off">
+	<input type="radio" name="range" id="range_25" value="25" onClick="im('a1');" checked> 25%    	
+	<input type="radio" name="range" id="range_75" value="75" onClick="im('a2');"> 75%
+	<input type="radio" name="range" id="range_100" value="100" onClick="im('a3');"> 100%<br>  
+</form>
+
+<img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > <br>
+	
+	</body>
 	
 	<tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -220,8 +243,10 @@ the fiber bundle. In this case, <b>100% variance </b> is represented,
     </tr>
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-	
+    </tr> <br>
+		<input type="radio" name="Season" id="without" value="Without"> Hide fiber samples    
+		  	
+	<input type="radio" name="Season" id="with" value="With"> Show fiber samples <br>  
   	<tr>
  
            <script src="./main.js"></script>		  
@@ -236,7 +261,7 @@ the fiber bundle. In this case, <b>100% variance </b> is represented,
 	
   	    <nav>
         <a href="./index0.html"> back</a>
-		<a href="./index0_2.html">next</a>
+		<a href="./index0_4.html">next</a>
 		
 	 
 		<!-- <a href="./about.html">About</a> -->

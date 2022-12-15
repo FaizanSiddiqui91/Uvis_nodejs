@@ -65,29 +65,15 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
  
    const cases = document.getElementById('case');
    
-   // if (cases.innerHTML= 'case1')
-   // {
-	   // alert ("case 1");
-   // }
-  // if (cases.innerHTML= 'case2')
-   // {
-	   // alert ("case 2");
-   // }
-  //if (cases.innerHTML= 'case1')
-   // {
-	   
-	    // const link_fibers = 'test';
- // const link_tumor = 'test';
- // const link_data = 'test';
- 
- // if (cases.innerHTML= 'case1')
-    // {
+
 const link_fiber_samples = document.getElementById('link_fiber_samples');
  const link_fibers = document.getElementById('link_fibers');
  const link_deterministic = document.getElementById('link_deterministic');
  const link_tumor = document.getElementById('link_tumor');
- const link_data = document.getElementById('link_data');
-	// }
+ const link_data = document.getElementById('link_data')
+ const link_fiber_samples_25 = document.getElementById('link_fiber_samples_25');
+ const link_fiber_samples_75 = document.getElementById('link_fiber_samples_75');
+	
 
   
   const back=[0.2,0.3,0.4]
@@ -131,9 +117,19 @@ const actor1 = vtkActor.newInstance();
   actor1.setMapper(mapper1);
 
 
-const actor1_2 = vtkActor.newInstance();
-const mapper1_2 = vtkMapper.newInstance();
-actor1_2.setMapper(mapper1_2);
+const actor_samples_100 = vtkActor.newInstance();
+const mapper_samples_100 = vtkMapper.newInstance();
+actor_samples_100.setMapper(mapper_samples_100);
+
+const actor_samples_25 = vtkActor.newInstance();
+const mapper_samples_25 = vtkMapper.newInstance();
+actor_samples_25.setMapper(mapper_samples_25);
+
+const actor_samples_75 = vtkActor.newInstance();
+const mapper_samples_75 = vtkMapper.newInstance();
+actor_samples_75.setMapper(mapper_samples_75);
+
+
 
 
 const actor1_3 = vtkActor.newInstance();
@@ -148,9 +144,10 @@ renderer.addActor(imageActorK);
 renderer.addActor(imageActorJ);
 renderer.addActor(imageActorI);
 //renderer.addActor(actor1);
-renderer.addActor(actor1_2);
+//renderer.addActor(actor_samples_100);
 renderer.addActor(actor2);
-
+//renderer.addActor(actor_samples_25);
+//renderer.addActor(actor_samples_75);
 
 const actor = vtkVolume.newInstance();
 const mapper = vtkVolumeMapper.newInstance();
@@ -250,20 +247,10 @@ actor.setMapper(mapper);
 
 
 
- //test_text = myTab.item(1).innerHTML;
-//alert(myTab.innerHTML);  
-
-//const actor1 = vtkActor.newInstance();
   const reader = vtkPolyDataReader.newInstance();
   //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
   reader.setUrl(link_fibers.innerHTML).then(() => {
   const polydata = reader.getOutputData(0);
-  //const mapper1 = vtkMapper.newInstance();
-  //const actor1 = vtkActor.newInstance();
-  //actor1.getProperty().setLineWidth(2);
-  
-  //actor1.getProperty().renderLinesAsTubesOn();
-  //actor1.getProperty().setInterpolationToGouraud() ;
   actor1.getProperty().setColor(215.0/255.0, 48.0/255.0, 39.0/255.0);
   //actor1.getProperty().renderLinesAsTubesOn();
   actor1.modified();
@@ -278,21 +265,18 @@ actor.setMapper(mapper);
    //renderer.resetCameraClippingRange();
    renderWindow.render();	
 });
-//const actor1_2 = vtkActor.newInstance();
-const reader1_2 = vtkPolyDataReader.newInstance();
-//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	reader1_2.setUrl(link_fiber_samples.innerHTML).then(() => {
-	const polydata1_2 = reader1_2.getOutputData(0);
-	//const mapper1_2 = vtkMapper.newInstance();
-	//const actor1_2 = vtkActor.newInstance();
-	//actor1_2.getProperty().setLineWidth(3);
-	actor1_2.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
-	actor1_2.getProperty().setLineWidth(3);
-	actor1_2.getProperty().setOpacity(0.2);
-	//actor1_2.setMapper(mapper1_2);
-	mapper1_2.setInputData(polydata1_2);
 
-	renderer.addActor(actor1_2);
+const reader_samples_100 = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
+	const polydata_samples_100 = reader_samples_100.getOutputData(0);
+	actor_samples_100.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
+	actor_samples_100.getProperty().setLineWidth(3);
+	actor_samples_100.getProperty().setOpacity(0.2);
+	
+	mapper_samples_100.setInputData(polydata_samples_100);
+
+	renderer.addActor(actor_samples_100);
 
 	renderer.resetCamera();
 	//renderer.resetCameraClippingRange();
@@ -300,24 +284,61 @@ const reader1_2 = vtkPolyDataReader.newInstance();
 });
 
 
-  const reader1_3 = vtkPolyDataReader.newInstance();
-  //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-  reader.setUrl(link_deterministic.innerHTML).then(() => {
-  const polydata1_3 = reader.getOutputData(0);
+const reader_samples_25 = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader_samples_25.setUrl(link_fiber_samples_25.innerHTML).then(() => {
+	const polydata_samples_25 = reader_samples_25.getOutputData(0);
+	actor_samples_25.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
+	actor_samples_25.getProperty().setLineWidth(3);
+	actor_samples_25.getProperty().setOpacity(0.2);
+	//actor1_2.setMapper(mapper1_2);
+	mapper_samples_25.setInputData(polydata_samples_25);
+
+	renderer.addActor(actor_samples_25);
+
+	renderer.resetCamera();
+	//renderer.resetCameraClippingRange();
+	renderWindow.render();	
+});
+
+const reader_samples_75 = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
+	const polydata_samples_75 = reader_samples_75.getOutputData(0);
+	actor_samples_75.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
+	actor_samples_75.getProperty().setLineWidth(3);
+	actor_samples_75.getProperty().setOpacity(0.2);
+	//actor1_2.setMapper(mapper1_2);
+	mapper_samples_75.setInputData(polydata_samples_75);
+
+	renderer.addActor(actor_samples_75);
+
+	renderer.resetCamera();
+	//renderer.resetCameraClippingRange();
+	renderWindow.render();	
+});
+
+
+
+
+
+
+	const reader1_3 = vtkPolyDataReader.newInstance();
+	//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	reader.setUrl(link_deterministic.innerHTML).then(() => {
+	const polydata1_3 = reader.getOutputData(0);
   
-  actor1_3.getProperty().setColor(25.0/255.0, 180.0/255.0, 25.0/255.0);
-  //actor1.getProperty().renderLinesAsTubesOn();
-  actor1_3.modified();
+	actor1_3.getProperty().setColor(25.0/255.0, 180.0/255.0, 25.0/255.0);
+  
+	actor1_3.modified();
  
   
-  //actor1.setMapper(mapper1);
-  mapper1_3.setInputData(polydata1_3);
-  mapper1_3.update();
-  renderer.addActor(actor1_3);
-
-  renderer.resetCamera();
-   //renderer.resetCameraClippingRange();
-   renderWindow.render();	
+  
+	mapper1_3.setInputData(polydata1_3);
+	mapper1_3.update();
+	renderer.addActor(actor1_3);
+	renderer.resetCamera();
+	renderWindow.render();	
 });
 
 
@@ -399,8 +420,10 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 		
 		
         //imageActorK.getMapper().setKSlice(Number(30));
-		actor1.getProperty().setOpacity(100);
-		actor1_2.getProperty().setOpacity(0);
+		actor1.getProperty().setOpacity(1);
+		actor_samples_25.getProperty().setOpacity(0);
+		actor_samples_75.getProperty().setOpacity(0);
+		actor_samples_100.getProperty().setOpacity(0);
 		renderWindow.render();
 		
     }
@@ -409,12 +432,51 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
    document.getElementById("with").addEventListener('click', function (event) {
     if (event.target && event.target.matches("input[type='radio']")) {
         
-		actor1.getProperty().setOpacity(100);
-		actor1_2.getProperty().setOpacity(0.2);
+		actor1.getProperty().setOpacity(1);
+		actor_samples_25.getProperty().setOpacity(0.2);
+		actor_samples_75.getProperty().setOpacity(0.2);
+		actor_samples_100.getProperty().setOpacity(0.2);
 		renderWindow.render();
 		
     }
 });
+
+   document.getElementById("range_25").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+		actor_samples_25.getProperty().setOpacity(0.2);
+		actor_samples_75.getProperty().setOpacity(0);
+		actor_samples_100.getProperty().setOpacity(0);
+		
+		renderWindow.render();
+		
+    }
+});
+
+   document.getElementById("range_75").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+		actor_samples_25.getProperty().setOpacity(0);
+		actor_samples_75.getProperty().setOpacity(0.2);
+		actor_samples_100.getProperty().setOpacity(0);
+		
+		renderWindow.render();
+		
+    }
+});
+
+   document.getElementById("range_100").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radio']")) {
+        
+		actor_samples_25.getProperty().setOpacity(0);
+		actor_samples_75.getProperty().setOpacity(0);
+		actor_samples_100.getProperty().setOpacity(0.2);
+		
+		renderWindow.render();
+		
+    }
+});
+
 
 
 
