@@ -442,7 +442,7 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_25").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radios']")) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
 		actor_samples_25.getProperty().setOpacity(0.2);
 		actor_samples_75.getProperty().setOpacity(0);
@@ -456,7 +456,7 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_75").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radios']")) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0.2);
@@ -470,7 +470,7 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_100").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radios']")) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0);
@@ -485,7 +485,7 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 
 
    document.getElementById("range_single").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radios']")) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0);
@@ -499,7 +499,7 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 
 
    document.getElementById("range_representative").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radios']")) {
+    if (event.target && event.target.matches("input[type='radio']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0);

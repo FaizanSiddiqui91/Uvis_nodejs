@@ -18,7 +18,7 @@
 	<style>
 	
 	/* HIDE RADIO */
-[type=radios] { 
+[type=radio] { 
   position: absolute;
   opacity: 0;
   width: 0;
@@ -26,13 +26,13 @@
 }
 
 /* IMAGE STYLES */
-[type=radios] + img {
+[type=radio] + img {
   cursor: pointer;
 }
 
 /* CHECKED STYLES */
-[type=radios]:checked + img {
-  outline: 2px solid #f00;
+[type=radio]:checked + img {
+  outline: 2px solid #000;
 }
 
 
@@ -213,28 +213,28 @@ function im(image) {
 	
 	
 	<label>
-  <input type="radios" name="test" id="range_single" value="25" checked>
+  <input type="radio" name="test" id="range_single" value="25">
   <img src="single_scan_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
 </label>
 
 <label>
-  <input type="radios" name="test" id="range_representative" value="25" checked>
+  <input type="radio" name="test" id="range_representative" value="25">
   <img src="only_representative_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
 </label>
 
 	<label>
-  <input type="radios" name="test" id="range_25" value="25" checked>
+  <input type="radio" name="test" id="range_25" value="25">
   <img src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;">
 </label>
 
 <label>
-  <input type="radios" name="test" id="range_75" value="75">
+  <input type="radio" name="test" id="range_75" value="75">
   <img src="range_75.png"  alt="HTML5 Icon" style="width:220px;height:120px;">
 </label>
 	
 	
 	<label>
-  <input type="radios" name="test" id="range_100" value="100">
+  <input type="radio" name="test" id="range_100" value="100" checked>
   <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:120px;">
 </label>
 	<br>
