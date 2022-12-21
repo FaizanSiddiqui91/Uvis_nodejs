@@ -7,21 +7,35 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content=
 		"width=device-width, initial-scale=1.0">
-	
-	 <!-- <script type="text/javascript" src="index2.js"></script> -->
+
 	<title>
 		Uncertainty Visualization
-	</title>
+	</title>	 
 	 
-	 
-	 <!-- <script type = "text/javascript">   -->
-<!-- function myfunction() {    -->
-<!-- alert("how are you");   -->
-         <!-- }   -->
 </script>  
 	
 
 	<style>
+	
+	/* HIDE RADIO */
+[type=radios] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radios] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radios]:checked + img {
+  outline: 2px solid #f00;
+}
+
+
 
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
@@ -133,21 +147,14 @@
 	<p align="left">
 	In practice, visualizing the variation of the whole bundle (multiple tracts) is more clinically 
 	relevant.   <br>An interactive 3D view below shows the variations of 
-	the fiber bundle. In this case, three levels of variance are represented <b>25% , 75% , 100% </b>. 
+	the fiber bundle. In this case, three levels of variance are represented <b>25%, 75% , 100% </b>. 
 
  
  		
 	</p>
 	</tr>
 		
-		
-
-	
-		
-		
-
-	
-	
+			
 	<th id="link_fiber_samples" style="visibility:hidden;"> 
 	https://faizansiddiqui91.github.io/Data/AF/Model_100.vtk
      </th>
@@ -159,7 +166,7 @@
      </th>
 	 
 	 <th id="link_deterministic" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_originalll.vtk
+	https://faizansiddiqui91.github.io/Data/AF/Original_Fibers.vtk
     </th>
 	
 	<th id="link_fibers" style="visibility:hidden;"> 
@@ -199,21 +206,51 @@ function im(image) {
 	<input type="radio" name="Tumor" id="withTumor" value="withTumor" style="visibility:hidden;">     	  
 	
 	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor" style="visibility:hidden;">  	
-	
- 
-	
+		
 	
 	</p>
-	<body onLoad="preLoad()">
-	<form autocomplete="off">
-	<input type="radio" name="range" id="range_25" value="25" onClick="im('a1');" checked> 25%    	
-	<input type="radio" name="range" id="range_75" value="75" onClick="im('a2');"> 75%
-	<input type="radio" name="range" id="range_100" value="100" onClick="im('a3');"> 100%<br>  
-</form>
-
-<img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > <br>
 	
-	</body>
+	
+	
+	<label>
+  <input type="radios" name="test" id="range_single" value="25" checked>
+  <img src="single_scan_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
+</label>
+
+<label>
+  <input type="radios" name="test" id="range_representative" value="25" checked>
+  <img src="only_representative_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
+</label>
+
+	<label>
+  <input type="radios" name="test" id="range_25" value="25" checked>
+  <img src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;">
+</label>
+
+<label>
+  <input type="radios" name="test" id="range_75" value="75">
+  <img src="range_75.png"  alt="HTML5 Icon" style="width:220px;height:120px;">
+</label>
+	
+	
+	<label>
+  <input type="radios" name="test" id="range_100" value="100">
+  <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:120px;">
+</label>
+	<br>
+	<br>
+	<br>
+	
+	<!-- <body onLoad="preLoad()"> -->
+	<!-- <form autocomplete="off"> -->
+	<!-- <input type="radio" name="range" id="range_25" value="25" onClick="im('a1');" checked> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" >   	 -->
+	<!-- <input type="radio" name="range" id="range_75" value="75" onClick="im('a2');"> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > -->
+	<!-- <input type="radio" name="range" id="range_100" value="100" onClick="im('a3');"> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" ><br>   -->
+<!-- </form> -->
+
+<!-- <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > <br> -->
+	
+	<!-- </body> -->
 	
 	<tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -224,9 +261,9 @@ function im(image) {
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr> <br>
-		<input type="radio" name="Season" id="without" value="Without"> Hide fiber samples    
+		<input type="radio" name="Season" id="without" value="Without" style="visibility:hidden;">   
 		  	
-	<input type="radio" name="Season" id="with" value="With"> Show fiber samples <br>  
+	<input type="radio" name="Season" id="with" value="With" style="visibility:hidden;"> <br>  
   	<tr>
  
            <script src="./main.js"></script>		  

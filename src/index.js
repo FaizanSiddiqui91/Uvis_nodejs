@@ -333,7 +333,7 @@ const reader_samples_75 = vtkPolyDataReader.newInstance();
 	actor1_3.modified();
  
   
-  
+  actor1_3.getProperty().setOpacity(0);
 	mapper1_3.setInputData(polydata1_3);
 	mapper1_3.update();
 	renderer.addActor(actor1_3);
@@ -442,11 +442,13 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_25").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
+    if (event.target && event.target.matches("input[type='radios']")) {
         
 		actor_samples_25.getProperty().setOpacity(0.2);
 		actor_samples_75.getProperty().setOpacity(0);
 		actor_samples_100.getProperty().setOpacity(0);
+		actor1_3.getProperty().setOpacity(0);
+		actor1.getProperty().setOpacity(1);
 		
 		renderWindow.render();
 		
@@ -454,11 +456,13 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_75").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
+    if (event.target && event.target.matches("input[type='radios']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0.2);
 		actor_samples_100.getProperty().setOpacity(0);
+		actor1_3.getProperty().setOpacity(0);
+		actor1.getProperty().setOpacity(1);
 		
 		renderWindow.render();
 		
@@ -466,16 +470,47 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 });
 
    document.getElementById("range_100").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
+    if (event.target && event.target.matches("input[type='radios']")) {
         
 		actor_samples_25.getProperty().setOpacity(0);
 		actor_samples_75.getProperty().setOpacity(0);
 		actor_samples_100.getProperty().setOpacity(0.2);
+		actor1_3.getProperty().setOpacity(0);
+		actor1.getProperty().setOpacity(1);
 		
 		renderWindow.render();
 		
     }
 });
+
+
+   document.getElementById("range_single").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radios']")) {
+        
+		actor_samples_25.getProperty().setOpacity(0);
+		actor_samples_75.getProperty().setOpacity(0);
+		actor_samples_100.getProperty().setOpacity(0.0);
+		actor1_3.getProperty().setOpacity(1);
+		actor1.getProperty().setOpacity(0);
+		renderWindow.render();
+		
+    }
+});
+
+
+   document.getElementById("range_representative").addEventListener('click', function (event) {
+    if (event.target && event.target.matches("input[type='radios']")) {
+        
+		actor_samples_25.getProperty().setOpacity(0);
+		actor_samples_75.getProperty().setOpacity(0);
+		actor_samples_100.getProperty().setOpacity(0.0);
+		actor1_3.getProperty().setOpacity(0);
+		actor1.getProperty().setOpacity(1);
+		renderWindow.render();
+		
+    }
+});
+
 
 
 
