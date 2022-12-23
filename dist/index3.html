@@ -22,6 +22,8 @@
 	
 
 	<style>
+	
+	
 
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
@@ -189,38 +191,12 @@ input[type="radio"]{
 		</tr>
 		
 		
+	 	 <label>
+	<input type="radio" name="test" id="range_single" value="25" style="visibility:hidden;" checked> 
+	
+	</label>
 	 
 	
-
-<!-- <iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe> -->
-
-
- 
-		
-		
-
-
-<!-- </form> -->
-
-<!-- <div class="answers"> -->
-    
-	
-	<!-- <input type="radio" name="answers" id="without" value="Without"/> <label>Without uncertainty</label> <br>    -->
-	
-	
-		  	    	   <p>
-	
-	<input type="radio" name="Tumor" id="withTumor" value="withTumor"> Show Tumor    
-	
-	  
-	
-	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor"> Hide Tumor <br>   
-	
-	</p>
-	 
-	<!-- <input type="radio" name="answers" id="with" value="With"/><label> With uncertainty (100%)</label>    -->
-	
-	<!-- </div>	 -->
 <div align="left">	
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -231,6 +207,9 @@ input[type="radio"]{
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr>
+	<tr>
+	<input type="checkbox" id="tumor_check" checked> Show / Hide Tumor
+	</tr>
 </div>
 
 
@@ -260,13 +239,14 @@ input[type="radio"]{
      </th>
 	 
 	 
-	 <td>
-           <script src="./main.js"></script>		 
-  </td>
+
   
 
   </tr>
 	
+	          <body class='render'>
+    <script src="./main.js"></script>
+	</body>
   
   <!-- </form> -->
 </table>
@@ -275,9 +255,9 @@ input[type="radio"]{
 <br>
 <br>
 <br>	 
-		<p align="left">
+				<p align="left">
 		<b> Question </b>
-		By anaylzing the fiber tracts, would you choose awake procedure for the tumor resection surgery?
+		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
 		</p>
 		
 		<div class="wrap">
@@ -297,7 +277,7 @@ input[type="radio"]{
 		<p align="left">
 		<tr>
 		
-		<label> <b> Question </b> If yes, why? If not, why not? </label> 
+		<label> <b> Question </b> Why? </label> 
 		</tr>
 		</p>
 		
@@ -306,6 +286,26 @@ input[type="radio"]{
 		<input class="div1" type="text" name="tractography_yes">
 		
 		</p>
+		<br>
+		<p align="left">
+		<b> Question </b>How confident are you about your decision?
+		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+		
+		
+		<br>
+		<br>
 		<p align="left">
 		<tr>
 		
@@ -323,13 +323,15 @@ input[type="radio"]{
 
 		<br>
 		<p align="left">
-		<label> <b> Question </b> If yes, why? If not, why not? </label>
+		<label> <b> Question </b> Why? </label>
 		</p>
 		<p align="left">
 		
 		<input class="div1" type="text" name="tractography_yes">
 		
 		</p>
+		
+		
 		<br>
 		<p align="left">
 		<b> Question </b>How confident are you about your decision?
@@ -355,9 +357,7 @@ input[type="radio"]{
   	     <nav>
       <a href="./index2_u1.html">back</a>
 	  <a href="./index3_u1.html">next</a>
-      <!-- <a href="./about.html">About</a> -->
-      <!-- <a href="./service.html">Service</a> -->
-      <!-- <a href="./contact.html">Contact</a> -->
+
     </nav>
 </form>
 

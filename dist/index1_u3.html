@@ -22,7 +22,27 @@
 	
 
 	<style>
+		/* HIDE RADIO */
+[type=radio][class="class_img"] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
 
+/* IMAGE STYLES */
+[type=radio][class="class_img"] + img {
+  cursor: pointer;
+  -webkit-filter:  opacity(.5);
+}
+
+/* CHECKED STYLES */
+[type=radio][class="class_img"]:checked + img {
+  outline: 2px solid #000;
+  -webkit-transition: all 100ms ease-in;
+  -webkit-filter:  opacity(1) ;
+  
+}
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
 		body {
@@ -179,11 +199,6 @@ input[type="radio"]{
 
 	The tumor is present in the left frontal lobe and nearby corticospinal tract. Fiber bundle are obtained by using 150 variations of 
 	the same bundle based on uncertainty simulation. The results below shows <b>100% </b> of the resulting fiber variations. 
-	
-	
-
-	<!-- Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation. -->
-	<!-- Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices.		 -->
 			
 		</p>
 		</tr>
@@ -192,47 +207,42 @@ input[type="radio"]{
 	 
 	
 
-<!-- <iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe> -->
 
+	<!-- <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:106px;" > <br> -->
+	
+	<p>
+	
+	<label>
+	<input type="radio" class="class_img" name="test" id="range_single" value="25">
+	<!-- <img src="single_scan_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;"> -->
+	</label>
 
- 
+	<label>
+	  <input type="radio" class="class_img" name="test" id="range_representative" value="25">
+	   <img src="only_representative_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">  
+	</label>
+
+	<label>
+	  <input type="radio" class="class_img" name="test" id="range_25" value="25">
+	   <!-- <img src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;">  -->
+	</label>
+
+	<label>
+	  <input type="radio" class="class_img" name="test" id="range_75" value="75" >
+	   <!-- <img src="range_75.png"  alt="HTML5 Icon" style="width:220px;height:120px;">  -->
+	</label>
 		
 		
-
-
-<!-- </form> -->
-
-<!-- <div class="answers"> -->
-    
+	<label>
+	  <input type="radio" class="class_img" name="test" id="range_100" value="100" checked>
+	   <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:120px;"> 
+	</label>	   
 	
-	<!-- <input type="radio" name="answers" id="without" value="Without"/> <label>Without uncertainty</label> <br>    -->
-	
-	
-	
-	 
-	<!-- <input type="radio" name="answers" id="with" value="With"/><label> With uncertainty (100%)</label>    -->
-	
-	<!-- </div>	 -->
-	<img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:106px;" > <br>
-	
-		  	    	   <p>
-	
-	<input type="radio" name="Tumor" id="withTumor" value="withTumor"> Show tumor    
+	<!-- <input type="radio" name="Season" id="with" value="Without"> Representative Fibers and Samples  -->
 	
 	  
 	
-	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor"> Hide tumor    
-	
-	
-	
-	
-	    	   
-	
-	<input type="radio" name="Season" id="with" value="Without"> Show fiber samples    
-	
-	  
-	
-	<input type="radio" name="Season" id="without" value="With"> Hide fiber samples <br>   
+	<!-- <input type="radio" name="Season" id="without" value="With"> Only Representative Fibers <br>    -->
 	
 	</p>
 <div align="left">	
@@ -245,6 +255,9 @@ input[type="radio"]{
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
     </tr>
+	<tr>
+	<input type="checkbox" id="tumor_check" checked> Show / Hide Tumor
+	</tr>
 </div>
 	
      <!-- case 1	 -->
@@ -271,9 +284,7 @@ input[type="radio"]{
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
     </th>
 
-	<td>
-    <script src="./main.js"></script>		 
-	</td>
+
 	</tr>
 
   
@@ -282,14 +293,17 @@ input[type="radio"]{
   
   <!-- </form> -->
 </table>
+          <body class='render'>
+    <script src="./main.js"></script>
+	</body>
      
 <br>
 <br>
 <br>
 <br>	 
-		<p align="left">
+				<p align="left">
 		<b> Question </b>
-		By anaylzing the fiber tracts, would you choose awake procedure for the tumor resection surgery?
+		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
 		</p>
 		
 		<div class="wrap">
@@ -309,7 +323,7 @@ input[type="radio"]{
 		<p align="left">
 		<tr>
 		
-		<label> <b> Question </b> If yes, why? If not, why not? </label> 
+		<label> <b> Question </b> Why? </label> 
 		</tr>
 		</p>
 		
@@ -318,6 +332,26 @@ input[type="radio"]{
 		<input class="div1" type="text" name="tractography_yes">
 		
 		</p>
+		<br>
+		<p align="left">
+		<b> Question </b>How confident are you about your decision?
+		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+		
+		
+		<br>
+		<br>
 		<p align="left">
 		<tr>
 		
@@ -335,13 +369,15 @@ input[type="radio"]{
 
 		<br>
 		<p align="left">
-		<label> <b> Question </b> If yes, why? If not, why not? </label>
+		<label> <b> Question </b> Why? </label>
 		</p>
 		<p align="left">
 		
 		<input class="div1" type="text" name="tractography_yes">
 		
 		</p>
+		
+		
 		<br>
 		<p align="left">
 		<b> Question </b>How confident are you about your decision?

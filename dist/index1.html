@@ -2,26 +2,23 @@
 <!doctype html>
 <html>
 <head> 
-<!-- <script type = "text/javascript" src="index2.js"></script>  -->
-	<!-- <meta charset="UTF-8"> -->
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-	<!-- <meta name="viewport" content= -->
-		<!-- "width=device-width, initial-scale=1.0"> -->
-	
-	 <!-- <!-- <script type="text/javascript" src="index2.js"></script> -->
-	<!-- <title> -->
-		<!-- Uncertainty Visualization -->
-	<!-- </title> -->
-	 
-	 
-	 <!-- <!-- <script type = "text/javascript">   --> 
-<!-- <!-- function myfunction() {    --> 
-<!-- <!-- alert("how are you");   --> 
-         <!-- <!-- }   --> 
-<!-- </script>   -->
-	
+
 
 	<style>
+	
+	.column {
+  float: left;
+ 
+  width: 50%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 		/* Styling the Body element i.e. Color,
 		Font, Alignment */
@@ -144,30 +141,33 @@ input[type="radio"]{
   box-sizing: border-box;
 }
 
+.column {
+  float: left;
+  width: 50%;
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 	</style>
 </head>
 
 <body>
 
-<!-- <body>   -->
-<!-- <p>Click the following button to see the function in action</p>   -->
-<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
-<!-- </body>  -->
-
-
-<!-- <div onclick="doSomething(event,this)"></div> -->
-    
-
 
 	<h1>Cases</h1>
 
 	<!-- Create Form -->
-	 
+	 <div class="row">
+	 <div class="column">
 
 	<table>
-	<form name="form" method="POST" data-netlify="true">
+	
+	<!-- <form name="form" method="POST" data-netlify="true"> -->
 
 
 	
@@ -188,57 +188,13 @@ input[type="radio"]{
 		</tr>
 		
 		
-	 
+	 <label>
+	<input type="radio" name="test" id="range_single" value="25" style="visibility:hidden;" checked> 
 	
-
-<!-- <iframe id= 'trigger' onload = "functionToCall()" height="2" width="3" > </iframe> -->
-
-
- 
-		
-		
+	</label>
 
 
-<!-- </form> -->
 
-<!-- <div class="answers"> -->
-    
-	
-	<!-- <input type="radio" name="answers" id="without" value="Without"/> <label>Without uncertainty</label> <br>    -->
-	
-	
-	
-	 
-	<!-- <input type="radio" name="answers" id="with" value="With"/><label> With uncertainty (100%)</label>    -->
-	
-	<!-- </div>	 -->
-	
-	  	    	   <p>
-	
-	<input type="radio" name="Tumor" id="withTumor" value="withTumor"> Show Tumor    
-	
-	  
-	
-	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor"> Hide Tumor <br>   
-	
-	</p>
-	
-	
-	
-	
-	
-	
-<div align="left">	
-<tr>
-    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-</div>
      <!-- case 1	 -->
 	<tr >
 	
@@ -253,7 +209,7 @@ input[type="radio"]{
      </th>
 	
 	<th id="link_deterministic" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_original.vtk
+	https://faizansiddiqui91.github.io/Data/Case_1/Fiber_original.vtk
     </th>
 	
 	<th id="link_fibers" style="visibility:hidden;"> 
@@ -266,66 +222,14 @@ input[type="radio"]{
 	https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha
     </th>	 
 	<td>
-    <script src="./main.js"></script>		 
+    
+
 	</td>
 	</tr>
-	<!-- case 2	 -->
-<!-- <tr > -->
-<!-- <th id="link_fiber_samples" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/fiber_samples_2.vtk -->
-     <!-- </th> -->
-	<!-- <th id="link_fibers" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/Fiber_original_2.vtk -->
-     <!-- </th> -->
-	 <!-- <th id="link_tumor" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/tumor_2.vtk -->
-     <!-- </th> -->
-	 <!-- <th id="link_data" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha -->
-     <!-- </th> -->
 	 
-	 
-	 <!-- <td> -->
-           <!-- <script src="./main.js"></script>		  -->
-  <!-- </td> -->
-  
-
-  <!-- </tr> -->
-	<!-- case 3	 -->
-<!-- <tr > -->
-<!-- <th id="link_fiber_samples" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/fiber_samples_3.vtk -->
-     <!-- </th> -->
-	<!-- <th id="link_fibers" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/Fiber_original_3.vtk -->
-     <!-- </th> -->
-	 <!-- <th id="link_tumor" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/tumor_3.vtk -->
-     <!-- </th> -->
-	 <!-- <th id="link_data" style="visibility:hidden;">  -->
-	<!-- https://faizansiddiqui91.github.io/Data/T1_mha_tumor.mha -->
-     <!-- </th> -->
-	 
-	 
-	 <!-- <td> -->
-           <!-- <script src="./main.js"></script>		  -->
-  <!-- </td> -->
-  
-
-  <!-- </tr> -->
-	
-  
-  <!-- </form> -->
-
-</table>
-     
-<br>
-<br>
-<br>
-<br>	 
 		<p align="left">
 		<b> Question </b>
-		By anaylzing the fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
+		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
 		</p>
 		
 		<div class="wrap">
@@ -337,17 +241,13 @@ input[type="radio"]{
 	
 		</div>
 
-		<br>
-
 
 		
-
 		<p align="left">
-		<tr>
-		
-		<label> <b> Question </b> If yes, why? If not, why not? </label> 
-		</tr>
+		<label> <b> Question </b> Why? </label>
 		</p>
+		
+		
 		
 		<p align="left">
 		
@@ -356,10 +256,29 @@ input[type="radio"]{
 		</p>
 		
 		<p align="left">
-		<tr>
+		<b> Question </b>How confident are you about your decision?
+		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+		
+		
+		<br>
+		
+		<p align="left">
+		
 		
 		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
-		</tr>
+		
 		</p>
 		<div class="wrap">
 		
@@ -370,9 +289,9 @@ input[type="radio"]{
 	
 		</div>
 
-		<br>
+		
 		<p align="left">
-		<label> <b> Question </b> If yes, why? If not, why not? </label>
+		<label> <b> Question </b> Why? </label>
 		</p>
 		<p align="left">
 		
@@ -381,7 +300,6 @@ input[type="radio"]{
 		</p>
 		
 		
-		<br>
 		<p align="left">
 		<b> Question </b>How confident are you about your decision?
 		</p>
@@ -399,19 +317,50 @@ input[type="radio"]{
 		</p>
    <br>
    <br>
-<br>
-<br>
-<br>
+   
+   
 	<p>
   	     <nav>
       <a href="./index0_4.html">back</a>
 	  <a href="./index1_u1.html">next</a>
-      <!-- <a href="./about.html">About</a> -->
-      <!-- <a href="./service.html">Service</a> -->
-      <!-- <a href="./contact.html">Contact</a> -->
+
     </nav>
 	</p>
-</form>
+
+</table>
+</div >
+<div class="column">
+<table>
+<div align="left">	
+<tr>
+    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
+    </tr>
+	<tr>
+    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
+    </tr>
+	<tr>
+	<input type="checkbox" id="tumor_check" checked> Show / Hide Tumor
+	</tr>
+</div>
+<tr class='render'>
+<script src="./main.js"></script>
+</tr>
+</table>
+ </div >
+ 
+ 
+ 
+ </div >
+
+
+
+
+
+	
+<!-- </form> -->
 
 </body>
   

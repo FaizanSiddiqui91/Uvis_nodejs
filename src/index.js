@@ -95,12 +95,12 @@ renderWindow.addView(openglRenderWindow);
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
-container.style.width = "800px";
+container.style.width = "750px";
 container.style.position = "relative";
 //container.style.paddingLeft = "350px";
-container.style.left="25%"
+container.style.left="5%"
 //container.style.right="50%" 
-document.querySelector('body').appendChild(container);
+document.querySelector('.render').appendChild(container);
 openglRenderWindow.setContainer(container);
 
 
@@ -332,8 +332,13 @@ const reader_samples_75 = vtkPolyDataReader.newInstance();
   
 	actor1_3.modified();
  
-  
+
   actor1_3.getProperty().setOpacity(0);
+  
+    if(document.getElementById('range_single').checked) {
+  actor1_3.getProperty().setOpacity(1);
+}
+
 	mapper1_3.setInputData(polydata1_3);
 	mapper1_3.update();
 	renderer.addActor(actor1_3);
@@ -395,52 +400,22 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
   renderWindow.render();
 });
    
-     document.getElementById("withTumor").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		
-		 actor2.getProperty().setOpacity(1);
-		renderWindow.render();
-		
-    }
+
+
+
+document.getElementById("tumor_check").addEventListener('change', function (event) {
+    if(event.target.checked){
+    actor2.getProperty().setOpacity(1);
+	renderWindow.render();
+  } else {
+    actor2.getProperty().setOpacity(0);
+	renderWindow.render();
+  }
+
 });
 
-   document.getElementById("withoutTumor").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-	
-		 actor2.getProperty().setOpacity(0);
-		renderWindow.render();
-		
-    }
-}); 
+ 
    
-   document.getElementById("without").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-		
-		
-        //imageActorK.getMapper().setKSlice(Number(30));
-		actor1.getProperty().setOpacity(1);
-		actor_samples_25.getProperty().setOpacity(0);
-		actor_samples_75.getProperty().setOpacity(0);
-		actor_samples_100.getProperty().setOpacity(0);
-		renderWindow.render();
-		
-    }
-});
-
-   document.getElementById("with").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor1.getProperty().setOpacity(1);
-		actor_samples_25.getProperty().setOpacity(0.2);
-		actor_samples_75.getProperty().setOpacity(0.2);
-		actor_samples_100.getProperty().setOpacity(0.2);
-		renderWindow.render();
-		
-    }
-});
-
    document.getElementById("range_25").addEventListener('click', function (event) {
     if (event.target && event.target.matches("input[type='radio']")) {
         
@@ -510,6 +485,23 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 		
     }
 });
+
+// var checkBox = document.getElementById("tumor_check");
+  // // Get the output text
+
+  // // If the checkbox is checked, display the output text
+  // if (checkBox.checked == true){
+    // actor2.getProperty().setOpacity(1);
+	// renderWindow.render();
+  // } else {
+    // actor2.getProperty().setOpacity(0);
+	// renderWindow.render();
+  // }
+  
+  
+
+  
+
 
 
 

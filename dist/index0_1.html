@@ -17,6 +17,7 @@
 
 	<style>
 	
+
 	/* HIDE RADIO */
 [type=radio] { 
   position: absolute;
@@ -28,11 +29,14 @@
 /* IMAGE STYLES */
 [type=radio] + img {
   cursor: pointer;
+  -webkit-filter:  opacity(.5);
 }
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
   outline: 2px solid #000;
+    -webkit-transition: all 100ms ease-in;
+  -webkit-filter:  grayscale(0) ;
 }
 
 
@@ -106,7 +110,7 @@
         text-align: center;
         vertical-align: middle;
 		horizontal-align: middle;
-		margin-left: 500px
+		margin-left: 40px
       }
 	  
 	  table th {
@@ -117,15 +121,29 @@
 		horizontal-align: middle;
 		margin-left: 50px
       }
+	  
+	  		.column {
+  float: left; 
+  width: 50%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 	</style>
 </head>
 
 <body>
 
- 
+  <div class="row">
+	 <div class="column">
 	
 	<table>
-	<form name="form" method="POST" data-netlify="true">
+	<!-- <form name="form" method="POST" data-netlify="true"> -->
     
 	 
 
@@ -133,7 +151,10 @@
 	  	  
 	  <tr>
 		<p align="left">
+		Now we demonstrate the interactions we have provided in this evaluation tool. 
 		
+		<br>
+		<br>
 		In this study, we made the following assumptions:
 		<ul>
 
@@ -145,9 +166,11 @@
 		</ul>
 
 	<p align="left">
-	In practice, visualizing the variation of the whole bundle (multiple tracts) is more clinically 
-	relevant.   <br>An interactive 3D view below shows the variations of 
-	the fiber bundle. In this case, three levels of variance are represented <b>25%, 75% , 100% </b>. 
+	Previously we have seen the variations in the fiber tract from only one seed-point. In practice, visualizing the variation of the whole bundle 
+	(multiple tracts) is more clinically relevant.  
+	<br>An interactive 3D view below shows the variations of 
+	the fiber bundle. In this case, three levels of variance are represented <b>25%, 75% , 100% </b>. You can also visualize only the representative fibers (median) 
+	or the fibers from a single scan. 
 
  
  		
@@ -181,76 +204,64 @@
   
 <p align="left">
 <br> You can interact with the 3D view using mouse and use sliders to manipulate the anatomical 
-slices. Radio buttons can be used to show or hide the fiber samples 
-and to select the varince level.
+slices. Distribution icons below can be clicked to select the variance levels, to visualize only the representative fibers or to view the single scan fibers.
 <br>
 <b>Left Mouse button:</b> Rotate <br>
 <b>Scroll:</b> Zoom in/out
 </p>
 
 
-<script>
-function preLoad() {
-  a1 = new Image; a1.src = 'range_25.png';  
-  a2 = new Image; a2.src = 'range_75.png';
-  a3 = new Image; a3.src = 'range_100.png';
-}
-function im(image) {
-  document.getElementById(image[0]).src = eval(image + ".src")
-}
-</script>
 
 
-	<p align="middle">
 	
-	<input type="radio" name="Tumor" id="withTumor" value="withTumor" style="visibility:hidden;">     	  
 	
-	<input type="radio" name="Tumor" id="withoutTumor" value="withoutTumor" style="visibility:hidden;">  	
+	
+	
+
+
+
+
+</table>
+	
+  	    <nav>
+        <a href="./index0.html"> back</a>
+		<a href="./index0_4.html">next</a>
 		
-	
-	</p>
-	
-	
-	
-	<label>
-  <input type="radio" name="test" id="range_single" value="25">
-  <img src="single_scan_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
-</label>
 
+		</nav>
+</div>
+
+
+<div class="column">
+<table>
+<div align="left">	
 <label>
-  <input type="radio" name="test" id="range_representative" value="25">
-  <img src="only_representative_icon.png" alt="HTML5 Icon" style="width:220px;height:120px;">
-</label>
+	<input type="radio" name="test" id="range_single" value="25">
+	<img src="single_scan_icon.png" alt="HTML5 Icon" style="width:183px;height:100px;">
+	</label>
 
 	<label>
-  <input type="radio" name="test" id="range_25" value="25">
-  <img src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;">
-</label>
+	  <input type="radio" name="test" id="range_representative" value="25">
+	  <img src="only_representative_icon.png" alt="HTML5 Icon" style="width:183px;height:100px;">
+	</label>
 
-<label>
-  <input type="radio" name="test" id="range_75" value="75">
-  <img src="range_75.png"  alt="HTML5 Icon" style="width:220px;height:120px;">
-</label>
-	
-	
 	<label>
-  <input type="radio" name="test" id="range_100" value="100" checked>
-  <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:120px;">
-</label>
-	<br>
-	<br>
-	<br>
-	
-	<!-- <body onLoad="preLoad()"> -->
-	<!-- <form autocomplete="off"> -->
-	<!-- <input type="radio" name="range" id="range_25" value="25" onClick="im('a1');" checked> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" >   	 -->
-	<!-- <input type="radio" name="range" id="range_75" value="75" onClick="im('a2');"> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > -->
-	<!-- <input type="radio" name="range" id="range_100" value="100" onClick="im('a3');"> <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" ><br>   -->
-<!-- </form> -->
+	  <input type="radio" name="test" id="range_25" value="25">
+	  <img src="range_25.png" alt="HTML5 Icon" style="width:183px;height:100px;">
+	</label>
 
-<!-- <img id="a" src="range_25.png" alt="HTML5 Icon" style="width:220px;height:120px;" > <br> -->
-	
-	<!-- </body> -->
+	<label>
+	  <input type="radio" name="test" id="range_75" value="75">
+	  <img src="range_75.png"  alt="HTML5 Icon" style="width:183px;height:100px;">
+	</label>
+		
+		
+	<label>
+	  <input type="radio" name="test" id="range_100" value="100" checked>
+	  <img src="range_100.png" alt="HTML5 Icon" style="width:183px;height:100px;">
+	</label>
+		<br>
+		
 	
 	<tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -260,32 +271,30 @@ function im(image) {
     </tr>
 	<tr>
     <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr> <br>
+    </tr>
+	<tr>
+	<input type="checkbox" id="tumor_check" style="visibility:hidden;" checked> 
+	</tr>
 		<input type="radio" name="Season" id="without" value="Without" style="visibility:hidden;">   
 		  	
 	<input type="radio" name="Season" id="with" value="With" style="visibility:hidden;"> <br>  
-  	<tr>
- 
-           <script src="./main.js"></script>		  
+</div>
+<tr class='render'>
+<script src="./main.js"></script>
 </tr>
-
-
-
 </table>
+ </div >
+ 
+ 
+</div>
   <!-- </form> -->
 
 
-	
-  	    <nav>
-        <a href="./index0.html"> back</a>
-		<a href="./index0_4.html">next</a>
-		
-
-		</nav>
 
 
 
-	</form>
+
+	<!-- </form> -->
 
 </body>
   
