@@ -2,26 +2,23 @@
 <!doctype html>
 <html>
 <head> 
-<!-- <script type = "text/javascript" src="index2.js"></script>  -->
-	<!-- <meta charset="UTF-8"> -->
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-	<!-- <meta name="viewport" content= -->
-		<!-- "width=device-width, initial-scale=1.0"> -->
-	
-	 <!-- <!-- <script type="text/javascript" src="index2.js"></script> --> 
-	<!-- <title> -->
-		<!-- Uncertainty Visualization -->
-	<!-- </title> -->
-	 
-	 
-	 <!-- <!-- <script type = "text/javascript">   --> 
-<!-- <!-- function myfunction() {    --> 
-<!-- <!-- alert("how are you");   --> 
-         <!-- <!-- }   --> 
-<!-- </script>   -->
-	
+
 
 	<style>
+	
+					.column {
+  float: left;
+ 
+  width: 50%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}	
 	
 				/* HIDE RADIO */
 [type=radio][class="class_img"] { 
@@ -172,21 +169,15 @@ input[type="radio"]{
 </head>
 
 <body>
-
-<!-- <body>   -->
-<!-- <p>Click the following button to see the function in action</p>   -->
-<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
-<!-- </body>  -->
-
-
-<!-- <div onclick="doSomething(event,this)"></div> -->
-    
+ 
 
 
 	<h1>Cases</h1>
 
 	<!-- Create Form -->
 	 
+	 	 <div class="row">
+	 <div class="column">
 
 	<table>
 	<form name="form" method="POST" data-netlify="true">
@@ -204,14 +195,149 @@ input[type="radio"]{
 	The tumor is present in the left frontal lobe and nearby corticospinal tract. 
 	Fiber bundle are obtained by using 150 variations of the same bundle based on uncertainty simulation.  The results below shows 100% of the resulting fiber variations.
 	Based on the resulting fiber tracts, you have to make a decision for tumor resection surgery.
-	
-	<!-- Fiber bundle obtained from original tensor volume by using 1) deterministic fiber tracking and 2) a 150 variations of the same bundle based on uncertainty simulation. -->
-	<!-- Selection can be made to visualize fiber tracts with and without uncertainty information. Sliders can be used to manipulate the anatomical slices.		 -->
 			
 		</p>
 		</tr>
 		
 
+
+
+
+	<!-- case 3	 -->
+<tr >
+<th id="link_fiber_samples" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_samples_3.vtk
+     </th>
+	 		 <th id="link_fiber_samples_25" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Model_255.vtk
+     </th>
+	 <th id="link_fiber_samples_75" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/AF/Model_755.vtk
+     </th>
+	 
+	<th id="link_fibers" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/Case_3/RepresentativeFibers.vtk
+     </th>
+	 	 <th id="link_deterministic" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/fiber_originalll.vtk
+    </th>
+	 <th id="link_tumor" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/tumor_3.vtk
+     </th>
+	 <th id="link_data" style="visibility:hidden;"> 
+	https://faizansiddiqui91.github.io/Data/Case_3/T1_mha_tumor.mha
+     </th>
+  </tr>
+	
+	<p align="left">
+		<b> Question </b>
+		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
+		</p>
+		
+		<div class="wrap">
+		
+        <input type="radio" name="answers" value="Attending"> Yes 
+		
+		
+        <input type="radio" name="answers" value="Attending"> No 
+	
+		</div>
+
+
+		
+		<p align="left">
+		<label> <b> Question </b> Why? </label>
+		</p>
+		
+		
+		
+		<p align="left">
+		
+		<input class="div1" type="text" name="tractography_yes">
+		
+		</p>
+		
+		<p align="left">
+		<b> Question </b>How confident are you about your decision?
+		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+		
+		
+		<br>
+		
+		<p align="left">
+		
+		
+		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
+		
+		</p>
+		<div class="wrap">
+		
+        <input type="radio" name="answers" value="Attending"> Yes 
+		
+		
+        <input type="radio" name="answers" value="Attending"> No 
+	
+		</div>
+
+		
+		<p align="left">
+		<label> <b> Question </b> Why? </label>
+		</p>
+		<p align="left">
+		
+		<input class="div1" type="text" name="tractography_yes">
+		
+		</p>
+		
+		
+		<p align="left">
+		<b> Question </b>How confident are you about your decision?
+		</p>
+		<p>
+		
+		    <div>
+        <ul class="likert">
+            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
+            <li class="likert"><input type="radio" name="Guilty" value="2" />
+            <li class="likert"><input type="radio" name="Guilty" value="3" />
+            <li class="likert"><input type="radio" name="Guilty" value="4" />
+            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
+        </ul>
+    </div>
+		</p>
+		<br>
+		<br>
+		<br>
+		<p>
+		  	     <nav>
+      <a href="./index3.html">back</a>
+	  <a href="./index.html">next</a>
+
+    </nav>
+	</p>
+  
+  <!-- </form> -->
+</table>
+
+</div >
+
+<div class="column">
+
+
+<table>
+	
 	<p>
 	
 	<label>
@@ -240,14 +366,10 @@ input[type="radio"]{
 	   <img src="range_100.png" alt="HTML5 Icon" style="width:220px;height:120px;"> 
 	</label>	   
 	
-	<!-- <input type="radio" name="Season" id="with" value="Without"> Representative Fibers and Samples  -->
-	
-	  
-	
-	<!-- <input type="radio" name="Season" id="without" value="With"> Only Representative Fibers <br>    -->
-	
+
 	</p>
 
+	
 <div align="left">	
 <tr>
     <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
@@ -262,154 +384,16 @@ input[type="radio"]{
 	<input type="checkbox" id="tumor_check" checked> Show / Hide Tumor
 	</tr>
 </div>
+</div>
+<tr class='render'>
+<script src="./main.js"></script>
+</tr>
+</table>	 
+			
 
-
-	<!-- case 3	 -->
-<tr >
-<th id="link_fiber_samples" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_samples_3.vtk
-     </th>
-	 		 <th id="link_fiber_samples_25" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/AF/Model_255.vtk
-     </th>
-	 <th id="link_fiber_samples_75" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/AF/Model_755.vtk
-     </th>
-	 
-	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Case_3/RepresentativeFibers.vtk
-     </th>
-	 	 <th id="link_deterministic" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/fiber_originalll.vtk
-    </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor_3.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Case_3/T1_mha_tumor.mha
-     </th>
-	 
-	 
-
-  
-
-  </tr>
 	
-  
-  <!-- </form> -->
-</table>
-     
-	           <body class='render'>
-    <script src="./main.js"></script>
-	</body>
-<br>
-<br>
-<br>
-<br>	 
-				<p align="left">
-		<b> Question </b>
-		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
-		</p>
-		
-		<div class="wrap">
-		
-        <input type="radio" name="answers" value="Attending"> Yes 
-		
-		
-        <input type="radio" name="answers" value="Attending"> No 
-	
-		</div>
-
-		<br>
-
-
-		
-
-		<p align="left">
-		<tr>
-		
-		<label> <b> Question </b> Why? </label> 
-		</tr>
-		</p>
-		
-		<p align="left">
-		
-		<input class="div1" type="text" name="tractography_yes">
-		
-		</p>
-		<br>
-		<p align="left">
-		<b> Question </b>How confident are you about your decision?
-		</p>
-		<p>
-		
-		    <div>
-        <ul class="likert">
-            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
-            <li class="likert"><input type="radio" name="Guilty" value="2" />
-            <li class="likert"><input type="radio" name="Guilty" value="3" />
-            <li class="likert"><input type="radio" name="Guilty" value="4" />
-            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
-        </ul>
-    </div>
-		</p>
-		
-		
-		<br>
-		<br>
-		<p align="left">
-		<tr>
-		
-		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
-		</tr>
-		</p>
-		<div class="wrap">
-		
-        <input type="radio" name="answers" value="Attending"> Yes 
-		
-		
-        <input type="radio" name="answers" value="Attending"> No 
-	
-		</div>
-
-		<br>
-		<p align="left">
-		<label> <b> Question </b> Why? </label>
-		</p>
-		<p align="left">
-		
-		<input class="div1" type="text" name="tractography_yes">
-		
-		</p>
-		
-		
-		<br>
-		<p align="left">
-		<b> Question </b>How confident are you about your decision?
-		</p>
-		<p>
-		
-		    <div>
-        <ul class="likert">
-            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
-            <li class="likert"><input type="radio" name="Guilty" value="2" />
-            <li class="likert"><input type="radio" name="Guilty" value="3" />
-            <li class="likert"><input type="radio" name="Guilty" value="4" />
-            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
-        </ul>
-    </div>
-		</p>
-   <br>
-   <br>
-<br>
-<br>
-<br>
-	<p>
-  	     <nav>
-      <a href="./index3.html">back</a>
-	  <a href="./index.html">next</a>
-
-    </nav>
+	</div >
+	</div >
 </form>
 
 </body>
