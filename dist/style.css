@@ -1,12 +1,12 @@
 h1 {
     text-align: center;
-    padding-top: 15px;
+    padding-top: 25px;
     padding-bottom: 10px;
 }
 
 .container {
   width: auto;
-  max-width: 1400px;
+  max-width: 95%;
   padding: 0 15px;
 }
 
