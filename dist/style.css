@@ -1,0 +1,14 @@
+h1 {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.container {
+  width: auto;
+  max-width: 1400px;
+  padding: 0 15px;
+}
+
+.footer {
+    text-align: center
+}
