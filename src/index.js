@@ -51,35 +51,35 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 // ----------------------------------------------------------------------------
 
 
- // const button = document.getElementById('myButton');
- // button.addEventListener('click', function(e) {
-	// alert ('check')
- //});
- 
-  // const trigger = document.getElementById('trigger');
-   // trigger.addEventListener('load', function(e) {
-	  //alert ('checffk')
+// const button = document.getElementById('myButton');
+// button.addEventListener('click', function(e) {
+// alert ('check')
+//});
+
+// const trigger = document.getElementById('trigger');
+// trigger.addEventListener('load', function(e) {
+//alert ('checffk')
 //const button = document.getElementById('myButton1');
- //button.addEventListener('click', function(e) {
-  
- 
-   const cases = document.getElementById('case');
-   
+//button.addEventListener('click', function(e) {
+
+
+const cases = document.getElementById('case');
+
 
 const link_fiber_samples = document.getElementById('link_fiber_samples');
- const link_fibers = document.getElementById('link_fibers');
- const link_deterministic = document.getElementById('link_deterministic');
- const link_tumor = document.getElementById('link_tumor');
- const link_data = document.getElementById('link_data')
- const link_fiber_samples_25 = document.getElementById('link_fiber_samples_25');
- const link_fiber_samples_75 = document.getElementById('link_fiber_samples_75');
-	
-
-  
-  const back=[0.2,0.3,0.4]
+const link_fibers = document.getElementById('link_fibers');
+const link_deterministic = document.getElementById('link_deterministic');
+const link_tumor = document.getElementById('link_tumor');
+const link_data = document.getElementById('link_data')
+const link_fiber_samples_25 = document.getElementById('link_fiber_samples_25');
+const link_fiber_samples_75 = document.getElementById('link_fiber_samples_75');
 
 
- 
+
+const back = [0.9, 0.9, 0.9]
+
+
+
 const renderWindow = vtkRenderWindow.newInstance();
 const renderer = vtkRenderer.newInstance({ background: back });
 renderWindow.addRenderer(renderer);
@@ -95,10 +95,10 @@ renderWindow.addView(openglRenderWindow);
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
-container.style.width = "750px";
+container.style.width = "90%";
 container.style.position = "relative";
-//container.style.paddingLeft = "350px";
-container.style.left="5%"
+container.style.paddingLeft = "5%";
+//container.style.left="5%"
 //container.style.right="50%" 
 document.querySelector('.render').appendChild(container);
 openglRenderWindow.setContainer(container);
@@ -113,8 +113,8 @@ const imageActorJ = vtkImageSlice.newInstance();
 const imageActorK = vtkImageSlice.newInstance();
 
 const actor1 = vtkActor.newInstance();
-  const mapper1 = vtkMapper.newInstance();
-  actor1.setMapper(mapper1);
+const mapper1 = vtkMapper.newInstance();
+actor1.setMapper(mapper1);
 
 
 const actor_samples_100 = vtkActor.newInstance();
@@ -162,62 +162,62 @@ actor.setMapper(mapper);
 
 
 
- // show_graph({{ chart_type }}, {{ data }}, {{ options }});
- 
-  async function update() {
-    const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
-     link_data.innerHTML	
+// show_graph({{ chart_type }}, {{ data }}, {{ options }});
+
+async function update() {
+  const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
+    link_data.innerHTML
 
 
-    );
-  
+  );
 
 
-    const { image: itkImage, webWorker } = await window.itk.readImageArrayBuffer(
-      null,
-      volumeArrayBuffer,
-	  'T1_mha_tumor.mha'
-    );
-    webWorker.terminate();
 
-    const vtkImage = vtkITKHelper.convertItkToVtkImage(itkImage);
-	const dataRange = vtkImage.getPointData().getScalars().getRange();
-    const extent = vtkImage.getExtent();
+  const { image: itkImage, webWorker } = await window.itk.readImageArrayBuffer(
+    null,
+    volumeArrayBuffer,
+    'T1_mha_tumor.mha'
+  );
+  webWorker.terminate();
+
+  const vtkImage = vtkITKHelper.convertItkToVtkImage(itkImage);
+  const dataRange = vtkImage.getPointData().getScalars().getRange();
+  const extent = vtkImage.getExtent();
 
 
-	
-	
-	   const imageMapperK = vtkImageMapper.newInstance();
-       imageMapperK.setInputData(vtkImage);
-       imageMapperK.setKSlice(30);
-       imageActorK.setMapper(imageMapperK);
 
-       const imageMapperJ = vtkImageMapper.newInstance();
-       imageMapperJ.setInputData(vtkImage);
-       imageMapperJ.setJSlice(30);
-       imageActorJ.setMapper(imageMapperJ);
 
-       const imageMapperI = vtkImageMapper.newInstance();
-       imageMapperI.setInputData(vtkImage);
-       imageMapperI.setISlice(30);
-       imageActorI.setMapper(imageMapperI);
-	  
-	  renderer.resetCamera();
-      renderer.resetCameraClippingRange();
-      renderWindow.render();	
-	  
+  const imageMapperK = vtkImageMapper.newInstance();
+  imageMapperK.setInputData(vtkImage);
+  imageMapperK.setKSlice(30);
+  imageActorK.setMapper(imageMapperK);
 
-	   
-   
-	   ['.sliceI', '.sliceJ', '.sliceK'].forEach((selector, idx) => {
-         const el = document.querySelector(selector);
-         el.setAttribute('min', extent[idx * 2 + 0]);
-         el.setAttribute('max', extent[idx * 2 + 1]);
-         el.setAttribute('value', 30);
-       });
-	   
+  const imageMapperJ = vtkImageMapper.newInstance();
+  imageMapperJ.setInputData(vtkImage);
+  imageMapperJ.setJSlice(30);
+  imageActorJ.setMapper(imageMapperJ);
 
-	
+  const imageMapperI = vtkImageMapper.newInstance();
+  imageMapperI.setInputData(vtkImage);
+  imageMapperI.setISlice(30);
+  imageActorI.setMapper(imageMapperI);
+
+  renderer.resetCamera();
+  renderer.resetCameraClippingRange();
+  renderWindow.render();
+
+
+
+
+  ['.sliceI', '.sliceJ', '.sliceK'].forEach((selector, idx) => {
+    const el = document.querySelector(selector);
+    el.setAttribute('min', extent[idx * 2 + 0]);
+    el.setAttribute('max', extent[idx * 2 + 1]);
+    el.setAttribute('value', 30);
+  });
+
+
+
 
 
 
@@ -228,94 +228,94 @@ actor.setMapper(mapper);
   imageActorI.getProperty().setColorWindow(dataRange[1]);
   imageActorJ.getProperty().setColorWindow(dataRange[1]);
   imageActorK.getProperty().setColorWindow(dataRange[1]);
-  renderWindow.render(); 
-      
+  renderWindow.render();
 
-  }
-  
-  
-  
-  
-  update();
+
+}
+
+
+
+
+update();
 
 // // // After the itk-wasm UMD script has been loaded, `window.itk` provides the itk-wasm API.
-  vtkResourceLoader
-    .loadScript(
-      'https://cdn.jsdelivr.net/npm/itk-wasm@1.0.0-b.8/dist/umd/itk-wasm.js'
-    )
-    .then(update);
+vtkResourceLoader
+  .loadScript(
+    'https://cdn.jsdelivr.net/npm/itk-wasm@1.0.0-b.8/dist/umd/itk-wasm.js'
+  )
+  .then(update);
 
 
 
-  const reader = vtkPolyDataReader.newInstance();
-  //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-  reader.setUrl(link_fibers.innerHTML).then(() => {
+const reader = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+reader.setUrl(link_fibers.innerHTML).then(() => {
   const polydata = reader.getOutputData(0);
-  actor1.getProperty().setColor(215.0/255.0, 48.0/255.0, 39.0/255.0);
+  actor1.getProperty().setColor(215.0 / 255.0, 48.0 / 255.0, 39.0 / 255.0);
   //actor1.getProperty().renderLinesAsTubesOn();
   actor1.modified();
- 
-  
+
+
   //actor1.setMapper(mapper1);
   mapper1.setInputData(polydata);
   mapper1.update();
   renderer.addActor(actor1);
 
   renderer.resetCamera();
-   //renderer.resetCameraClippingRange();
-   renderWindow.render();	
+  //renderer.resetCameraClippingRange();
+  renderWindow.render();
 });
 
 const reader_samples_100 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
-	const polydata_samples_100 = reader_samples_100.getOutputData(0);
-	actor_samples_100.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
-	actor_samples_100.getProperty().setLineWidth(3);
-	actor_samples_100.getProperty().setOpacity(0.2);
-	
-	mapper_samples_100.setInputData(polydata_samples_100);
+reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
+  const polydata_samples_100 = reader_samples_100.getOutputData(0);
+  actor_samples_100.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
+  actor_samples_100.getProperty().setLineWidth(3);
+  actor_samples_100.getProperty().setOpacity(0.2);
 
-	renderer.addActor(actor_samples_100);
+  mapper_samples_100.setInputData(polydata_samples_100);
 
-	renderer.resetCamera();
-	//renderer.resetCameraClippingRange();
-	renderWindow.render();	
+  renderer.addActor(actor_samples_100);
+
+  renderer.resetCamera();
+  //renderer.resetCameraClippingRange();
+  renderWindow.render();
 });
 
 
 const reader_samples_25 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	reader_samples_25.setUrl(link_fiber_samples_25.innerHTML).then(() => {
-	const polydata_samples_25 = reader_samples_25.getOutputData(0);
-	actor_samples_25.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
-	actor_samples_25.getProperty().setLineWidth(3);
-	actor_samples_25.getProperty().setOpacity(0.2);
-	//actor1_2.setMapper(mapper1_2);
-	mapper_samples_25.setInputData(polydata_samples_25);
+reader_samples_25.setUrl(link_fiber_samples_25.innerHTML).then(() => {
+  const polydata_samples_25 = reader_samples_25.getOutputData(0);
+  actor_samples_25.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
+  actor_samples_25.getProperty().setLineWidth(3);
+  actor_samples_25.getProperty().setOpacity(0.2);
+  //actor1_2.setMapper(mapper1_2);
+  mapper_samples_25.setInputData(polydata_samples_25);
 
-	renderer.addActor(actor_samples_25);
+  renderer.addActor(actor_samples_25);
 
-	renderer.resetCamera();
-	//renderer.resetCameraClippingRange();
-	renderWindow.render();	
+  renderer.resetCamera();
+  //renderer.resetCameraClippingRange();
+  renderWindow.render();
 });
 
 const reader_samples_75 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
-	const polydata_samples_75 = reader_samples_75.getOutputData(0);
-	actor_samples_75.getProperty().setColor(253.0/255.0, 174.0/255.0, 97.0/255.0);
-	actor_samples_75.getProperty().setLineWidth(3);
-	actor_samples_75.getProperty().setOpacity(0.2);
-	//actor1_2.setMapper(mapper1_2);
-	mapper_samples_75.setInputData(polydata_samples_75);
+reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
+  const polydata_samples_75 = reader_samples_75.getOutputData(0);
+  actor_samples_75.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
+  actor_samples_75.getProperty().setLineWidth(3);
+  actor_samples_75.getProperty().setOpacity(0.2);
+  //actor1_2.setMapper(mapper1_2);
+  mapper_samples_75.setInputData(polydata_samples_75);
 
-	renderer.addActor(actor_samples_75);
+  renderer.addActor(actor_samples_75);
 
-	renderer.resetCamera();
-	//renderer.resetCameraClippingRange();
-	renderWindow.render();	
+  renderer.resetCamera();
+  //renderer.resetCameraClippingRange();
+  renderWindow.render();
 });
 
 
@@ -323,27 +323,27 @@ const reader_samples_75 = vtkPolyDataReader.newInstance();
 
 
 
-	const reader1_3 = vtkPolyDataReader.newInstance();
-	//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	reader.setUrl(link_deterministic.innerHTML).then(() => {
-	const polydata1_3 = reader.getOutputData(0);
-  
-	actor1_3.getProperty().setColor(25.0/255.0, 180.0/255.0, 25.0/255.0);
-  
-	actor1_3.modified();
- 
+const reader1_3 = vtkPolyDataReader.newInstance();
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+reader.setUrl(link_deterministic.innerHTML).then(() => {
+  const polydata1_3 = reader.getOutputData(0);
+
+  actor1_3.getProperty().setColor(25.0 / 255.0, 180.0 / 255.0, 25.0 / 255.0);
+
+  actor1_3.modified();
+
 
   actor1_3.getProperty().setOpacity(0);
-  
-    if(document.getElementById('range_single').checked) {
-  actor1_3.getProperty().setOpacity(1);
-}
 
-	mapper1_3.setInputData(polydata1_3);
-	mapper1_3.update();
-	renderer.addActor(actor1_3);
-	renderer.resetCamera();
-	renderWindow.render();	
+  if (document.getElementById('range_single').checked) {
+    actor1_3.getProperty().setOpacity(1);
+  }
+
+  mapper1_3.setInputData(polydata1_3);
+  mapper1_3.update();
+  renderer.addActor(actor1_3);
+  renderer.resetCamera();
+  renderWindow.render();
 });
 
 
@@ -360,8 +360,8 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
   renderer.addActor(actor2);
 
   renderer.resetCamera();
-   //renderer.resetCameraClippingRange();
-   renderWindow.render();	
+  //renderer.resetCameraClippingRange();
+  renderWindow.render();
 });
 
 
@@ -384,11 +384,11 @@ interactor.bindEvents(container);
 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
 
-	
+
 document.querySelector('.sliceI').addEventListener('input', (e) => {
- imageActorI.getMapper().setISlice(Number(e.target.value));
- renderWindow.render();
-});		 
+  imageActorI.getMapper().setISlice(Number(e.target.value));
+  renderWindow.render();
+});
 
 document.querySelector('.sliceJ').addEventListener('input', (e) => {
   imageActorJ.getMapper().setJSlice(Number(e.target.value));
@@ -399,114 +399,98 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
   imageActorK.getMapper().setKSlice(Number(e.target.value));
   renderWindow.render();
 });
-   
 
 
 
-document.getElementById("tumor_check").addEventListener('change', function (event) {
-    if(event.target.checked){
+
+document.getElementById("tumor_check").addEventListener('change', function(event) {
+  if (event.target.checked) {
     actor2.getProperty().setOpacity(1);
-	renderWindow.render();
+    renderWindow.render();
   } else {
     actor2.getProperty().setOpacity(0);
-	renderWindow.render();
+    renderWindow.render();
   }
-
 });
 
- 
-   
-   document.getElementById("range_25").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor_samples_25.getProperty().setOpacity(0.2);
-		actor_samples_75.getProperty().setOpacity(0);
-		actor_samples_100.getProperty().setOpacity(0);
-		actor1_3.getProperty().setOpacity(0);
-		actor1.getProperty().setOpacity(1);
-		
-		renderWindow.render();
-		
-    }
+document.getElementById("range_25").addEventListener('click', function(event) {
+  if (event.target && event.target.matches("input[type='radio']")) {
+
+    actor_samples_25.getProperty().setOpacity(0.2);
+    actor_samples_75.getProperty().setOpacity(0);
+    actor_samples_100.getProperty().setOpacity(0);
+    actor1_3.getProperty().setOpacity(0);
+    actor1.getProperty().setOpacity(1);
+
+    renderWindow.render();
+
+  }
 });
 
-   document.getElementById("range_75").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor_samples_25.getProperty().setOpacity(0);
-		actor_samples_75.getProperty().setOpacity(0.2);
-		actor_samples_100.getProperty().setOpacity(0);
-		actor1_3.getProperty().setOpacity(0);
-		actor1.getProperty().setOpacity(1);
-		
-		renderWindow.render();
-		
-    }
+document.getElementById("range_75").addEventListener('click', function(event) {
+  if (event.target && event.target.matches("input[type='radio']")) {
+
+    actor_samples_25.getProperty().setOpacity(0);
+    actor_samples_75.getProperty().setOpacity(0.2);
+    actor_samples_100.getProperty().setOpacity(0);
+    actor1_3.getProperty().setOpacity(0);
+    actor1.getProperty().setOpacity(1);
+
+    renderWindow.render();
+
+  }
 });
 
-   document.getElementById("range_100").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor_samples_25.getProperty().setOpacity(0);
-		actor_samples_75.getProperty().setOpacity(0);
-		actor_samples_100.getProperty().setOpacity(0.2);
-		actor1_3.getProperty().setOpacity(0);
-		actor1.getProperty().setOpacity(1);
-		
-		renderWindow.render();
-		
-    }
+document.getElementById("range_100").addEventListener('click', function(event) {
+  if (event.target && event.target.matches("input[type='radio']")) {
+
+    actor_samples_25.getProperty().setOpacity(0);
+    actor_samples_75.getProperty().setOpacity(0);
+    actor_samples_100.getProperty().setOpacity(0.2);
+    actor1_3.getProperty().setOpacity(0);
+    actor1.getProperty().setOpacity(1);
+
+    renderWindow.render();
+
+  }
 });
 
 
-   document.getElementById("range_single").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor_samples_25.getProperty().setOpacity(0);
-		actor_samples_75.getProperty().setOpacity(0);
-		actor_samples_100.getProperty().setOpacity(0.0);
-		actor1_3.getProperty().setOpacity(1);
-		actor1.getProperty().setOpacity(0);
-		renderWindow.render();
-		
-    }
+document.getElementById("range_single").addEventListener('click', function(event) {
+  if (event.target && event.target.matches("input[type='radio']")) {
+
+    actor_samples_25.getProperty().setOpacity(0);
+    actor_samples_75.getProperty().setOpacity(0);
+    actor_samples_100.getProperty().setOpacity(0.0);
+    actor1_3.getProperty().setOpacity(1);
+    actor1.getProperty().setOpacity(0);
+    renderWindow.render();
+
+  }
 });
 
 
-   document.getElementById("range_representative").addEventListener('click', function (event) {
-    if (event.target && event.target.matches("input[type='radio']")) {
-        
-		actor_samples_25.getProperty().setOpacity(0);
-		actor_samples_75.getProperty().setOpacity(0);
-		actor_samples_100.getProperty().setOpacity(0.0);
-		actor1_3.getProperty().setOpacity(0);
-		actor1.getProperty().setOpacity(1);
-		renderWindow.render();
-		
-    }
+document.getElementById("range_representative").addEventListener('click', function(event) {
+  if (event.target && event.target.matches("input[type='radio']")) {
+
+    actor_samples_25.getProperty().setOpacity(0);
+    actor_samples_75.getProperty().setOpacity(0);
+    actor_samples_100.getProperty().setOpacity(0.0);
+    actor1_3.getProperty().setOpacity(0);
+    actor1.getProperty().setOpacity(1);
+    renderWindow.render();
+
+  }
 });
 
 // var checkBox = document.getElementById("tumor_check");
-  // // Get the output text
+// // Get the output text
 
-  // // If the checkbox is checked, display the output text
-  // if (checkBox.checked == true){
-    // actor2.getProperty().setOpacity(1);
-	// renderWindow.render();
-  // } else {
-    // actor2.getProperty().setOpacity(0);
-	// renderWindow.render();
-  // }
-  
-  
-
-  
-
-
-
-
-
-
-
-
- 
+// // If the checkbox is checked, display the output text
+// if (checkBox.checked == true){
+// actor2.getProperty().setOpacity(1);
+// renderWindow.render();
+// } else {
+// actor2.getProperty().setOpacity(0);
+// renderWindow.render();
+// }

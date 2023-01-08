@@ -1,241 +1,94 @@
-
 <!doctype html>
 <html>
-<head> 
-<script type = "text/javascript" src="index2.js"></script> 
+
+<head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content=
-		"width=device-width, initial-scale=1.0">
-	
-	 <!-- <script type="text/javascript" src="index2.js"></script> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
 	<title>
-		Uncertainty Visualization
+		Evaluating Uncertainty Visualization in Clinical Decision Making
 	</title>
-	 
-	 
-	 <!-- <script type = "text/javascript">   -->
-<!-- function myfunction() {    -->
-<!-- alert("how are you");   -->
-         <!-- }   -->
-</script>  
-	
 
-	<style>
-
-		/* Styling the Body element i.e. Color,
-		Font, Alignment */
-		body {
-			background-color: #FFFFFF; //#05c46b;
-			font-family: Verdana;
-			text-align: center;
-		}
-
-		/* Styling the Form (Color, Padding, Shadow) */
-		form {
-			background-color: #fff;
-			max-width: 500px;
-			margin: 50px auto;
-			padding: 30px 20px;
-			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-		}
-
-		/* Styling form-control Class */
-		.form-control {
-			text-align: left;
-			margin-bottom: 25px;
-		}
-
-		/* Styling form-control Label */
-		.form-control label {
-			display: block;
-			margin-bottom: 10px;
-		}
-
-		/* Styling form-control input,
-		select, textarea */
-		.form-control input,
-		.form-control select,
-		.form-control textarea {
-			border: 1px solid #777;
-			border-radius: 2px;
-			font-family: inherit;
-			padding: 10px;
-			display: block;
-			width: 95%;
-		}
-
-		/* Styling form-control Radio
-		button and Checkbox */
-		.form-control input[type="radio"],
-		.form-control input[type="checkbox"] {
-			display: inline-block;
-			width: auto;
-		}
-
-		/* Styling Button */
-		button {
-			background-color: #05c46b;
-			border: 1px solid #777;
-			border-radius: 2px;
-			font-family: inherit;
-			font-size: 21px;
-			display: block;
-			width: 100%;
-			margin-top: 50px;
-			margin-bottom: 20px;
-		}
-		table,
-      table td {
-        height: 10px;
-        width: 1060px;
-        text-align: center;
-        vertical-align: middle;
-		horizontal-align: middle;
-		margin-left: 500px
-      }
-	  
-	  table th {
-        height: 30px;
-        width: 30px;
-        text-align: center;
-        vertical-align: middle;
-		horizontal-align: middle;
-		margin-left: 50px
-      }
-	  
-	  	  	  .div01 {
-  width:  80px;
-  height: 40px;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
-
-	  	  .div0 {
-  width:  200px;
-  height: 40px;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
-	  
-	  .div1 {
-  width: 800px;
-  height: 100px;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
-	</style>
 </head>
 
 <body>
 
-<!-- <body>   -->
-<!-- <p>Click the following button to see the function in action</p>   -->
-<!-- <input type = "button" id = "myButton" onclick = "myfunction()" value = "Display">   -->
-<!-- </body>  -->
+	<main class="flex-shrink-0">
+		<div class="container">
 
+			<h1>Evaluation: Effect of uncertainty visualization in clinical decision making</h1>
 
-<!-- <div onclick="doSomething(event,this)"></div> -->
-    
-
-
-	<h1>Evaluation: Effect of uncertainty visualization in clinical decision making</h1>
-	
-	<b>
-	<p align="left">
-	INTRODUCTION
-	</p>
-	</b>
-     <p align="left">
-				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that 
-				add non-uniform variations. <br> 
+			<p>
+				<b>Introduction:</b>
+				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that
+				add non-uniform variations.<br>
 				In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow.
-				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects 
+				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects
 				the decision-making process in surgical planning.
-	 </p>
-	<!-- Create Form -->
-	 
-	<br>
-	
-	
-	<table>
-	<form name="form" method="POST" data-netlify="true">
-    <p align="left">	
-    <label>Your Name: <input class="div0" type="text" name="name" /></label>	
-    </p>
-    <p align="left">	
-    <label>Your Email: <input class="div0" type="email" name="email" /></label>   
-	</p>
-	
+			</p>
+			
+			<form name="form" method="POST" data-netlify="true">
+				<div class="row mb-3">
+				  <div class="col">
+					<input type="text" class="form-control" placeholder="Name" aria-label="Name" name="name">
+				  </div>
+				  <div class="col">
+					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email">
+				  </div>
+				</div>
+				
+				<fieldset class="row mb-3">
+					<legend class="col-form-label"><b>Q</b> Have you ever used tractography in your clinical practice?</legend>
+					<div class="col-sm-10">
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractYes" value="Yes">
+						<label class="form-check-label" for="radioUsedTractYes"> Yes </label>
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractNo" value="No">
+						<label class="form-check-label" for="radioUsedTractNo"> No </label>
+					</div>
+				</fieldset>
+				
+				<div class="row mb-3">
+				  <label for="usedYears" class="form-label"><b>Q</b> If yes, for how many years have you been using tractography?</label>
+				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes">
+				</div>
+				
+				<div class="row mb-3">
+				  <label for="textNotUsed" class="form-label"><b>Q</b> If no, what are the reasons for you to not use tractography?</label>
+				  <textarea class="form-control" id="textNotUsed" rows="3" name="tractography_no"></textarea>
+				</div>
 
-	<p align="left">
-    <legend><b>Q) </b>Have you ever used tractography in your clinical practice? </legend> 
-	</p>
-	<p align="left">
-	<label>
-      <input type="radio" name="attendance" value="Attending"> Yes
-      </label>
-	  
-	  <label>
-      <input type="radio" name="attendance" value="Attending"> No
-      </label>
-	 </p>
-	
-	<p align="left">
-	
-    <label><b>Q) </b> If yes, for how many years have you been using tractography? <br><br><input class="div01" type="text" name="tractography_yes" /></label> years
-	
-    </p>
-	
-		
-		
-	<p align="left">
-	
-    <label><b>Q) </b>If no, what are the reasons for you to not use tractography?
-	
-    </p>
-	
-	
-		<p align="left">
-		
-		<input class="div1" type="text" name="tractography_no">
-		
-		</p>
-		
-		
-	<p align="left">
-	
-    <legend><b>Q) </b>Do you think that the use of tractography can potentially change the clinical decision-making? </legend>
-    
-	</p>
-	<p align="left">
-	<label>
-        <input type="radio" name="attendance" value="Attending"> Yes
-      </label>
-	  <label>
-        <input type="radio" name="attendance" value="Attending"> No
-      </label>
- </p>
-	<p align="left">
-	
-    <label><b>Q) </b>Why? 
-	
-    </p>
-			<p align="left">
-		
-		<input class="div1" type="text" name="tractography_no">
-		
-		</p>
-	
+				<fieldset class="row mb-3">
+					<legend class="col-form-label"><b>Q</b> Do you think that the use of tractography can potentially change the clinical decision-making?</legend>
+					<div class="col-sm-10">
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes">
+						<label class="form-check-label" for="radioCanChangeYes"> Yes </label>
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No">
+						<label class="form-check-label" for="radioCanChangeNo"> No </label>
+					</div>
+				</fieldset>
+				
+				<div class="row mb-3">
+				  <label for="textWhyChange" class="form-label"><b>Q</b> Why?</label>
+				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why"></textarea>
+				</div>
 
-	
-<p>
-       <a href="./index0.html">next>></a>
-		
-</p>
+			</form>
 
+		</div>
+	</main>
+
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			<a class="btn btn-primary" href="./index0.html" role="button">Next</a>
+		</div>
+	</footer>
 
 </body>
-  
-  
+
 </html>
