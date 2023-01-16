@@ -13,6 +13,7 @@
 /* IMAGE STYLES */
 .class_img + img {
   cursor: pointer;
+  
   -webkit-filter:  opacity(.5);
 }
 

@@ -56,11 +56,27 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 // alert ('check')
 //});
 
-// const trigger = document.getElementById('trigger');
-// trigger.addEventListener('load', function(e) {
-//alert ('checffk')
-//const button = document.getElementById('myButton1');
-//button.addEventListener('click', function(e) {
+ 
+
+
+// const button_el=document.getElementById('random_button')
+// button_el.addEventListener('click', function(event) {
+
+// var randomlinks = sessionStorage.getItem('randomlinks');
+
+// const index=Math.floor(Math.random()*randomlinks.length)
+
+// button_el.setAttribute("href", randomlinks[index]); 
+// randomlinks.remove(index)
+// sessionStorage.setItem('randomlinks', randomlinks);
+
+ // //alert (randomlinks[a]);
+
+ // });
+
+
+
+
 
 
 const cases = document.getElementById('case');
@@ -482,6 +498,12 @@ document.getElementById("range_representative").addEventListener('click', functi
 
   }
 });
+
+
+
+
+
+
 
 // var checkBox = document.getElementById("tumor_check");
 // // Get the output text

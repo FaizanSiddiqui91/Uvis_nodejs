@@ -141,15 +141,30 @@
 		</div>
 	</main>
 	
-	<script src="./main.js"></script>
+	<script>
+	
+	  <!-- var randomlinks=new Array() -->
+var String[] randomlinks = new String[] {“index1.html”, “index1_u1.html”, “index1_u2.html”, “index1_u3.html”};
+
+
+ <!-- randomlinks[0]="index1.html" -->
+ <!-- randomlinks[1]="index1_u1.html" -->
+ <!-- randomlinks[2]="index1_u2.html" -->
+ <!-- randomlinks[3]="index1_u3.html" -->
+ sessionStorage.setItem('randomlinks', randomlinks);
+ 
+	</script>
+	
+	
 
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
 			<a class="btn btn-danger" href="./index0.html" role="button">Back</a>
-			<a class="btn btn-primary" href="./index0_4.html" role="button">Next</a>
+			<!-- <a class="btn btn-primary" href="./index0_4.html" id ='random_button' role="button">Next</a> -->
+			<a class="btn btn-primary" href="./index0_4.html" id="random_button" role="button" type="submit">Next</a>
 		</div>
 	</footer>
-
+<script src="./main.js"></script>
 </body>  
 </html>
 

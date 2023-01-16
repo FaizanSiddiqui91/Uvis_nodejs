@@ -14,6 +14,37 @@
 	<title>
 		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
 	</title>
+	
+	<script>
+<!--
+/*
+Random link button- By JavaScript Kit (http://javascriptkit.com)
+Over 300+ free scripts!
+This credit MUST stay intact for use
+*/
+
+//specify random links below. You can have as many as you want
+var randomlinks=new Array()
+
+randomlinks[0]="index1.html"
+randomlinks[1]="index1_u1.html"
+randomlinks[2]="index1_u2.html"
+randomlinks[3]="index1_u3.html"
+<!-- randomlinks[4]="./index1_u2.html" -->
+
+function randomlink(){
+window.location=randomlinks[Math.floor(Math.random()*randomlinks.length)]
+}
+//-->
+</script>
+<!-- <form method="post"> -->
+<!-- <p><input type="button" name="B1" value="Random Link >>" onclick="randomlink()"></p> </form> -->
+
+<!--Uncomment below to use a regular text link instead
+<a href="javascript:randomlink()">Random Link</a>
+-->
+
+
 
 </head>
 
@@ -79,7 +110,7 @@
 				</fieldset>
 
 				<fieldset class="row mb-3">
-					<legend class="col-form-label"><b>Q</b> What does this <img src="range_75.png" alt="Icon with an unspecified uncertainty range" style="width:146px;height:86px;"> icon represent?</legend>
+					<legend class="col-form-label"><b>Q</b> What does this <img src="range_75.png" alt="Icon with an unspecified uncertainty range" style="width:199px;height:86px;"> icon represent?</legend>
 					<div class="col-sm-10">
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="IMGopt1" id="IMGopt1" value="Yes">
@@ -107,7 +138,8 @@
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
 			<a class="btn btn-danger" href="./index0_1.html" role="button">Back</a>
-			<a class="btn btn-primary" href="./index1.html" role="button">Next</a>
+			<a class="btn btn-primary" href="./index1.html"  role="button">Next</a> 
+			
 		</div>
 	</footer>
 
