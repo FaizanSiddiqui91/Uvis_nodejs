@@ -1,373 +1,179 @@
-
 <!doctype html>
 <html>
-<head> 
-<!-- <script type = "text/javascript" src="index2.js"></script>  -->
-	<!-- <meta charset="UTF-8"> -->
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-	<!-- <meta name="viewport" content= -->
-		<!-- "width=device-width, initial-scale=1.0"> -->
-	
-	 <!-- <!-- <script type="text/javascript" src="index2.js"></script> --> 
-	<!-- <title> -->
-		<!-- Uncertainty Visualization -->
-	<!-- </title> -->
-	 
-	 
-	 <!-- <!-- <script type = "text/javascript">   --> 
-<!-- <!-- function myfunction() {    --> 
-<!-- <!-- alert("how are you");   --> 
-         <!-- <!-- }   --> 
-<!-- </script>   -->
-	
 
-	<style>
-	
-			
-				.column {
-  float: left;
- 
-  width: 50%;
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-}
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
 
-		/* Styling the Body element i.e. Color,
-		Font, Alignment */
-		body {
-			background-color: #FFFFFF; //#05c46b;
-			font-family: Verdana;
-			text-align: center;
-		}
+	<title>
+		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
+	</title>
 
-		/* Styling the Form (Color, Padding, Shadow) */
-		form {
-			background-color: #fff;
-			max-width: 500px;
-			margin: 50px auto;
-			padding: 30px 20px;
-			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-		}
-
-		/* Styling form-control Class */
-		.form-control {
-			text-align: left;
-			margin-bottom: 25px;
-		}
-
-		/* Styling form-control Label */
-		.form-control label {
-			display: block;
-			margin-bottom: 10px;
-		}
-
-		/* Styling form-control input,
-		select, textarea */
-		.form-control input,
-		.form-control select,
-		.form-control textarea {
-			border: 1px solid #777;
-			border-radius: 2px;
-			font-family: inherit;
-			padding: 10px;
-			display: block;
-			width: 95%;
-		}
-
-		/* Styling form-control Radio
-		button and Checkbox */
-		.form-control input[type="radio"],
-		.form-control input[type="checkbox"] {
-			display: inline-block;
-			width: auto;
-		}
-
-		/* Styling Button */
-		button {
-			background-color: #05c46b;
-			border: 1px solid #777;
-			border-radius: 2px;
-			font-family: inherit;
-			font-size: 21px;
-			display: block;
-			width: 100%;
-			margin-top: 50px;
-			margin-bottom: 20px;
-		}
-		table,
-      table td {
-        height: 10px;
-        width: 1060px;
-        text-align: center;
-        vertical-align: middle;
-		horizontal-align: middle;
-		margin-left: 40px
-      }
-	  
-	  table th {
-        height: 30px;
-        width: 30px;
-        text-align: center;
-        vertical-align: middle;
-		horizontal-align: middle;
-		margin-left: 50px
-      }
-	  
-	  .likert ul
-    {	
-		
-        list-style-type: none;
-        margin-left: 0;
-        padding: 0;
-    }
-
-    .likert li
-    {
-        float: left;
-        text-align: left;
-        list-style-type: none;
-    }
-	
-	.answers label {
-    display: block
-	float: left;
-}
-
-.wrap {
-  display: flex;
-  align-items: center;
-}
-input {
-  margin: 0;
-}
-
-
-input[type="radio"]{
-  margin: 0 10px 0 10px;
-}
-
-.div1 {
-  width: 800px;
-  height: 100px;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
-
-
-
-	</style>
 </head>
 
 <body>
-
-
-
-	<h1>Cases</h1>
-
-	<!-- Create Form -->
-	 
-	 <div class="row">
-	 <div class="column">
-
-	<table>
-	<form name="form" method="POST" data-netlify="true">
-
-
 	
-		
-		<tr>
-		
-		
-		<p align="left">
-		
-		<!-- Case-3 -->
+	<main class="flex-shrink-0">
+		<div class="container">
+			
+			<h1>Cases</h1>
+			
+			<div class="row">
+				
+				<div class="col-12 col-md-5 order-5 order-md-1">
+					
+						
+					<p>The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract. Fiber bundle are obtained by using regular fiber tracking with single scan. 
+	Based on the resulting fiber tracts, please answer the questions based on your judgements..</p>
+					
+					<form name="form" method="POST" data-netlify="true">
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?</legend>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="case00awake" id="case00awakeYes" value="1">
+								<label class="form-check-label" for="case00awakeYes"> Yes </label>
+								<input class="form-check-input" type="radio" name="case00awake" id="case00awakeNo" value="5">
+								<label class="form-check-label" for="case00awakeNo"> No </label>
+							</div>
+						</fieldset>
+						
+						<div class="row mb-3">
+						  <label for="case00awakeWhy" class="form-label"><b>Q</b> Why?</label>
+						  <textarea class="form-control" id="case00awakeWhy" rows="3" name="case00awakeWhy"></textarea>
+						</div>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label "><b>Q</b> How confident are you about your decision?</legend>
+							<div class="col">
+								<div class="form-check form-check-reverse form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf1" value="1">
+								  <label class="form-check-label" for="case00awakeConf1">Not confident</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf2" value="2">
+								  <label class="form-check-label" for="case00awakeConf2"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf3" value="3">
+								  <label class="form-check-label" for="case00awakeConf3"></label>
 
-	The tumor is present in the left frontal lobe and nearby corticospinal tract. Fiber bundle are obtained by using regular fiber tracking with single scan. 
-	Based on the resulting fiber tracts, please answer the questions based on your judgements.
-	
-	
-	
-		</p>
-		</tr>
-		
-	
-	 
-	
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf4" value="4">
+								  <label class="form-check-label" for="case00awakeConf4"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf5" value="5">
+								  <label class="form-check-label" for="case00awakeConf5">Very confident</label>
+								</div>
+							</div>
+						</fieldset>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?</legend>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="case00decision" id="case00decisionYes" value="1">
+								<label class="form-check-label" for="case00decisionYes"> Yes </label>
+								<input class="form-check-input" type="radio" name="case00decision" id="case00decisionNo" value="5">
+								<label class="form-check-label" for="case00decisionNo"> No </label>
+							</div>
+						</fieldset>
+						
+						<div class="row mb-3">
+						  <label for="case00decisionWhy" class="form-label"><b>Q</b> Why?</label>
+						  <textarea class="form-control" id="case00decisionWhy" rows="3" name="case00decisionWhy"></textarea>
+						</div>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label "><b>Q</b> How confident are you about your decision?</legend>
+							<div class="col">
+								<div class="form-check form-check-reverse form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf1" value="1">
+								  <label class="form-check-label" for="case00decisionConf1">Not confident</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf2" value="2">
+								  <label class="form-check-label" for="case00decisionConf2"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf3" value="3">
+								  <label class="form-check-label" for="case00decisionConf3"></label>
+						
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf4" value="4">
+								  <label class="form-check-label" for="case00decisionConf4"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf5" value="5">
+								  <label class="form-check-label" for="case00decisionConf5">Very confident</label>
+								</div>
+							</div>
+						</fieldset>
+						
+					</form>
 
-	<!-- case 3	 -->
-<tr >
-<th id="link_fiber_samples" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Fiber_original_33.vtk
-     </th>
-	 		 <th id="link_fiber_samples_25" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/AF/Model_255.vtk
-     </th>
-	 <th id="link_fiber_samples_75" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/AF/Model_755.vtk
-     </th>
-	 
-	 	<th id="link_deterministic" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Fiber_original_3.vtk
-    </th>
-	<th id="link_fibers" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Fiber_original_33.vtk
-     </th>
-	 <th id="link_tumor" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/tumor_3.vtk
-     </th>
-	 <th id="link_data" style="visibility:hidden;"> 
-	https://faizansiddiqui91.github.io/Data/Case_3/T1_mha_tumor.mha
-     </th>
-  </tr>
-  
-    	<p align="left">
-		<b> Question </b>
-		Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?
-		</p>
-		
-		<div class="wrap">
-		
-        <input type="radio" name="answers" value="Attending"> Yes 
-		
-		
-        <input type="radio" name="answers" value="Attending"> No 
-	
+					
+				</div>
+				
+				<div class="col-12 col-md-7 order-1 order-md-5">
+					
+					<div class="row pad-bottom">
+										
+						<div id="link_deterministic" style="display:none;"> 
+						https://faizansiddiqui91.github.io/Data/Fiber_original_3.vtk
+						</div>						
+						<div id="link_tumor" style="display:none;"> 
+						https://faizansiddiqui91.github.io/Data/tumor_3.vtk
+						</div>
+						<div id="link_data" style="display:none;"> 
+						https://faizansiddiqui91.github.io/Data/Case_3/T1_mha_tumor.mha
+						</div>	
+						
+						<div class='render'></div>
+					</div>
+					
+					<input type="radio" name="test" id="range_single" value="25" style="visibility:hidden;" checked>
+					
+					<div class="row row-cols-4 pad-bottom">
+						<div class="col">
+							<label for="sliceI" class="form-label">Slice I</label>
+							<input class='form-range sliceI' id='sliceI' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="col">
+							<label for="sliceJ" class="form-label">Slice J</label>
+							<input class='form-range sliceJ' id='sliceJ' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="col">
+							<label for="sliceK" class="form-label">Slice K</label>
+							<input class='form-range sliceK' id='sliceK' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" id="tumor_check" checked>
+						  <label class="form-check-label" for="tumor_check">Show tumor</label>
+						</div>
+					</div>
+				</div>
+			</div>			
 		</div>
-
-
-		
-		<p align="left">
-		<label> <b> Question </b> Why? </label>
-		</p>
-		
-		
-		
-		<p align="left">
-		
-		<input class="div1" type="text" name="tractography_yes">
-		
-		</p>
-		
-		<p align="left">
-		<b> Question </b>How confident are you about your decision?
-		</p>
-		<p>
-		
-		    <div>
-        <ul class="likert">
-            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
-            <li class="likert"><input type="radio" name="Guilty" value="2" />
-            <li class="likert"><input type="radio" name="Guilty" value="3" />
-            <li class="likert"><input type="radio" name="Guilty" value="4" />
-            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
-        </ul>
-    </div>
-		</p>
-		
-		
-		<br>
-		
-		<p align="left">
-		
-		
-		<label> <b> Question </b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?  </label> 
-		
-		</p>
-		<div class="wrap">
-		
-        <input type="radio" name="answers" value="Attending"> Yes 
-		
-		
-        <input type="radio" name="answers" value="Attending"> No 
+	</main>
 	
+	
+	
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			<!-- <a class="btn btn-danger" href="./index1_u3.html" role="button">Back</a> -->
+			<!-- <a class="btn btn-primary" href="./index2_u1.html" id = 'random_button' role="button">Next</a> -->
+			<a class="btn btn-primary" href="./index3_u1.html" id="random_button" role="button" type="submit">Next</a>
 		</div>
-
-		
-		<p align="left">
-		<label> <b> Question </b> Why? </label>
-		</p>
-		<p align="left">
-		
-		<input class="div1" type="text" name="tractography_yes">
-		
-		</p>
-		
-		
-		<p align="left">
-		<b> Question </b>How confident are you about your decision?
-		</p>
-		<p>
-		
-		    <div>
-        <ul class="likert">
-            <li class="likert"> <b> Not confident </b><input id="radGuiltyStart" type="radio" name="Guilty" value="1" />
-            <li class="likert"><input type="radio" name="Guilty" value="2" />
-            <li class="likert"><input type="radio" name="Guilty" value="3" />
-            <li class="likert"><input type="radio" name="Guilty" value="4" />
-            <li class="likert"><input id="radGuiltyEnd" type="radio" name="Guilty" value="5" /><b> Very confident</b>
-        </ul>
-    </div>
-		</p>
-		<br>
-		<br>
-		<br>
-			<p>
-  	     <nav>
-      <a href="./index2_u1.html">back</a>
-	  <a href="./index3_u1.html">next</a>
-
-    </nav>
-	</p>
-		 	 <label>
-	<input type="radio" name="test" id="range_single" value="25" style="visibility:hidden;" checked> 
-	
-	</label>
-	
-  
-  <!-- </form> -->
-</table>
-
-</div>
-
-<div class="column">
-
-<table>
-	
-	
-   
-	
-<div align="left">	
-<tr>
-    <label>Slice I <input class='sliceI' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice J <input class='sliceJ' type="range" min="0" max="2.0" step="1" value="1" /></label>
-    </tr>
-	<tr>
-    <label>Slice K <input class='sliceK' type="range" min="0" max="100" step="1" value="1" /></label>
-    </tr>
-	<tr>
-	<input type="checkbox" id="tumor_check" checked> Show / Hide Tumor
-	</tr>
-</div>
-</div>
-<tr class='render'>
-<script src="./main.js"></script>
-</tr>
-</table>
-	</div>
-</div>
-	
-</form>
-
+	</footer>
+	<script src="./main.js"></script>
 </body>
-  
-  
 </html>

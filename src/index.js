@@ -42,7 +42,9 @@ import vtkLiteHttpDataAccessHelper from '@kitware/vtk.js/IO/Core/DataAccessHelpe
 import vtkVolume from '@kitware/vtk.js/Rendering/Core/Volume';
 import vtkVolumeMapper from '@kitware/vtk.js/Rendering/Core/VolumeMapper';
 import vtkITKHelper from '@kitware/vtk.js/Common/DataModel/ITKHelper';
-import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
+import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader';
+import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
+
 
 
 
@@ -51,29 +53,27 @@ import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader'
 // ----------------------------------------------------------------------------
 
 
-// const button = document.getElementById('myButton');
-// button.addEventListener('click', function(e) {
-// alert ('check')
-//});
 
  
-
-
-// const button_el=document.getElementById('random_button')
-// button_el.addEventListener('click', function(event) {
-
-// var randomlinks = sessionStorage.getItem('randomlinks');
-
-// const index=Math.floor(Math.random()*randomlinks.length)
-
-// button_el.setAttribute("href", randomlinks[index]); 
-// randomlinks.remove(index)
-// sessionStorage.setItem('randomlinks', randomlinks);
-
- // //alert (randomlinks[a]);
-
- // });
-
+   const button_el=document.getElementById('random_button')
+   
+   if (button_el !== null){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
+	button_el.addEventListener('click', function(event) {
+	const index=Math.floor(Math.random()*randomlinks.length)
+	if (randomlinks.length>0){
+		
+	
+	button_el.setAttribute("href", randomlinks[index]); 
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	// alert(randomlinks);
+	}
+	else{
+	button_el.setAttribute("href", "./Thankyou.html");
+	}
+    });
+   }
 
 
 
@@ -262,7 +262,8 @@ vtkResourceLoader
   .then(update);
 
 
-
+  
+ if (link_fibers !== null){
 const reader = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader.setUrl(link_fibers.innerHTML).then(() => {
@@ -281,11 +282,16 @@ reader.setUrl(link_fibers.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   renderWindow.render();
 });
+ }
 
+
+  if (link_fiber_samples !== null){
 const reader_samples_100 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+	
 reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   const polydata_samples_100 = reader_samples_100.getOutputData(0);
+ 
   actor_samples_100.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
   actor_samples_100.getProperty().setLineWidth(3);
   actor_samples_100.getProperty().setOpacity(0.2);
@@ -298,12 +304,23 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   renderWindow.render();
 });
+}
 
 
-const reader_samples_25 = vtkPolyDataReader.newInstance();
-//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-reader_samples_25.setUrl(link_fiber_samples_25.innerHTML).then(() => {
+if (link_fiber_samples_25 !== null){
+ const reader_samples_25 = vtkPolyDataReader.newInstance({ fetchGzip: true });
+
+//reader_samples_25.setUrl('https://faizansiddiqui91.github.io/Data/cow.vtp').then(() => {
+reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
+	
+	
+  reader_samples_25.loadData().then(() => {
+	  
+	  
+	// reader_samples_25.Update(); 
+  
   const polydata_samples_25 = reader_samples_25.getOutputData(0);
+
   actor_samples_25.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
   actor_samples_25.getProperty().setLineWidth(3);
   actor_samples_25.getProperty().setOpacity(0.2);
@@ -316,7 +333,9 @@ reader_samples_25.setUrl(link_fiber_samples_25.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   renderWindow.render();
 });
+})}
 
+if (link_fiber_samples_75 !== null){
 const reader_samples_75 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
@@ -333,16 +352,16 @@ reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   renderWindow.render();
 });
+}
 
 
 
 
-
-
+if (link_deterministic !== null){
 const reader1_3 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-reader.setUrl(link_deterministic.innerHTML).then(() => {
-  const polydata1_3 = reader.getOutputData(0);
+reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
+  const polydata1_3 = reader1_3.getOutputData(0);
 
   actor1_3.getProperty().setColor(25.0 / 255.0, 180.0 / 255.0, 25.0 / 255.0);
 
@@ -361,9 +380,10 @@ reader.setUrl(link_deterministic.innerHTML).then(() => {
   renderer.resetCamera();
   renderWindow.render();
 });
+}
 
 
-
+if (link_tumor !== null){
 const reader2 = vtkPolyDataReader.newInstance();
 reader2.setUrl(link_tumor.innerHTML).then(() => {
   const polydata2 = reader2.getOutputData(0);
@@ -380,7 +400,7 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
   renderWindow.render();
 });
 
-
+}
 
 
 
@@ -419,7 +439,11 @@ document.querySelector('.sliceK').addEventListener('input', (e) => {
 
 
 
-document.getElementById("tumor_check").addEventListener('change', function(event) {
+const tumor = document.getElementById("tumor_check");
+
+if (tumor !== null){
+
+tumor.addEventListener('change', function(event) {
   if (event.target.checked) {
     actor2.getProperty().setOpacity(1);
     renderWindow.render();
@@ -428,8 +452,11 @@ document.getElementById("tumor_check").addEventListener('change', function(event
     renderWindow.render();
   }
 });
+}
 
-document.getElementById("range_25").addEventListener('click', function(event) {
+const range_25=document.getElementById("range_25");
+if (range_25 !== null){
+range_25.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
 
     actor_samples_25.getProperty().setOpacity(0.2);
@@ -442,8 +469,11 @@ document.getElementById("range_25").addEventListener('click', function(event) {
 
   }
 });
+}
 
-document.getElementById("range_75").addEventListener('click', function(event) {
+const range_75 = document.getElementById("range_75");
+if (range_75 !== null){
+range_75.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
 
     actor_samples_25.getProperty().setOpacity(0);
@@ -456,8 +486,12 @@ document.getElementById("range_75").addEventListener('click', function(event) {
 
   }
 });
+}
 
-document.getElementById("range_100").addEventListener('click', function(event) {
+
+const range_100=document.getElementById("range_100");
+if (range_100 !== null){
+range_100.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
 
     actor_samples_25.getProperty().setOpacity(0);
@@ -470,9 +504,11 @@ document.getElementById("range_100").addEventListener('click', function(event) {
 
   }
 });
+}
 
-
-document.getElementById("range_single").addEventListener('click', function(event) {
+const range_single = document.getElementById("range_single");
+if (range_single !== null){
+range_single.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
 
     actor_samples_25.getProperty().setOpacity(0);
@@ -484,9 +520,11 @@ document.getElementById("range_single").addEventListener('click', function(event
 
   }
 });
+}
 
-
-document.getElementById("range_representative").addEventListener('click', function(event) {
+const range_representative = document.getElementById("range_representative");
+if (range_representative !== null){
+range_representative.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
 
     actor_samples_25.getProperty().setOpacity(0);
@@ -498,7 +536,7 @@ document.getElementById("range_representative").addEventListener('click', functi
 
   }
 });
-
+}
 
 
 

@@ -30,7 +30,7 @@
 				<div class="col-12 col-md-5 order-5 order-md-1">
 
 					<p>The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract.
-	Fiber bundle are obtained by using 150 variations of the same bundle based on uncertainty simulation. <br>  The results below shows <b>100% </b> of the resulting fiber variations. 
+	Fiber bundle are obtained by using 150 variations of the same bundle based on uncertainty simulation. <br>  The results below shows <b>25% </b> of the resulting fiber variations. 
 	Based on the resulting fiber tracts, please answer the questions based on your judgements.</p>
 					<form name="form" method="POST" data-netlify="true">
 
@@ -127,28 +127,19 @@
 					<div class="row pad-bottom">
 					
 						<!-- case 1	 -->
-						<div id="link_fiber_samples" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/Case_2/Fiber_100.vtk
-						</div>
-						<div id="link_fiber_samples_25" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/Case_1/Fibers_255.vtk
-						</div>
-						<div id="link_fiber_samples_75" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/Case_1/Fibers_755.vtk
-						</div>
-						<div id="link_deterministic" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/fiber_originalll.vtk
+
+					<div id="link_fiber_samples_25" style="display:none;">
+							https://dl.dropboxusercontent.com/s/lpwqp5f9d9m6u2l/FiberBundle_25.vtk
 						</div>
 						<div id="link_fibers" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/Case_2/RepresentativeFibers.vtk
+							https://dl.dropboxusercontent.com/s/ioojc14jr4ijauh/representatives.vtk
 						</div>
 						<div id="link_tumor" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/tumor_2.vtk
+							https://faizansiddiqui91.github.io/Data/tumor_3.vtk
 						</div>
 						<div id="link_data" style="display:none;">
-							https://faizansiddiqui91.github.io/Data/Case_2/T1_mha_tumor.mha
-						</div>
-					
+							https://faizansiddiqui91.github.io/Data/Case_3/T1_mha_tumor.mha
+						</div>					
 						<div class='render'></div>
 					</div>
 					
@@ -173,9 +164,7 @@
 
 					<div class="row row-cols-4 pad-bottom">
 						<div class="col">
-							<input type="radio" class="class_img" name="range" id="range_single" value="25">
-							<input type="radio" class="class_img" name="range" id="range_25" value="25" checked>
-							<input type="radio" class="class_img" name="range" id="range_100" value="100">
+
 						</div>
 						<div class="col">
 						<label>
@@ -184,10 +173,12 @@
 						</label>
 						</div>
 						<div class="col">
+						
 						<label>
-							<input type="radio" class="class_img" name="range" id="range_100" value="100" checked>
-							<img src="range_100.png"  alt="HTML5 Icon" class="radio-img">
+							<input type="radio" class="class_img" name="range" id="range_25" value="25" checked>
+							<img src="range_25.png" alt="25% range of fibers" class="radio-img">
 						</label>
+						
 						</div>
 						<div class="col">
 						</div>
@@ -197,15 +188,16 @@
 		</div>
 	</main>
 
-	<script src="./main.js"></script>
+	
 
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
-			<a class="btn btn-danger" href="./index1_u1.html" role="button">Back</a>
-			<a class="btn btn-primary" href="./index1_u3.html" id = 'random_button' role="button">Next</a>
+			<!-- <a class="btn btn-danger" href="./index1_u1.html" role="button">Back</a> -->
+			<!-- <a class="btn btn-primary" href="./index1_u3.html" id = 'random_button' role="button">Next</a> -->
+			<a class="btn btn-primary" href="./index1_u3.html" id="random_button" role="button" type="submit">Next</a>
 		</div>
 	</footer>
-
+	<script src="./main.js"></script>
 </body>
 
 </html>
