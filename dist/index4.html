@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<title>
+		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
+	</title>
+
+</head>
+
+<body>
+	
+	<main class="flex-shrink-0">
+		<div class="container">
+			
+			<h1>Cases</h1>
+			
+			<div class="row">
+				
+				<div class="col-12 col-md-5 order-5 order-md-1">
+					
+						
+					<p>The tumor is present in the left temporal lobe and nearby inferior fronto-occipital fasiculusl tract. Fiber bundle are obtained by using regular fiber tracking with single scan. 
+	Based on the resulting fiber tracts, please answer the questions based on your judgements.</p>
+					
+					<form name="form" method="POST" data-netlify="true">
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?</legend>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="case00awake" id="case00awakeYes" value="1">
+								<label class="form-check-label" for="case00awakeYes"> Yes </label>
+								<input class="form-check-input" type="radio" name="case00awake" id="case00awakeNo" value="5">
+								<label class="form-check-label" for="case00awakeNo"> No </label>
+							</div>
+						</fieldset>
+						
+						<div class="row mb-3">
+						  <label for="case00awakeWhy" class="form-label"><b>Q</b> Why?</label>
+						  <textarea class="form-control" id="case00awakeWhy" rows="3" name="case00awakeWhy"></textarea>
+						</div>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label "><b>Q</b> How confident are you about your decision?</legend>
+							<div class="col">
+								<div class="form-check form-check-reverse form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf1" value="1">
+								  <label class="form-check-label" for="case00awakeConf1">Not confident</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf2" value="2">
+								  <label class="form-check-label" for="case00awakeConf2"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf3" value="3">
+								  <label class="form-check-label" for="case00awakeConf3"></label>
+
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf4" value="4">
+								  <label class="form-check-label" for="case00awakeConf4"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00awakeConf" id="case00awakeConf5" value="5">
+								  <label class="form-check-label" for="case00awakeConf5">Very confident</label>
+								</div>
+							</div>
+						</fieldset>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Do the presented fiber tracts affect the clinical decisions, for example, the resection path?</legend>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="case00decision" id="case00decisionYes" value="1">
+								<label class="form-check-label" for="case00decisionYes"> Yes </label>
+								<input class="form-check-input" type="radio" name="case00decision" id="case00decisionNo" value="5">
+								<label class="form-check-label" for="case00decisionNo"> No </label>
+							</div>
+						</fieldset>
+						
+						<div class="row mb-3">
+						  <label for="case00decisionWhy" class="form-label"><b>Q</b> Why?</label>
+						  <textarea class="form-control" id="case00decisionWhy" rows="3" name="case00decisionWhy"></textarea>
+						</div>
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label "><b>Q</b> How confident are you about your decision?</legend>
+							<div class="col">
+								<div class="form-check form-check-reverse form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf1" value="1">
+								  <label class="form-check-label" for="case00decisionConf1">Not confident</label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf2" value="2">
+								  <label class="form-check-label" for="case00decisionConf2"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf3" value="3">
+								  <label class="form-check-label" for="case00decisionConf3"></label>
+						
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf4" value="4">
+								  <label class="form-check-label" for="case00decisionConf4"></label>
+								</div>
+								<div class="form-check form-check-inline">
+								  <input class="form-check-input" type="radio" name="case00decisionConf" id="case00decisionConf5" value="5">
+								  <label class="form-check-label" for="case00decisionConf5">Very confident</label>
+								</div>
+							</div>
+						</fieldset>
+						
+					</form>
+
+					
+				</div>
+				
+				<div class="col-12 col-md-7 order-1 order-md-5">
+					
+					<div class="row pad-bottom">
+										
+						<div id="link_deterministic" style="display:none;"> 
+						https://dl.dropboxusercontent.com/s/732b0vw25qfrr1x/deterministic.vtk
+						</div>						
+						<div id="link_tumor" style="display:none;"> 
+						https://dl.dropboxusercontent.com/s/vx559zriqx34a6r/Tumor_new.vtk					
+						</div>
+						<div id="link_data" style="display:none;"> 
+						https://dl.dropboxusercontent.com/s/383t85etql022fu/T1_dwireg_fullsize.mha
+						
+						</div>	
+						
+						
+						<div class='render'></div>
+					</div>
+					
+					<input type="radio" name="test" id="range_single" value="25" style="visibility:hidden;" checked>
+					
+					<div class="row row-cols-4 pad-bottom">
+						<div class="col">
+							<label for="sliceI" class="form-label">Slice I</label>
+							<input class='form-range sliceI' id='sliceI' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="col">
+							<label for="sliceJ" class="form-label">Slice J</label>
+							<input class='form-range sliceJ' id='sliceJ' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="col">
+							<label for="sliceK" class="form-label">Slice K</label>
+							<input class='form-range sliceK' id='sliceK' type="range" min="0" max="100" step="1" value="1">
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="checkbox" id="tumor_check" checked>
+						  <label class="form-check-label" for="tumor_check">Show tumor</label>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</div>
+	</main>
+	
+	
+	
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			<!-- <a class="btn btn-danger" href="./index1_u3.html" role="button">Back</a> -->
+			<!-- <a class="btn btn-primary" href="./index2_u1.html" id = 'random_button' role="button">Next</a> -->
+			<a class="btn btn-primary" href="./index3_u1.html" id="random_button" role="button" type="submit">Next</a>
+		</div>
+	</footer>
+	<script src="./main.js"></script>
+</body>
+</html>
