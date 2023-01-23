@@ -44,7 +44,7 @@ import vtkVolumeMapper from '@kitware/vtk.js/Rendering/Core/VolumeMapper';
 import vtkITKHelper from '@kitware/vtk.js/Common/DataModel/ITKHelper';
 import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader';
 import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
-
+// import style from './style_1.css';
 
 
 
@@ -304,6 +304,8 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   renderWindow.render();
 });
+
+
 }
 
 
@@ -361,6 +363,8 @@ if (link_deterministic !== null){
 const reader1_3 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
+			
+		
   const polydata1_3 = reader1_3.getOutputData(0);
 
   actor1_3.getProperty().setColor(25.0 / 255.0, 180.0 / 255.0, 25.0 / 255.0);
@@ -538,6 +542,23 @@ range_representative.addEventListener('click', function(event) {
 });
 }
 
+// const progressContainer = document.createElement('div');
+    // progressContainer.setAttribute('class', style.progress);
+    // container.appendChild(progressContainer);
+	
+const progressCallback = (progressEvent) => {
+      // if (progressEvent.lengthComputable) {
+        // const percent = Math.floor(
+          // (100 * progressEvent.loaded) / progressEvent.total
+        // );
+        // progressContainer.innerHTML = `Loading ${percent}%`;
+      // } else {
+        // progressContainer.innerHTML = macro.formatBytesToProperUnit(
+          // progressEvent.loaded
+        // );
+      // }
+	  //alert ('loaded')
+    };
 
 
 
