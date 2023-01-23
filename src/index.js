@@ -13,6 +13,8 @@ import * as bootstrap from 'bootstrap'
 import '@kitware/vtk.js/Rendering/Profiles/Geometry';
 
 import vtkActor from '@kitware/vtk.js/Rendering/Core/Actor';
+
+import vtkCircleSource from '@kitware/vtk.js/Filters/Sources/CircleSource';
 import vtkConeSource from '@kitware/vtk.js/Filters/Sources/ConeSource';
 import vtkMapper from '@kitware/vtk.js/Rendering/Core/Mapper';
 import vtkOpenGLRenderWindow from '@kitware/vtk.js/Rendering/OpenGL/RenderWindow';
@@ -29,6 +31,8 @@ import '@kitware/vtk.js/Rendering/Profiles/Volume';
 import '@kitware/vtk.js/IO/Core/DataAccessHelper/HtmlDataAccessHelper';
 import '@kitware/vtk.js/IO/Core/DataAccessHelper/HttpDataAccessHelper';
 import '@kitware/vtk.js/IO/Core/DataAccessHelper/JSZipDataAccessHelper';
+
+import macro from '@kitware/vtk.js/macros';
 
 import vtkFullScreenRenderWindow from '@kitware/vtk.js/Rendering/Misc/FullScreenRenderWindow';
 import vtkGenericRenderWindow from '@kitware/vtk.js/Rendering/Misc/GenericRenderWindow';
@@ -52,7 +56,7 @@ import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
 // Standard rendering code setup
 // ----------------------------------------------------------------------------
 
-
+  
 
  
    const button_el=document.getElementById('random_button')
@@ -78,7 +82,8 @@ import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
 
 
 
-
+ let element_loaded=0;
+ 
 const cases = document.getElementById('case');
 
 
@@ -173,18 +178,62 @@ actor.setMapper(mapper);
 // Simple pipeline ConeSource --> Mapper --> Actor
 // ----------------------------------------------------------------------------
 
+  
+  // const cylinderSource = vtkCircleSource.newInstance();
+  // const actor_circle = vtkActor.newInstance();
+  // const mapper_cirlce = vtkMapper.newInstance();
+
+  // cylinderSource.setLines(true);
+  // cylinderSource.setFace(true);
+
+  // actor_circle.setMapper(mapper_cirlce);
+  // mapper_cirlce.setInputConnection(cylinderSource.getOutputPort());
+
+  // renderer.addActor(actor_circle);
+  
+  
+
+
+const progressCallback = (progressEvent) => {
+       // if (progressEvent.lengthComputable) {
+         // const percent = Math.floor(
+           // (100 * progressEvent.loaded) / progressEvent.total
+         // );
+        // progressContainer.innerHTML = `Loading ${percent}%`;
+      // } else {
+        // progressContainer.innerHTML = macro.formatBytesToProperUnit(
+          // progressEvent.loaded
+        // );
+      // }
+	  const a= macro.formatBytesToProperUnit(
+           progressEvent.total
+         );
+	  //alert (a);
+   // };
+	
+}
+
+const { width, height } = container.getBoundingClientRect();
+openglRenderWindow.setSize(width, height);
+
+
+const interactor = vtkRenderWindowInteractor.newInstance();
+interactor.setView(openglRenderWindow);
+interactor.initialize();
+interactor.bindEvents(container);
+
+// ----------------------------------------------------------------------------
+// Setup interactor style to use
+// ----------------------------------------------------------------------------
 
 
 
-
-
-// show_graph({{ chart_type }}, {{ data }}, {{ options }});
 
 async function update() {
   const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
-    link_data.innerHTML
-
-
+    link_data.innerHTML, {
+      progressCallback,
+    }
   );
 
 
@@ -193,7 +242,7 @@ async function update() {
     null,
     volumeArrayBuffer,
     'T1_mha_tumor.mha'
-  );
+   );
   webWorker.terminate();
 
   const vtkImage = vtkITKHelper.convertItkToVtkImage(itkImage);
@@ -220,7 +269,7 @@ async function update() {
 
   renderer.resetCamera();
   renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
 
 
 
@@ -240,18 +289,24 @@ async function update() {
   imageActorI.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
   imageActorJ.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
   imageActorK.getProperty().setColorLevel((dataRange[0] + dataRange[1]) / 2);
-  renderWindow.render();
+  //renderWindow.render();
   imageActorI.getProperty().setColorWindow(dataRange[1]);
   imageActorJ.getProperty().setColorWindow(dataRange[1]);
   imageActorK.getProperty().setColorWindow(dataRange[1]);
-  renderWindow.render();
-
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render();
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 
 }
-
-
-
-
 update();
 
 // // // After the itk-wasm UMD script has been loaded, `window.itk` provides the itk-wasm API.
@@ -280,7 +335,18 @@ reader.setUrl(link_fibers.innerHTML).then(() => {
 
   renderer.resetCamera();
   //renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 });
  }
 
@@ -302,7 +368,18 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
 
   renderer.resetCamera();
   //renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render();  
+	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
+  }
 });
 
 
@@ -333,12 +410,25 @@ reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
 
   renderer.resetCamera();
   //renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 });
 })}
 
 if (link_fiber_samples_75 !== null){
 const reader_samples_75 = vtkPolyDataReader.newInstance();
+
+const callback=vtkCallbackCommand.new();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
   const polydata_samples_75 = reader_samples_75.getOutputData(0);
@@ -352,17 +442,30 @@ reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
 
   renderer.resetCamera();
   //renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render();
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 });
 }
 
 
 
-
+let det=0;
 if (link_deterministic !== null){
+	 det=1;
 const reader1_3 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
+	
 			
 		
   const polydata1_3 = reader1_3.getOutputData(0);
@@ -382,7 +485,18 @@ reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
   mapper1_3.update();
   renderer.addActor(actor1_3);
   renderer.resetCamera();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+    if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 });
 }
 
@@ -401,27 +515,23 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
 
   renderer.resetCamera();
   //renderer.resetCameraClippingRange();
-  renderWindow.render();
+  //renderWindow.render();
+  element_loaded++;
+  if (det ==0 && element_loaded>4)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3)
+  {
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
 });
-
 }
 
 
 
-const { width, height } = container.getBoundingClientRect();
-openglRenderWindow.setSize(width, height);
-
-
-const interactor = vtkRenderWindowInteractor.newInstance();
-interactor.setView(openglRenderWindow);
-interactor.initialize();
-interactor.bindEvents(container);
-
-// ----------------------------------------------------------------------------
-// Setup interactor style to use
-// ----------------------------------------------------------------------------
-
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
 
 
@@ -546,19 +656,7 @@ range_representative.addEventListener('click', function(event) {
     // progressContainer.setAttribute('class', style.progress);
     // container.appendChild(progressContainer);
 	
-const progressCallback = (progressEvent) => {
-      // if (progressEvent.lengthComputable) {
-        // const percent = Math.floor(
-          // (100 * progressEvent.loaded) / progressEvent.total
-        // );
-        // progressContainer.innerHTML = `Loading ${percent}%`;
-      // } else {
-        // progressContainer.innerHTML = macro.formatBytesToProperUnit(
-          // progressEvent.loaded
-        // );
-      // }
-	  //alert ('loaded')
-    };
+
 
 
 
