@@ -88,8 +88,20 @@
 		</div>
 		
 		<script>
-		sessionStorage.setItem('Name', document.getElementById("name").value);
-alert (document.getElementById("name").value)		
+		document.getElementById("Name").addEventListener("oninput", myFunction());
+
+
+function myFunction() {
+  var x = document.getElementById("Name").value;
+  alert("The input value has changed. The new value is: " + x);
+}
+		
+		
+		<!-- function name() -->
+		<!-- { -->
+		<!-- sessionStorage.setItem('Name', document.getElementById("Name").value); -->
+<!-- alert (document.getElementById("Name").value)	 -->
+<!-- }	 -->
 		</script>
 		
 	</footer>
