@@ -59,30 +59,32 @@ import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
   
 
  
-   const button_el=document.getElementById('random_button')
+   // const button_el=document.getElementById('random_button')
    
-   if (button_el !== null){
-	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
-	button_el.addEventListener('click', function(event) {
-	const index=Math.floor(Math.random()*randomlinks.length)
-	if (randomlinks.length>0){
+   // if (button_el !== null){
+	// var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
+	// button_el.addEventListener('click', function(event) {
+	// const index=Math.floor(Math.random()*randomlinks.length)
+	// if (randomlinks.length>0){
 		
 	
-	button_el.setAttribute("href", randomlinks[index]); 
-	var r=randomlinks.splice(index,1);   
-	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
-	// alert(randomlinks);
-	}
-	else{
-	button_el.setAttribute("href", "./Thankyou.html");
-	}
-    });
-   }
+	// button_el.setAttribute("href", randomlinks[index]); 
+	// var r=randomlinks.splice(index,1);   
+	// sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	// // alert(randomlinks);
+	// }
+	// else{
+	// button_el.setAttribute("href", "./Thankyou.html");
+	// }
+    // });
+   // }
 
 
 
 
  let element_loaded=0;
+ let updated=0;
+ let uncer=0;
  
 const cases = document.getElementById('case');
 
@@ -103,16 +105,22 @@ const back = [0.9, 0.9, 0.9]
 
 const renderWindow = vtkRenderWindow.newInstance();
 const renderer = vtkRenderer.newInstance({ background: back });
-renderWindow.addRenderer(renderer);
+// renderWindow.addRenderer(renderer);
 
 
 
 const openglRenderWindow = vtkOpenGLRenderWindow.newInstance();
 renderWindow.addView(openglRenderWindow);
+    renderWindow.addRenderer(renderer);
 
 // ----------------------------------------------------------------------------
 // Create a div section to put this into
 // ----------------------------------------------------------------------------
+
+var load = document.createElement('div');
+load.classList.add("loader");
+ 
+
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
@@ -121,12 +129,9 @@ container.style.position = "relative";
 container.style.paddingLeft = "5%";
 //container.style.left="5%"
 //container.style.right="50%" 
+container.appendChild(load);
 document.querySelector('.render').appendChild(container);
 openglRenderWindow.setContainer(container);
-
-
-
-
 
 
 const imageActorI = vtkImageSlice.newInstance();
@@ -178,40 +183,13 @@ actor.setMapper(mapper);
 // Simple pipeline ConeSource --> Mapper --> Actor
 // ----------------------------------------------------------------------------
 
-  
-  // const cylinderSource = vtkCircleSource.newInstance();
-  // const actor_circle = vtkActor.newInstance();
-  // const mapper_cirlce = vtkMapper.newInstance();
-
-  // cylinderSource.setLines(true);
-  // cylinderSource.setFace(true);
-
-  // actor_circle.setMapper(mapper_cirlce);
-  // mapper_cirlce.setInputConnection(cylinderSource.getOutputPort());
-
-  // renderer.addActor(actor_circle);
-  
-  
 
 
-const progressCallback = (progressEvent) => {
-       // if (progressEvent.lengthComputable) {
-         // const percent = Math.floor(
-           // (100 * progressEvent.loaded) / progressEvent.total
+// const progressCallback = (progressEvent) => {
+	  // const a= macro.formatBytesToProperUnit(
+           // progressEvent.total
          // );
-        // progressContainer.innerHTML = `Loading ${percent}%`;
-      // } else {
-        // progressContainer.innerHTML = macro.formatBytesToProperUnit(
-          // progressEvent.loaded
-        // );
-      // }
-	  const a= macro.formatBytesToProperUnit(
-           progressEvent.total
-         );
-	  //alert (a);
-   // };
-	
-}
+// }
 
 const { width, height } = container.getBoundingClientRect();
 openglRenderWindow.setSize(width, height);
@@ -226,14 +204,12 @@ interactor.bindEvents(container);
 // Setup interactor style to use
 // ----------------------------------------------------------------------------
 
-
+//interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
 
 
 async function update() {
   const volumeArrayBuffer = await vtkLiteHttpDataAccessHelper.fetchBinary(
-    link_data.innerHTML, {
-      progressCallback,
-    }
+    link_data.innerHTML
   );
 
 
@@ -295,17 +271,7 @@ async function update() {
   imageActorK.getProperty().setColorWindow(dataRange[1]);
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render();
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-
+checkStatus();
 }
 update();
 
@@ -319,6 +285,7 @@ vtkResourceLoader
 
   
  if (link_fibers !== null){
+	 uncer=1;
 const reader = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader.setUrl(link_fibers.innerHTML).then(() => {
@@ -337,21 +304,13 @@ reader.setUrl(link_fibers.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+checkStatus();
 });
  }
 
 
   if (link_fiber_samples !== null){
+	  uncer=1;
 const reader_samples_100 = vtkPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 	
@@ -370,16 +329,7 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render();  
-	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
-  }
+checkStatus();
 });
 
 
@@ -387,17 +337,13 @@ interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());
 
 
 if (link_fiber_samples_25 !== null){
+	uncer=1;
  const reader_samples_25 = vtkPolyDataReader.newInstance({ fetchGzip: true });
-
-//reader_samples_25.setUrl('https://faizansiddiqui91.github.io/Data/cow.vtp').then(() => {
 reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
 	
 	
   reader_samples_25.loadData().then(() => {
 	  
-	  
-	// reader_samples_25.Update(); 
-  
   const polydata_samples_25 = reader_samples_25.getOutputData(0);
 
   actor_samples_25.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
@@ -412,23 +358,13 @@ reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+checkStatus();
 });
 })}
 
 if (link_fiber_samples_75 !== null){
 const reader_samples_75 = vtkPolyDataReader.newInstance();
 
-const callback=vtkCallbackCommand.new();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
   const polydata_samples_75 = reader_samples_75.getOutputData(0);
@@ -444,16 +380,7 @@ reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render();
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+checkStatus();
 });
 }
 
@@ -473,10 +400,8 @@ reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
   actor1_3.getProperty().setColor(25.0 / 255.0, 180.0 / 255.0, 25.0 / 255.0);
 
   actor1_3.modified();
-
-
   actor1_3.getProperty().setOpacity(0);
-
+  
   if (document.getElementById('range_single').checked) {
     actor1_3.getProperty().setOpacity(1);
   }
@@ -487,16 +412,7 @@ reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
   renderer.resetCamera();
   //renderWindow.render();
   element_loaded++;
-    if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+checkStatus();
 });
 }
 
@@ -517,16 +433,7 @@ reader2.setUrl(link_tumor.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
-  if (det ==0 && element_loaded>4)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
-  if (det ==1 && element_loaded>3)
-  {
-	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+  checkStatus();
 });
 }
 
@@ -657,19 +564,29 @@ range_representative.addEventListener('click', function(event) {
     // container.appendChild(progressContainer);
 	
 
+function checkStatus(){
+	
+if (det ==0 && element_loaded>4 && uncer==1)
+  { load.remove();
+	renderWindow.render(); 
+interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  if (det ==1 && element_loaded>3 && uncer==0)
+   { 
+    load.remove();
+	renderWindow.render(); 
+	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  
+   if (det ==1 && uncer ==1 && element_loaded>7)
+   { 
+    load.remove();
+	renderWindow.render(); 
+	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+  }
+  
+  
+
+}
 
 
-
-
-
-// var checkBox = document.getElementById("tumor_check");
-// // Get the output text
-
-// // If the checkbox is checked, display the output text
-// if (checkBox.checked == true){
-// actor2.getProperty().setOpacity(1);
-// renderWindow.render();
-// } else {
-// actor2.getProperty().setOpacity(0);
-// renderWindow.render();
-// }
