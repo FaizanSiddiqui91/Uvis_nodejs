@@ -43,17 +43,18 @@
 								<label class="form-check-label" for="case01awakeNo"> No </label>
 							</div>
 						</fieldset>
-
-						<div class="row mb-3">
-							<label for="case01awakeWhy" class="form-label"><b>Q</b> Why?</label>
-							<textarea class="form-control" id="case01awakeWhy" rows="3" name="case01awakeWhy"></textarea>
-						</div>
 						<div class="row mb-3">
 						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
 						  <script>
 						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
 						  </script>
 						</div>
+
+						<div class="row mb-3">
+							<label for="case01awakeWhy" class="form-label"><b>Q</b> Why?</label>
+							<textarea class="form-control" id="case01awakeWhy" rows="3" name="case01awakeWhy"></textarea>
+						</div>
+
 
 						<fieldset class="row mb-3">
 							<legend class="col-form-label"><b>Q</b> How confident are you about your decision?</legend>
@@ -124,7 +125,7 @@
 							</div>
 						</fieldset>
 
-					</form>
+					<!-- </form> -->
 
 
 				</div>
@@ -195,7 +196,7 @@
 				</div>
 			</div>
 		</div>
-	</main>
+	<!-- </main> -->
 
 	
 
@@ -206,8 +207,10 @@
 			<!-- <a class="btn btn-primary" href="./index1_u3.html" id = 'random_button' role="button" type="submit">Next</a> -->
 	
 		</div>
-	</footer>
+	</footer>	
 <script src="./main.js"></script>
+</form>
+	</main>
 </body>
 
 </html>
