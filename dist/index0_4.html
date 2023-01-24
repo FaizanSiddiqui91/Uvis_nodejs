@@ -42,7 +42,7 @@
 
 			<p>Based on these representation, we would like you to answer the following questions:</p>
 
-			<form name="form" method="POST" data-netlify="true">
+			<form name="Trainingform" method="POST" action="./index1.html" data-netlify="true">
 
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> What does Figure <b>B</b> represent?</legend>
@@ -72,6 +72,12 @@
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="Dopt1" id="Dopt1" value="Yes">
 							<label class="form-check-label" for="Dopt1"> Single scan fibers </label>
+						</div>
+						<div class="row mb-3">
+						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
+						  <script>
+						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
+						  </script>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="Dopt2" id="Dopt2" value="No">
@@ -127,7 +133,8 @@
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
 			<a class="btn btn-danger" href="./index0_1.html" role="button">Back</a>
-			<a class="btn btn-primary" href="javascript:func();"  role="button">Next</a> 
+			<!-- <a class="btn btn-primary" href="javascript:func();"  role="button">Next</a>  -->
+			<button type="submit" class="btn btn-primary">Next</button>
 			
 		</div>
 	</footer>

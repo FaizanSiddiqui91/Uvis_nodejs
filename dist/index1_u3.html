@@ -33,7 +33,7 @@
 					representing <b>100%</b> of the resulting fiber variations. Based on the resulting fiber tracts, please answer the questions based on your judgements.</p>
 </p>
 
-					<form name="form" method="POST" data-netlify="true">
+					<form name="form13" method="POST" action="./index2.html"data-netlify="true">
 
 						<fieldset class="row mb-3">
 							<legend class="col-form-label"><b>Q</b> Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?</legend>
@@ -48,6 +48,12 @@
 						<div class="row mb-3">
 							<label for="case01awakeWhy" class="form-label"><b>Q</b> Why?</label>
 							<textarea class="form-control" id="case01awakeWhy" rows="3" name="case01awakeWhy"></textarea>
+						</div>
+						<div class="row mb-3">
+						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
+						  <script>
+						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
+						  </script>
 						</div>
 
 						<fieldset class="row mb-3">
@@ -194,8 +200,8 @@
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
 			<!-- <a class="btn btn-danger" href="./index1_u2.html" role="button">Back</a> -->
-			
-			<a class="btn btn-primary" href="./index2.html" id="random_button" role="button" type="submit">Next</a>
+			<button type="submit" class="btn btn-primary">Next</button>
+			<!-- <a class="btn btn-primary" href="./index2.html" id="random_button" role="button" type="submit">Next</a> -->
 		</div>
 	</footer>
 <script src="./main.js"></script>
