@@ -143,7 +143,25 @@
 	
 	<script>	
 	var randomlinks = ["index1.html", "index1_u1.html", "index1_u2.html" ,"index1_u3.html" , "index2.html" , "index2_u1.html", "index2_u2.html" , "index2_u3.html" , "index3.html" , "index3_u1.html", "index3_u2.html", "index3_u3.html" ,  "index4.html" , "index4_u1.html", "index4_u2.html" , "index4_u3.html"];
-	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+
+	
+	function getRandom(arr, n) {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
+
+	var rnd_links=getRandom(randomlinks, 8) 
+
+	sessionStorage.setItem('randomlinks', JSON.stringify(rnd_links));
 	</script>
 
 	<footer class="footer mt-auto py-3 bg-light">

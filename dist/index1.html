@@ -26,6 +26,21 @@
 			<h1>Cases</h1>
 
 			<div class="row">
+			
+	<script>
+	function func(){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	if (randomlinks.length>0){
+	window.location=randomlinks[index]; 
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	else{
+	window.location= "Thankyou.html";
+	}
+	}	
+	</script> 
 				  
 				<div class="col-12 col-md-5 order-5 order-md-1">
 					
@@ -34,7 +49,7 @@
 					<p>Here, a tumor is present in the left frontal lobe. The tracts shown in a 3D interactive view at the right are obtained by using regular fiber tracking with a single scan. 
 					Based on the resulting fiber tracts, please answer the questions based on your judgments.</p>
 					
-					<form name="form10" method="POST" action="./index1_u1.html" data-netlify="true">
+					<form name="form10" method="POST" action="javascript:func();" data-netlify="true">
 					
 						
 						<fieldset class="row mb-3">
@@ -210,8 +225,9 @@
 			
 		</div>
 	</footer>
-	<script src="./main.js"></script>
 	</form>
+	<script src="./main.js"></script>
+	
 	</main>
 </body>
 </html>

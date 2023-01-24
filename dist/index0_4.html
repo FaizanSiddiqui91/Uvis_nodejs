@@ -41,8 +41,17 @@
 			</div>
 
 			<p>Based on these representation, we would like you to answer the following questions:</p>
+			<script>
+	function func(){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	window.location=randomlinks[index];
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	</script>
 
-			<form name="Trainingform" method="POST" action="./index1.html" data-netlify="true">
+			<form name="Trainingform" method="POST" action="javascript:func();" data-netlify="true">
 
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> What does Figure <b>B</b> represent?</legend>
@@ -120,15 +129,7 @@
 		</div>
 	</main>
 	
-	<script>
-	function func(){
-	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
-	const index=Math.floor(Math.random()*randomlinks.length) 
-	window.location=randomlinks[index];
-	var r=randomlinks.splice(index,1);   
-	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
-	}
-	</script>
+	
 
 	<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">

@@ -25,6 +25,20 @@
 			<h1>Cases</h1>
 			
 			<div class="row">
+				<script>
+	function func(){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	if (randomlinks.length>0){
+	window.location=randomlinks[index]; 
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	else{
+	window.location= "Thankyou.html";
+	}
+	}	
+	</script> 
 				
 				<div class="col-12 col-md-5 order-5 order-md-1">
 					
@@ -32,7 +46,7 @@
 					<p>A Tumor is present nearby the Corticospinal tract. The tracts shown in a 3D interactive view at the right are obtained by using regular fiber tracking with a single scan. 
 					Based on the resulting fiber tracts, please answer the questions based on your judgments.</p>
 					
-					<form name="form20" method="POST" action="./index2_u1.html" data-netlify="true">
+					<form name="form20" method="POST" action="javascript:func();" data-netlify="true">
 						
 						<fieldset class="row mb-3">
 							<legend class="col-form-label"><b>Q</b> Based on the resulting fiber tracts, do you think the margins are enough to choose the awake procedure for the tumor resection surgery?</legend>

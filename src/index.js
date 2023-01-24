@@ -78,6 +78,28 @@ import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
 	// }
     // });
    // }
+   
+      // const button_el=document.getElementById('form')
+   
+   
+	// var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
+	// const index=Math.floor(Math.random()*randomlinks.length)
+	// if (randomlinks.length>0){
+	// button_el.setAttribute("action", randomlinks[index]); 
+	// var r=randomlinks.splice(index,1);   
+	// sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	// // alert(randomlinks);
+	// }
+	// else{
+	// button_el.setAttribute("action", "./Thankyou.html");
+	// }
+    
+
+				  
+				  
+   
+   
+   
 
 
 

@@ -40,7 +40,14 @@
 			}		 
 			</script>
 			
-			<form name="intro" method="POST" action="./index0.html" data-netlify="true">
+				<script>
+	function func(){
+
+	window.location= "index0.html";
+	}	
+	</script> 
+			
+			<form name="intro" method="POST" action="javascript:func();" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
 					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
@@ -94,7 +101,7 @@
 			<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
 			 <!-- <a class="btn btn-primary" href="./index0.html" role="button" type="submit">Next</a>  -->
-			<button type="submit" class="btn btn-primary">Next</button>
+			<button type="submit" class="btn btn-primary" href="./index0.html" >Next</button>
 
 		</div>
 		
