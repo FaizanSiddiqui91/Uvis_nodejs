@@ -36,8 +36,8 @@
 			<form name="uform" method="POST" action="./index0.html" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
-					<input type="text" class="form-control" placeholder="Name" aria-label="Name" name="name">
-				  </div>
+					<input type="text" class="form-control" id= "Name" placeholder="Name" aria-label="Name" name="name">
+				  </div>				 
 				  <div class="col">
 					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email">
 				  </div>
@@ -86,6 +86,9 @@
 			<button type="submit" class="btn btn-primary">Next</button>
 
 		</div>
+		<script>
+				  sessionStorage.setItem('Name', document.getElementById("name").value;);				  
+				  </script>
 	</footer>
 	</form>
 	</main>
