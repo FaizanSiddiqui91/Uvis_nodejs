@@ -144,6 +144,11 @@
 	<script>	
 	var randomlinks = ["index1.html", "index1_u1.html", "index1_u2.html" ,"index1_u3.html" , "index2.html" , "index2_u1.html", "index2_u2.html" , "index2_u3.html" , "index3.html" , "index3_u1.html", "index3_u2.html", "index3_u3.html" ,  "index4.html" , "index4_u1.html", "index4_u2.html" , "index4_u3.html"];
 
+	var case1=["index1.html", "index1_u1.html", "index1_u2.html" ,"index1_u3.html"];
+	var case2=["index2.html" , "index2_u1.html", "index2_u2.html" , "index2_u3.html"];
+	var case3=["index3.html" , "index3_u1.html", "index3_u2.html", "index3_u3.html"];
+	var case4=["index4.html" , "index4_u1.html", "index4_u2.html" , "index4_u3.html"];
+	var myarr=[""];
 	
 	function getRandom(arr, n) {
     var result = new Array(n),
@@ -158,10 +163,11 @@
     }
     return result;
 }
+     
 
-	var rnd_links=getRandom(randomlinks, 8) 
+const d = [].concat(getRandom(case1, 2), getRandom(case2, 2), getRandom(case3, 2), getRandom(case4, 2));
 
-	sessionStorage.setItem('randomlinks', JSON.stringify(rnd_links));
+	sessionStorage.setItem('randomlinks', JSON.stringify(d));
 	</script>
 
 	<footer class="footer mt-auto py-3 bg-light">
