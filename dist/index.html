@@ -32,16 +32,35 @@
 				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects
 				the decision-making process in surgical planning.
 			</p>
+								<script>
+
+function myFunction() {
+  var x = document.getElementById('Names').value;
+  sessionStorage.setItem('Name', document.getElementById("Names").value);
+  <!-- alert("The input value has changed. The new value is: " + x); --> 
+}
+		
+		
+		<!-- function name() -->
+		<!-- { -->
+		<!-- sessionStorage.setItem('Name', document.getElementById("Name").value); -->
+<!-- alert (document.getElementById("Name").value)	 -->
+<!-- }	 -->
+		</script>
 			
-			<form name="uform" method="POST" action="./index0.html" data-netlify="true">
+			<form name="uform" method="GET" action="./index0.html" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
-					<input type="text" class="form-control" id= "Name" placeholder="Name" aria-label="Name" name="name">
+					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
+
+		
 				  </div>				 
 				  <div class="col">
 					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email">
 				  </div>
 				</div>
+						
+		
 				
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> Have you ever used tractography in your clinical practice?</legend>
@@ -87,22 +106,7 @@
 
 		</div>
 		
-		<script>
-		document.getElementById("Name").addEventListener("change", myFunction());
 
-
-function myFunction() {
-  var x = document.getElementById("Name").value;
-  alert("The input value has changed. The new value is: " + x);
-}
-		
-		
-		<!-- function name() -->
-		<!-- { -->
-		<!-- sessionStorage.setItem('Name', document.getElementById("Name").value); -->
-<!-- alert (document.getElementById("Name").value)	 -->
-<!-- }	 -->
-		</script>
 		
 	</footer>
 	</form>

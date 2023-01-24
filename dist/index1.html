@@ -24,9 +24,11 @@
 		<div class="container">
 			
 			<h1>Cases</h1>
-			
+			<script>
+			alert(sessionStorage.getItem("Name"));
+			</script>
 			<div class="row">
-				
+				  
 				<div class="col-12 col-md-5 order-5 order-md-1">
 					
 					<p>In the this section you will be presented some test cases and we would like you to answer the questions in relation to each case.</p>
@@ -47,9 +49,14 @@
 							</div>
 						</fieldset>
 						
+
 						<div class="row mb-3">
 						  <label for="case00awakeWhy" class="form-label"><b>Q</b> Why?</label>
 						  <textarea class="form-control" id="case00awakeWhy" rows="3" name="case00awakeWhy"></textarea>
+						</div>
+						
+						<div class="row mb-3">
+						  <textarea class="form-control" id="case00Name" rows="3" name="case00Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
 						</div>
 						
 						<fieldset class="row mb-3">
