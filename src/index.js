@@ -587,13 +587,12 @@ range_representative.addEventListener('click', function(event) {
 	
 
 function checkStatus(){
-	// alert (element_loaded)
-if (det ==0 && element_loaded>4 && uncer==1)
+if (det ==0 && element_loaded>3 && uncer==1)
   { load.remove();
 	renderWindow.render(); 
-interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
-  if (det ==1 && element_loaded>3 && uncer==0)
+  if (det ==1 && element_loaded>2 && uncer==0)
    { 
     load.remove();
 	renderWindow.render(); 
