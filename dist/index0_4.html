@@ -61,19 +61,26 @@
 							<label class="form-check-label" for="Bopt1"> Single scan fibers </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Bopt2" id="Bopt2" value="No">
-							<label class="form-check-label" for="Bopt2"> Representative fibers plus variance until 25%</label>
+							<input class="form-check-input" type="radio" name="Bopt1" id="Bopt2" value="No">
+							<label class="form-check-label" for="Bopt1"> Representative fibers plus variance until 25%</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Bopt3" id="Bopt3" value="No">
-							<label class="form-check-label" for="Bopt3"> Representative fibers plus variance until 75% </label>
+							<input class="form-check-input" type="radio" name="Bopt1" id="Bopt3" value="No">
+							<label class="form-check-label" for="Bopt1"> Representative fibers plus variance until 75% </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Bopt4" id="Bopt4" value="No">
-							<label class="form-check-label" for="Bopt4"> Representative fibers plus plus variance until 100% </label>
+							<input class="form-check-input" type="radio" name="Bopt1" id="Bopt4" value="No">
+							<label class="form-check-label" for="Bopt1"> Representative fibers plus plus variance until 100% </label>
 						</div>
 					</div>
 				</fieldset>
+				
+				<div class="row mb-3">
+						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
+						  <script>
+						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
+						  </script>
+				</div>
 
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> What does Figure <b>D</b> represent?</legend>
@@ -82,23 +89,18 @@
 							<input class="form-check-input" type="radio" name="Dopt1" id="Dopt1" value="Yes">
 							<label class="form-check-label" for="Dopt1"> Single scan fibers </label>
 						</div>
-						<div class="row mb-3">
-						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
-						  <script>
-						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
-						  </script>
+						
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="Dopt1" id="Dopt2" value="No">
+							<label class="form-check-label" for="Dopt1"> Representative fibers plus variance until 25% </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Dopt2" id="Dopt2" value="No">
-							<label class="form-check-label" for="Dopt2"> Representative fibers plus variance until 25% </label>
+							<input class="form-check-input" type="radio" name="Dopt1" id="Dopt3" value="No">
+							<label class="form-check-label" for="Dopt1"> Representative fibers plus variance until 75% </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Dopt3" id="Dopt3" value="No">
-							<label class="form-check-label" for="Dopt3"> Representative fibers plus variance until 75% </label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="Dopt4" id="Dopt4" value="No">
-							<label class="form-check-label" for="Dopt4"> Representative fibers plus plus variance until 100% </label>
+							<input class="form-check-input" type="radio" name="Dopt1" id="Dopt4" value="No">
+							<label class="form-check-label" for="Dopt1"> Representative fibers plus plus variance until 100% </label>
 						</div>
 					</div>
 				</fieldset>
@@ -111,16 +113,16 @@
 							<label class="form-check-label" for="IMGopt1"> Single scan fibers </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="IMGopt2" id="IMGopt2" value="No">
-							<label class="form-check-label" for="IMGopt2"> Representative fibers plus 25% variance visualization </label>
+							<input class="form-check-input" type="radio" name="IMGopt1" id="IMGopt2" value="No">
+							<label class="form-check-label" for="IMGopt1"> Representative fibers plus 25% variance visualization </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="IMGopt3" id="IMGopt3" value="No">
-							<label class="form-check-label" for="IMGopt3"> Representative fibers plus 75% variance visualization </label>
+							<input class="form-check-input" type="radio" name="IMGopt1" id="IMGopt3" value="No">
+							<label class="form-check-label" for="IMGopt1"> Representative fibers plus 75% variance visualization </label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="IMGopt4" id="IMGopt4" value="No">
-							<label class="form-check-label" for="IMGopt4"> Representative fibers plus 100% variance visualization </label>
+							<input class="form-check-input" type="radio" name="IMGopt1" id="IMGopt4" value="No">
+							<label class="form-check-label" for="IMGopt1"> Representative fibers plus 100% variance visualization </label>
 						</div>
 					</div>
 				</fieldset>

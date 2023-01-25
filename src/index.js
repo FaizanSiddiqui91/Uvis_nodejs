@@ -308,7 +308,7 @@ vtkResourceLoader
   
  if (link_fibers !== null){
 	 uncer=1;
-const reader = vtkPolyDataReader.newInstance();
+const reader = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader.setUrl(link_fibers.innerHTML).then(() => {
   const polydata = reader.getOutputData(0);
@@ -333,7 +333,7 @@ checkStatus();
 
   if (link_fiber_samples !== null){
 	  uncer=1;
-const reader_samples_100 = vtkPolyDataReader.newInstance();
+const reader_samples_100 = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 	
 reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
@@ -360,7 +360,7 @@ checkStatus();
 
 if (link_fiber_samples_25 !== null){
 	uncer=1;
- const reader_samples_25 = vtkPolyDataReader.newInstance({ fetchGzip: true });
+ const reader_samples_25 = vtkXMLPolyDataReader.newInstance({ fetchGzip: true });
 reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
 	
 	
@@ -385,7 +385,8 @@ checkStatus();
 })}
 
 if (link_fiber_samples_75 !== null){
-const reader_samples_75 = vtkPolyDataReader.newInstance();
+	uncer=1;
+const reader_samples_75 = vtkXMLPolyDataReader.newInstance();
 
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
@@ -398,7 +399,7 @@ reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
 
   renderer.addActor(actor_samples_75);
 
-  renderer.resetCamera();
+  // renderer.resetCamera();
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
@@ -411,7 +412,7 @@ checkStatus();
 let det=0;
 if (link_deterministic !== null){
 	 det=1;
-const reader1_3 = vtkPolyDataReader.newInstance();
+const reader1_3 = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
 	
@@ -536,7 +537,6 @@ const range_100=document.getElementById("range_100");
 if (range_100 !== null){
 range_100.addEventListener('click', function(event) {
   if (event.target && event.target.matches("input[type='radio']")) {
-
     actor_samples_25.getProperty().setOpacity(0);
     actor_samples_75.getProperty().setOpacity(0);
     actor_samples_100.getProperty().setOpacity(0.2);
@@ -599,7 +599,7 @@ if (det ==0 && element_loaded>3 && uncer==1)
 	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
   
-   if (det ==1 && uncer ==1 && element_loaded>7)
+   if (det ==1 && uncer ==1 && element_loaded>6)
    { 
     load.remove();
 	renderWindow.render(); 

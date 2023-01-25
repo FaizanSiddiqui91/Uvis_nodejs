@@ -10,6 +10,7 @@
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="radio.css">
 
 	<title>
 		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
@@ -148,13 +149,13 @@
 					<div class="row pad-bottom">
 										
 						<div id="link_deterministic" style="display:none;"> 
-						https://dl.dropboxusercontent.com/s/ye8ppsen64s6l3u/deterministic.vtk
+						https://dl.dropboxusercontent.com/s/vpunf22vcfaa42b/deterministic.vtp
 						</div>						
 						<div id="link_tumor" style="display:none;"> 
-						https://dl.dropboxusercontent.com/s/kvz1xopvck8ilq5/Tumor.vtk
+						https://dl.dropboxusercontent.com/s/npxh2uvpgj0q073/Tumor.vtk
 						</div>
 						<div id="link_data" style="display:none;"> 
-						https://dl.dropboxusercontent.com/s/g1bsvitres8paq7/T1_dwireg_fullsize_mha.mha
+						https://dl.dropboxusercontent.com/s/csj5mr8v98lucfi/T1_dwireg_fullsize_mha.mha
 						</div>	
 						<!-- <div class="loader"></div>  -->
 						<div class='render'></div>
@@ -180,6 +181,18 @@
 						  <label class="form-check-label" for="tumor_check">Show tumor</label>
 						</div>
 					</div>
+						<div class="row row-cols-4 pad-bottom">
+						<div class="col">
+						</div>
+						<div class="col">
+						<label>
+							<input type="radio" class="class_img" name="range" id="range_single" value="25" checked>
+							<img src="single_scan_icon.png" alt="single scan" class="radio-img">
+						</label>
+						</div>
+						<div class="col">
+						</div>						
+						</div>
 				</div>
 			</div>			
 		</div>
