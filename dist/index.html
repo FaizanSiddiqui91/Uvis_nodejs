@@ -43,11 +43,13 @@
 				<script>
 	function func(){
 
-	window.location= "./index0";
+	//window.location= "./index0";
+	const button_el=document.getElementById('form')
+	button_el.setAttribute("action", './index0');
 	}	
 	</script> 
 			
-			<form name="intro" method="POST" action="javascript:func();" data-netlify="true" netlify-honeypot="bot-field">
+			<form name="intro" id="form" method="POST" action="./index0" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
 					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
