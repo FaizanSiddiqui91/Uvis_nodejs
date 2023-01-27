@@ -587,7 +587,6 @@ range_representative.addEventListener('click', function(event) {
 	
 
 function checkStatus(){
-	// alert (element_loaded)
 if (det ==0 && element_loaded>3 && uncer==1)
   { load.remove();
 	renderWindow.render(); 
