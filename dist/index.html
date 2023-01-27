@@ -54,16 +54,18 @@
 
 
  
-			<form name="intro" method="POST" id="form"  action="./index0.html" data-netlify="true">
+			<form name="intro" method="POST" id="form"  data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
 					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
 
-						<!-- <script> -->
-	<!-- <!-- const el=document.getElementById('form') --> 
+						<script>
+	const el=document.getElementById('form').action= "./index0.html";	
 	<!-- const el =document.querySelector("#form"); -->
 	<!-- el.setAttribute("action", "./index0.html"); 	   -->
- <!-- </script>  -->
+  </script> 
+ 
+ 
 				  </div>				 
 				  <div class="col">
 					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email">
