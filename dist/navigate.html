@@ -6,8 +6,26 @@
      <meta charset="UTF-8" />
      <meta name = "nav" http-equiv="refresh" content="0; URL=./index0.html" />
 	 <script>
-	 a="index0.html"
+	 <!-- a="index0.html" -->
+	 
+	
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	if (randomlinks.length>0){
+	a=randomlinks[index]; 
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	else{
+	window.location= "Thankyou.html";
+	}
+	
+	
 	 document.querySelector('meta[name="nav"]').setAttribute("content", "0; URL=./"+a);
+	 
+
+	
+	
 	 </script>
    </head>
    <body>
