@@ -40,30 +40,30 @@
 			}		 
 			</script>
 			
-				<!-- <script> -->
-	<!-- function func(){ -->
+				<script>
+	function func(){
 
-	<!-- //window.location= "index0.html"; -->
-	<!-- const button_el=document.getElementById('form') -->
-	<!-- button_el.setAttribute("action", 'index0.html');  -->
+	//window.location= "index0.html";
+	const button_el=document.getElementById('form')
+	button_el.setAttribute("action", 'index0.html'); 
 	
-	<!-- }	 -->
+	}	
 	  
-	<!-- </script>  -->
+	</script> 
 			<!-- action="javascript:func();" -->
 
 
  
-			<form name="intro" method="POST" id="form"  action="./index0.html" data-netlify="true">
+			<form name="intro" method="POST" id="form"  action="javascript:func();" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
 					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
 
-	<script>
-	<!-- const el=document.getElementById('form')  -->
-	const el =document.querySelector("#form");
-	el.setAttribute("action", "./index0.html"); 	  
-	<!-- </script> 
+	<!-- <script> -->
+	<!-- <!-- const el=document.getElementById('form')  --> -->
+	<!-- const el =document.querySelector("#form"); -->
+	<!-- el.setAttribute("action", "./index0.html"); 	   -->
+	 <!-- </script>  -->
  
  
 				  </div>				 
