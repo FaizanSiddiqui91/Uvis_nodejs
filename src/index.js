@@ -119,7 +119,11 @@ const link_data = document.getElementById('link_data')
 const link_fiber_samples_25 = document.getElementById('link_fiber_samples_25');
 const link_fiber_samples_75 = document.getElementById('link_fiber_samples_75');
 
+let tr=0;
+if ((link_deterministic!==null) &&(link_fiber_samples!==null) )
+{tr=1;}
 
+let data=0;
 
 const back = [0.9, 0.9, 0.9]
 
@@ -293,6 +297,7 @@ async function update() {
   imageActorK.getProperty().setColorWindow(dataRange[1]);
   //renderWindow.render();
   element_loaded++;
+  data=1;
 checkStatus();
 }
 update();
@@ -307,7 +312,7 @@ vtkResourceLoader
 
   
  if (link_fibers !== null){
-	 uncer=1;
+	 //uncer=1;
 const reader = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader.setUrl(link_fibers.innerHTML).then(() => {
@@ -330,9 +335,9 @@ checkStatus();
 });
  }
 
-
+let uncer_100=0;
   if (link_fiber_samples !== null){
-	  uncer=1;
+	  
 const reader_samples_100 = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 	
@@ -351,6 +356,8 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
+  uncer=1;
+  uncer_100=1;
 checkStatus();
 });
 
@@ -359,7 +366,7 @@ checkStatus();
 
 
 if (link_fiber_samples_25 !== null){
-	uncer=1;
+	
  const reader_samples_25 = vtkXMLPolyDataReader.newInstance({ fetchGzip: true });
 reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
 	
@@ -380,12 +387,13 @@ reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
+  uncer=1;
 checkStatus();
 });
 })}
 
 if (link_fiber_samples_75 !== null){
-	uncer=1;
+	
 const reader_samples_75 = vtkXMLPolyDataReader.newInstance();
 
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
@@ -403,6 +411,7 @@ reader_samples_75.setUrl(link_fiber_samples_75.innerHTML).then(() => {
   //renderer.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
+  uncer=1;
 checkStatus();
 });
 }
@@ -411,7 +420,7 @@ checkStatus();
 
 let det=0;
 if (link_deterministic !== null){
-	 det=1;
+	 
 const reader1_3 = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
@@ -435,6 +444,7 @@ reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
   renderer.resetCamera();
   //renderWindow.render();
   element_loaded++;
+  det=1;
 checkStatus();
 });
 }
@@ -587,24 +597,24 @@ range_representative.addEventListener('click', function(event) {
 	
 
 function checkStatus(){
-if (det ==0 && element_loaded>3 && uncer==1)
+if (det ==0 && uncer==1 && tr==0 && data==1)
   { load.remove();
 	renderWindow.render(); 
 	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
-  if (det ==1 && element_loaded>2 && uncer==0)
+  if (det ==1 && uncer==0 && tr==0 && data==1)
    { 
     load.remove();
 	renderWindow.render(); 
 	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
   
-   if (det ==1 && uncer ==1 && element_loaded>6)
-   { 
-    load.remove();
-	renderWindow.render(); 
-	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
-  }
+    if (tr==1 && uncer_100==1 && data==1)
+    { 
+     load.remove();
+	 renderWindow.render(); 
+	 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
+   }
   
   
 
