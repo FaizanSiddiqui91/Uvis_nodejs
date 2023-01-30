@@ -57,7 +57,7 @@
 			<form name="intro" method="POST" id="form"  action="/index0" data-netlify="true">
 				<div class="row mb-3">
 				  <div class="col">
-					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name">
+					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name" required>
 
 	<!-- <script> -->
 	<!-- <!-- const el=document.getElementById('form')  --> 
@@ -68,7 +68,7 @@
  
 				  </div>				 
 				  <div class="col">
-					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email">
+					<input type="email" class="form-control" placeholder="E-mail address" aria-label="E-mail address" name="email" required>
 				  </div>
 				</div>
 						
@@ -77,9 +77,9 @@
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> Have you ever used tractography in your clinical practice?</legend>
 					<div class="col-sm-10">
-						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractYes" value="Yes">
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractYes" value="Yes" required>
 						<label class="form-check-label" for="radioUsedTractYes"> Yes </label>
-						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractNo" value="No">
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractNo" value="No" required>
 						<label class="form-check-label" for="radioUsedTractNo"> No </label>
 					</div>
 				</fieldset>
@@ -97,16 +97,16 @@
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> Do you think that the use of tractography can potentially change the clinical decision-making?</legend>
 					<div class="col-sm-10">
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes">
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes" required>
 						<label class="form-check-label" for="radioCanChangeYes"> Yes </label>
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No">
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No" required>
 						<label class="form-check-label" for="radioCanChangeNo"> No </label>
 					</div>
 				</fieldset>
 				
 				<div class="row mb-3">
 				  <label for="textWhyChange" class="form-label"><b>Q</b> Why?</label>
-				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why"></textarea>
+				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why" required></textarea>
 				</div>
 	
 
