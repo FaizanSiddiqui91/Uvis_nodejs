@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<title>
+		Evaluating Uncertainty Visualization in Clinical Decision Making
+	</title>
+
+</head>
+
+<body>
+
+	<main class="flex-shrink-0">
+		<div class="container">
+
+			<h1>Evaluation: Effect of uncertainty visualization in clinical decision making</h1>
+
+			<p>
+				<b>Introduction:</b>
+				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that
+				add non-uniform variations.<br>
+				In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow.
+				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects
+				the decision-making process in surgical planning.
+			</p>
+					
+			
+			<script>
+
+			function myFunction() {
+			var x = document.getElementById('Names').value;
+			sessionStorage.setItem('Name', document.getElementById("Names").value);
+			}		 
+			</script>
+			
+				<script>
+	function func(){
+
+	window.location= "navigate.html";
+	<!-- const button_el=document.getElementById('form') -->
+	<!-- button_el.setAttribute("action", 'index0.html');  -->
+	
+	}	
+	  
+	</script> 
+			<!-- action="javascript:func();" -->
+
+	<form name="intro" method="POST" id="form"  action="/index0" data-netlify="true">
+				<div class="row mb-3">
+				  <div class="col">
+					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name" required>
+
+	<!-- <script> -->
+	<!-- <!-- const el=document.getElementById('form')  --> 
+	<!-- const el =document.querySelector("#form"); -->
+	<!-- el.setAttribute("action", "./index0.html"); 	   -->
+	 <!-- </script>  -->
+ 
+ 
+				  </div>				 
+				  <div class="col">
+					<input type="email" class="form-control" placeholder="E-mail address (optional)" aria-label="E-mail address" name="email">
+				  </div>
+				</div>
+						
+		
+				
+				<fieldset class="row mb-3">
+					<legend class="col-form-label"><b>Q</b> Have you ever used tractography in your clinical practice?</legend>
+					<div class="col-sm-10">
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractYes" value="Yes" required>
+						<label class="form-check-label" for="radioUsedTractYes"> Yes </label>
+						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractNo" value="No" required>
+						<label class="form-check-label" for="radioUsedTractNo"> No </label>
+					</div>
+				</fieldset>
+				
+				<div class="row mb-3">
+				  <label for="usedYears" class="form-label"><b>Q</b> If yes, for how many years have you been using tractography?</label>
+				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes">
+				</div>
+				
+				<div class="row mb-3">
+				  <label for="textNotUsed" class="form-label"><b>Q</b> If no, what are the reasons for you to not use tractography?</label>
+				  <textarea class="form-control" id="textNotUsed" rows="3" name="tractography_no"></textarea>
+				</div>
+
+				<fieldset class="row mb-3">
+					<legend class="col-form-label"><b>Q</b> Do you think that the use of tractography can potentially change the clinical decision-making?</legend>
+					<div class="col-sm-10">
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes" required>
+						<label class="form-check-label" for="radioCanChangeYes"> Yes </label>
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No" required>
+						<label class="form-check-label" for="radioCanChangeNo"> No </label>
+					</div>
+				</fieldset>
+				
+				<div class="row mb-3">
+				  <label for="textWhyChange" class="form-label"><b>Q</b> Why?</label>
+				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why" required></textarea>
+				</div>
+	
+
+		</div>
+			<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			 <!-- <a class="btn btn-primary" href="./index0.html" role="button" type="submit">Next</a>  -->
+			 <a class="btn btn-danger" href="./index.html" role="button">Back</a>
+			<button type="submit" class="btn btn-primary" href="./index0.html" >Next</button>
+
+		</div>
+		
+
+		
+	</footer>
+	</form>
+	</main>
+
+
+
+</body>
+
+</html>

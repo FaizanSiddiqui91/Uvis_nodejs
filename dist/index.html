@@ -25,96 +25,138 @@
 			<h1>Evaluation: Effect of uncertainty visualization in clinical decision making</h1>
 
 			<p>
-				<b>Introduction:</b>
-				Tractography on DTI data reconstructs the white matter structure, however, the results are sensitive to multiple sources of error that
-				add non-uniform variations.<br>
-				In our work, we show the possible variations that a fiber tract can have due to the uncertainty involved in the workflow.
-				The goal of this evaluation is to find out whether showing the possible variations due to uncertainty affects
-				the decision-making process in surgical planning.
-			</p>
-			<script>
+				
+				You are being invited to participate in a research study titled effect of white matter uncertainty visualization in neurosurgical decision making. 
+				This study is being done by a PhD candidate, Faizan Siddiqui from the TU Delft, Department of Electrical Engineering, Mathematics and Computer 
+				Science. 
+				
+				<br>
+				<br>
+The purpose of this research study is to analyze whether the uncertainty visualization in fiber tracking affects decision-making in clinical workflow. 
+The outcome of this evaluation will be anonymously included in a paper. We will be providing several clinical cases of tumor resection surgery and present fiber 
+tracking results with and without uncertainty information via this interactive web-tool. We then ask you to answer questions based on the given results.
+<br> 
+<br> 
+As with any online activity, the risk of a breach is always possible. To the best of our ability, your answers in this study will remain confidential. We will minimize the risk by not storing any personal information.
+<br>Your participation in this study is entirely voluntary, and you can withdraw at any time.
+<br> You are free to omit any questions. If you want to remove your entry from the evaluation, please let us know within a week. For further queries / complaints please contact:
+<br>
+<br>
+Faizan Siddiqui
+<br>
+F.p.siddiqui@tudelft.nl
 
-			function myFunction() {
-			var x = document.getElementById('Names').value;
-			sessionStorage.setItem('Name', document.getElementById("Names").value);
-			}		 
-			</script>
+<br> 
+<br> 
+			<!-- <form action="submit_form.php" method="post"> -->
+ 
+  <!-- <p> -->
+    <!-- Please read the following terms and conditions carefully. -->
+  <!-- </p> -->
+  <!-- <textarea rows="10" cols="50"> -->
+  <!-- I have read and understood the study information dated [DD/MM/YYYY]. I have been able to ask questions about the study and my questions have been answered to my satisfaction.  -->
+  
+  <!-- </textarea> -->
+  <!-- <br> -->
+  <!-- <input type="checkbox" name="terms" required> I have read and accept the terms and conditions. -->
+
+<!-- </form>	 -->
+
+
+
+
+
+				
 			
-				<script>
+			<p>
+				<b>Note:</b>
+				<ul>
+				<li>Before starting the evaluation we would like to ask you to <button id="termsBtn">Accept Terms and Conditions</button>. </li>
+				<div id="termsModal" style="display:none">
+  
+  				<script>
 	function func(){
 
-	window.location= "navigate.html";
-	<!-- const button_el=document.getElementById('form') -->
-	<!-- button_el.setAttribute("action", 'index0.html');  -->
-	
+	window.location= "index00.html";
 	}	
 	  
 	</script> 
-			<!-- action="javascript:func();" -->
+  
+  <form name="consent" method="post" action="javascript:func()">
+  <div>
+    <p>
+	<br>
+      Please read the following terms and conditions carefully.
+    </p>
+    <textarea rows="10" cols="80" readonly>	
+A: GENERAL AGREEMENT – RESEARCH GOALS, PARTICPANT TASKS AND VOLUNTARY PARTICIPATION	
 
-
+1. I have read and understood the study information. I have been able to ask questions about the study and my questions have been answered to my satisfaction. 
  
-			<form name="intro" method="POST" id="form"  action="/index0" data-netlify="true">
-				<div class="row mb-3">
-				  <div class="col">
-					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name" aria-label="Name" name="name" required>
+2. I consent voluntarily to be a participant in this study and understand that I can refuse to answer questions and I can withdraw from the study at any time, without having to give a reason. 
 
-	<!-- <script> -->
-	<!-- <!-- const el=document.getElementById('form')  --> 
-	<!-- const el =document.querySelector("#form"); -->
-	<!-- el.setAttribute("action", "./index0.html"); 	   -->
-	 <!-- </script>  -->
- 
- 
-				  </div>				 
-				  <div class="col">
-					<input type="email" class="form-control" placeholder="E-mail address (optional)" aria-label="E-mail address" name="email">
-				  </div>
-				</div>
-						
-		
-				
-				<fieldset class="row mb-3">
-					<legend class="col-form-label"><b>Q</b> Have you ever used tractography in your clinical practice?</legend>
-					<div class="col-sm-10">
-						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractYes" value="Yes" required>
-						<label class="form-check-label" for="radioUsedTractYes"> Yes </label>
-						<input class="form-check-input" type="radio" name="radioUsedTract" id="radioUsedTractNo" value="No" required>
-						<label class="form-check-label" for="radioUsedTractNo"> No </label>
-					</div>
-				</fieldset>
-				
-				<div class="row mb-3">
-				  <label for="usedYears" class="form-label"><b>Q</b> If yes, for how many years have you been using tractography?</label>
-				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes">
-				</div>
-				
-				<div class="row mb-3">
-				  <label for="textNotUsed" class="form-label"><b>Q</b> If no, what are the reasons for you to not use tractography?</label>
-				  <textarea class="form-control" id="textNotUsed" rows="3" name="tractography_no"></textarea>
-				</div>
-
-				<fieldset class="row mb-3">
-					<legend class="col-form-label"><b>Q</b> Do you think that the use of tractography can potentially change the clinical decision-making?</legend>
-					<div class="col-sm-10">
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes" required>
-						<label class="form-check-label" for="radioCanChangeYes"> Yes </label>
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No" required>
-						<label class="form-check-label" for="radioCanChangeNo"> No </label>
-					</div>
-				</fieldset>
-				
-				<div class="row mb-3">
-				  <label for="textWhyChange" class="form-label"><b>Q</b> Why?</label>
-				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why" required></textarea>
-				</div>
+3. I understand that taking part in the study involves an online survey questionnaire which needs to be completed by the participant. 
 	
+B: POTENTIAL RISKS OF PARTICIPATING (INCLUDING DATA PROTECTION)
 
-		</div>
+4. I understand that personal information collected about me that can identify me, such as [e.g. my name], will not be shared beyond the study team. 
+
+5. I understand that the (identifiable) personal data I provide will be destroyed in 3 months of the study.
+
+C: RESEARCH PUBLICATION, DISSEMINATION AND APPLICATION
+
+6. I understand that after the research study the de-identified information I provide will be used anonymously in a paper publication. 
+
+7. I agree that my responses, views or other input can be quoted anonymously in research outputs
+
+D: (LONGTERM) DATA STORAGE, ACCESS AND REUSE
+
+8. I give permission for the de-identified responses that I provide to be archived in https://faizansiddiqui91.github.io/SurveyData so it can be used for future research and learning. 
+ 
+	</textarea>
+    <br>
+    <input type="checkbox" name="terms" required> I have read and accept the terms and conditions.
+	<br>
+	<!-- <input type="submit" value="Submit"> -->
+    <!-- <button id="closeBtn">Close</button> -->
+  </div>
+</div>
+
+<script>
+  const termsBtn = document.querySelector("#termsBtn");
+  const termsModal = document.querySelector("#termsModal");
+  const closeBtn = document.querySelector("#closeBtn");
+
+  termsBtn.addEventListener("click", function() {
+    termsModal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", function() {
+    termsModal.style.display = "none";
+  });
+</script>
+				
+				
+				
+				<li>We suggest you to use personal computers or laptops with a screen resolution of 1920 x 1080 or higher. 
+				Mobile phones or tablets are not advisable.</li>				
+				
+				<li>The recommended browsers are Chrome and Safari. Avoid using Mozilla firefox for this evaluation as it might not provide the optimal 
+				response needed for the interactions. </li>
+			 				
+				</ul>
+			
+			</p>
+			
+		
+ <br>
+ <br>
+
 			<footer class="footer mt-auto py-3 bg-light">
 		<div class="container">
-			 <!-- <a class="btn btn-primary" href="./index0.html" role="button" type="submit">Next</a>  -->
-			<button type="submit" class="btn btn-primary" href="./index4.html" >Next</button>
+			  <!-- <a class="btn btn-primary" href="./index00.html" role="button" type="submit" >Start</a>   -->
+			<!-- <button type="submit" class="btn btn-primary" href="./index00.html" >Start</button> -->
+			<button type="submit" class="btn btn-primary">Start</button>
 
 		</div>
 		
