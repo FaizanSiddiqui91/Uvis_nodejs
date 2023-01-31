@@ -37,9 +37,8 @@ The outcome of this evaluation will be anonymously included in a paper. We will 
 tracking results with and without uncertainty information via this interactive web-tool. We then ask you to answer questions based on the given results.
 <br> 
 <br> 
-As with any online activity, the risk of a breach is always possible. To the best of our ability, your answers in this study will remain confidential. We will minimize the risk by not storing any personal information.
-<br>Your participation in this study is entirely voluntary, and you can withdraw at any time.
-<br> You are free to omit any questions. If you want to remove your entry from the evaluation, please let us know within a week. For further queries / complaints please contact:
+
+ For further queries / complaints please contact:
 <br>
 <br>
 Faizan Siddiqui
@@ -69,10 +68,11 @@ F.p.siddiqui@tudelft.nl
 				
 			
 			<p>
-				<b>Note:</b>
-				<ul>
-				<li>Before starting the evaluation we would like to ask you to <button id="termsBtn">Accept Terms and Conditions</button>. </li>
-				<div id="termsModal" style="display:none">
+				
+				
+				
+				<!-- <button id="termsBtn">Accept Terms and Conditions</button>. </li> -->
+				<div id="termsModal">
   
   				<script>
 	function func(){
@@ -84,11 +84,9 @@ F.p.siddiqui@tudelft.nl
   
   <form name="consent" method="post" action="javascript:func()">
   <div>
-    <p>
-	<br>
-      Please read the following terms and conditions carefully.
-    </p>
-    <textarea rows="10" cols="80" readonly>	
+  <h3> Informed Consent</h3>
+  Before starting the evaluation we would like to ask you to read the consent form:
+    <textarea rows="6" cols="100" readonly>	
 A: GENERAL AGREEMENT – RESEARCH GOALS, PARTICPANT TASKS AND VOLUNTARY PARTICIPATION	
 
 1. I have read and understood the study information. I have been able to ask questions about the study and my questions have been answered to my satisfaction. 
@@ -112,32 +110,34 @@ C: RESEARCH PUBLICATION, DISSEMINATION AND APPLICATION
 D: (LONGTERM) DATA STORAGE, ACCESS AND REUSE
 
 8. I give permission for the de-identified responses that I provide to be archived in https://faizansiddiqui91.github.io/SurveyData so it can be used for future research and learning. 
- 
+
 	</textarea>
     <br>
-    <input type="checkbox" name="terms" required> I have read and accept the terms and conditions.
-	<br>
-	<!-- <input type="submit" value="Submit"> -->
-    <!-- <button id="closeBtn">Close</button> -->
+    <input type="checkbox" name="terms" required> I have read and understand the information that is outlined to me, and I consent to participate in the study.
+	<br>	 
+				  
+					<input type="date" placeholder="Date" aria-label="Dte" name="date" size="5" required>			 
+
   </div>
 </div>
 
-<script>
-  const termsBtn = document.querySelector("#termsBtn");
-  const termsModal = document.querySelector("#termsModal");
-  const closeBtn = document.querySelector("#closeBtn");
+<!-- <script> -->
+  <!-- const termsBtn = document.querySelector("#termsBtn"); -->
+  <!-- const termsModal = document.querySelector("#termsModal"); -->
+  <!-- const closeBtn = document.querySelector("#closeBtn"); -->
 
-  termsBtn.addEventListener("click", function() {
-    termsModal.style.display = "block";
-  });
+  <!-- termsBtn.addEventListener("click", function() { -->
+    <!-- termsModal.style.display = "block"; -->
+  <!-- }); -->
 
-  closeBtn.addEventListener("click", function() {
-    termsModal.style.display = "none";
-  });
-</script>
+  <!-- closeBtn.addEventListener("click", function() { -->
+    <!-- termsModal.style.display = "none"; -->
+  <!-- }); -->
+<!-- </script> -->
 				
 				
-				
+				<b>Note:</b>
+				<ul>
 				<li>We suggest you to use personal computers or laptops with a screen resolution of 1920 x 1080 or higher. 
 				Mobile phones or tablets are not advisable.</li>				
 				
