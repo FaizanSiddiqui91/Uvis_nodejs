@@ -32,8 +32,10 @@
 			</p>
 			<p>
 				Our simulation generates many possible variations of the same fiber tract (i.e., originated from the same seed-point). You can think about it, 
-				as perfoming the scan and tractography multiple times and capturing the variations in the results.
-				These variations in the fiber tract arises due to the underlying uncertainty sources present in the pipeline. 
+				as performing the scan and tractography multiple times consecutively for the same person and capturing the variations in the results.
+				These variations in the fiber tract arise due to underlying uncertainty sources like acquisition noise.  We can make the simile to evaluate the 
+				precision of a specific laboratory test,we perform it multiple times in the same conditions and we then analyze statistically 
+				(i.e., mean, median, error intervals … ) the results. 
 			</p>
 		
 
@@ -43,8 +45,11 @@
 						<div class="row">	
 					
 						<p class="text-left">
-							For example, in clinical laboratory, a single test is performed to get one result, e.g., 0.3 mg/L (shown with a green dot). Similarly, a fiber
-							is obtained from a single scan (shown with a green line).
+							<b>One sample:</b> A single test is performed to get one result, e.g., 0.3 mg/L. Similarly on fiber is obtained from a single scan.
+							<br>
+							<br>
+						
+							<br>
 						</p>	
 						</div>
 						
@@ -55,14 +60,12 @@
 						</div>
 					</div>
 					<div class="col-sm-12 col-md-4 align-self-end">
-						<div class="row text-center">
-						
-							As, in the clinical laboratory, a specific test is performed multiple times, and the result is determined based on a statistical mean or median (red dot).
-						
-						
-							Similarly, multiple fiber samples are obtained from our simulation. We compute the representative fiber, which is the median of the distribution
-							(red tube)
-						
+						<div class="row">		
+						<p class="text-left">
+							<b>Multiple Samples:</b> Multiple tests are performed obtaining multiple samples in same conditions. Similarly, multiple 
+							fiber samples are obtained from our simulation. We can use statistics to summarize for example compute the median or compute the 
+							representative fiber (in red)
+						</p>
 							
 						</div>
 						<div class="row pad-bottom">
@@ -72,10 +75,11 @@
 					<div class="col-sm-12 col-md-4 align-self-end">
 						<div class="row">
 						<p class="text-left">
-							A range of variance can be selected, for example, to remove the outliers. Here, 75% variance is selected for the
-							visualization from the distribution.
+							<b>Statistic intervals</b> distribution is often important to understand probable variability and remove outliers. Here,
+							75% variance (i.e., 75% chance a sample falls in the interval) is shown.
 							<br>
 							<br>
+							
 							</p>
 							
 						</div>
