@@ -22,12 +22,8 @@
 	
 	<main class="flex-shrink-0">
 		<div class="container">
-			
-			<h1>Cases</h1>
-
-			<div class="row">
-			
-	<script>
+		
+			<script>
 	function func(){
 	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
 	const index=Math.floor(Math.random()*randomlinks.length) 
@@ -40,20 +36,27 @@
 	window.location= "Thankyou.html";
 	}
 	}	
-	</script> 
+	</script>
+	
+			
+			<h1>Cases</h1>
+
+			<div class="row">
+			
+ 
 				  
 				<div class="col-12 col-md-5 order-5 order-md-1">
 					
-					<p>In the this section you will be presented some test cases and we would like you to answer the questions in relation to each case.</p>
+					
 							
-					<p>Here, a tumor is present in the left frontal lobe. The tracts shown in a 3D interactive view at the right are obtained by using regular fiber tracking with a single scan. 
-					Based on the resulting fiber tracts, please answer the questions based on your judgments.</p>
+					<p>In this case, a tumor is present in the left frontal lobe. The tracts shown in a 3D interactive view at the right are obtained by using regular fiber tracking with a single scan. 
+					Based on this visualization, please answer the questions based on your judgments.</p>
 					
 					<form name="form10" method="POST" action="/navigate" data-netlify="true">
 					
 						
 						<fieldset class="row mb-3">
-							<legend class="col-form-label"><b>Q</b> Based on the resulting fiber tracts, do you think the margins indicate that an awake procedure for the tumor resection surgery is needed?</legend>
+							<legend class="col-form-label"><b>Q</b> Based on this visualization, do you think the margins indicate that an awake procedure for the tumor resection surgery is needed?</legend>
 							<div class="col-sm-10">
 								<input class="form-check-input" type="radio" name="case00awake" id="case00awakeYes" value="Yes" required>
 								<label class="form-check-label" for="case00awakeYes"> Yes </label>
