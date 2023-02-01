@@ -146,7 +146,16 @@ renderWindow.addView(openglRenderWindow);
 var load = document.createElement('div');
 load.classList.add("loader");
  
+var load_text = document.createElement('div');
+load_text.classList.add("loader_text");
+load_text.style.textAlign = "center"
+load_text.innerHTML = 'Downloading data...<br><br>Please wait for the interactor to be loaded. <br> It might take few minutes...';
 
+var load_text_bottom = document.createElement('div');
+load_text_bottom.classList.add("loader_text_bottom");
+load_text_bottom.style.textAlign = "center"
+load_text_bottom.style.fontSize = "small";
+load_text_bottom.innerHTML = 'Please refresh the page if the loading takes <br> more than 5 minutes or the data is not properly loaded..';
 
 const container = document.createElement('div');
 //container.style.zIndex = "5";
@@ -156,6 +165,8 @@ container.style.paddingLeft = "5%";
 //container.style.left="5%"
 //container.style.right="50%" 
 container.appendChild(load);
+container.appendChild(load_text);
+container.appendChild(load_text_bottom);
 document.querySelector('.render').appendChild(container);
 openglRenderWindow.setContainer(container);
 
@@ -599,12 +610,17 @@ range_representative.addEventListener('click', function(event) {
 function checkStatus(){
 if (det ==0 && uncer==1 && tr==0 && data==1)
   { load.remove();
+	load_text.remove();
+	load_text_bottom.remove();
 	renderWindow.render(); 
 	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
   if (det ==1 && uncer==0 && tr==0 && data==1)
    { 
     load.remove();
+	load_text.remove();
+	load_text_bottom.remove();
+	
 	renderWindow.render(); 
 	interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
   }
@@ -612,6 +628,8 @@ if (det ==0 && uncer==1 && tr==0 && data==1)
     if (tr==1 && uncer_100==1 && data==1)
     { 
      load.remove();
+	 load_text.remove();
+	 load_text_bottom.remove();
 	 renderWindow.render(); 
 	 interactor.setInteractorStyle(vtkInteractorStyleTrackballCamera.newInstance());	
    }
