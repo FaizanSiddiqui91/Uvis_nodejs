@@ -641,7 +641,7 @@ if (det ==0 && uncer==1 && tr==0 && data==1)
 var txt = document.getElementById('case_text');
 			var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
 			const number = 8-randomlinks.length;
-			txt.innerHTML += ' '+ number+' out of 8';
+			txt.innerHTML = 'Case '+ number+' out of 8';
 
 
 
@@ -649,9 +649,13 @@ var txt = document.getElementById('case_text');
 							let elements = document.querySelectorAll('.form-control');
 							
 							elements.forEach((item) => {
-							item.addEventListener("keydown", (event) => {  						 
+							item.addEventListener("keydown", (event) => {
+							var regex = /^[A-Za-z]+$/;
+							var isValid = regex.test(String.fromCharCode(event.keyCode));
+							if (isValid){
 							 event.preventDefault(); 
 							 item.value += event.key;
+							}
 							 return ;							   
 								});															
 							});
