@@ -644,3 +644,19 @@ var txt = document.getElementById('case_text');
 			txt.innerHTML += ' '+ number+' out of 8';
 
 
+
+								
+							let elements = document.querySelectorAll('.form-control');
+							
+							elements.forEach((item) => {
+							item.addEventListener("keydown", (event) => {  						 
+							 event.preventDefault(); 
+							 item.value += event.key;
+							 return ;							   
+								});															
+							});
+							
+								
+						
+						
+						
