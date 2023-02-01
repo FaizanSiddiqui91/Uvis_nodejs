@@ -642,7 +642,13 @@ var txt = document.getElementById('case_text');
  if (txt !== null){
 			var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
 			const number = 8-randomlinks.length;
-			txt.innerHTML = 'Case '+ number+' out of 8';
+			txt.innerHTML = 'Case '+ number;
+			
+		 var prg =  document.getElementById('progressb');
+  if (prg !== null){
+	  const pr_number=(number/8)*100;
+ prg.style.width= pr_number +'%';
+  }	
 
  }
 
