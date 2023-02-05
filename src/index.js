@@ -154,7 +154,7 @@ load_text.innerHTML = 'Downloading data...<br><br>Please wait for the interactor
 var load_text_bottom = document.createElement('div');
 load_text_bottom.classList.add("loader_text_bottom");
 load_text_bottom.style.textAlign = "center"
-load_text_bottom.style.fontSize = "small";
+// load_text_bottom.style.fontSize = "small";
 load_text_bottom.innerHTML = 'Please refresh the page if the loading takes <br> more than 5 minutes or the data is not properly loaded..';
 
 const container = document.createElement('div');

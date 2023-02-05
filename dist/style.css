@@ -38,19 +38,23 @@ h1 {
 
 .loader_text {
   position:  absolute;   
-  top:15%;
-  left:35%; */
-  /* width: 120px; */
-  /* height: 120px; */
+  top:10%;
+  left:25%;  
+  word-break: break-word;
+  transform: translateX(25%) translateY(15%);
+  font-size: 1vw;
  		  
 }
 
 .loader_text_bottom {
   position:  absolute; 
-  
-  top:95%;
-  left:35%; 
+  top:75%;
+  left:28%;  
   /* width: 120px; */
   /* height: 120px; */
+  /* transform: translate(-75%, -75%); */
+  word-break: break-word;
+  transform: translateX(28%) translateY(75%);
+  font-size: 0.7vw;
  		  
 }
