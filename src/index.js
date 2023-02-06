@@ -216,6 +216,7 @@ const actor = vtkVolume.newInstance();
 const mapper = vtkVolumeMapper.newInstance();
 mapper.setSampleDistance(0.7);
 actor.setMapper(mapper);
+
 // ----------------------------------------------------------------------------
 // Simple pipeline ConeSource --> Mapper --> Actor
 // ----------------------------------------------------------------------------
@@ -223,10 +224,11 @@ actor.setMapper(mapper);
 
 
 // const progressCallback = (progressEvent) => {
-	  // const a= macro.formatBytesToProperUnit(
-           // progressEvent.total
-         // );
+// const a= macro.formatBytesToProperUnit(
+// progressEvent.total
+// );
 // }
+
 
 const { width, height } = container.getBoundingClientRect();
 openglRenderWindow.setSize(width, height);
