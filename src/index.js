@@ -149,7 +149,7 @@ load.classList.add("loader");
 var load_text = document.createElement('div');
 load_text.classList.add("loader_text");
 load_text.style.textAlign = "center"
-load_text.innerHTML = 'Downloading data...<br><br>Please wait for the interactor to be loaded. <br> It might take few minutes...';
+load_text.innerHTML = 'Downloading data...<br><br>Please wait for the interactor to be loaded. <br> It might take upto 30 seconds to a minute...';
 
 var load_text_bottom = document.createElement('div');
 load_text_bottom.classList.add("loader_text_bottom");
