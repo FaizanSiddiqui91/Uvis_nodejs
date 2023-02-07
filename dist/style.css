@@ -55,6 +55,71 @@ h1 {
   /* transform: translate(-75%, -75%); */
   word-break: break-word;
   transform: translateX(28%) translateY(75%);
-  font-size: 0.7vw;
- 		  
+  font-size: 0.7vw;		  
+}
+
+
+
+.arrow{
+    /* opacity: 0; */
+  border: solid black;  
+  border-width: 0 3px 3px 0;
+  width: 5%;
+  height: 3.5%;
+
+  /* display: inline-block; */
+  /* padding: 5px; */
+     transform: rotate(45deg); 
+   -webkit-transform: rotate(45deg); 
+         opacity: 0;
+     position: relative; 
+        left: 50%;
+        top: 25%;
+    /* transform-origin: 50% 50%; */
+    /* transform: translate3d(-50%, -50%, 0); */
+	
+	
+}
+
+.arrow-first {
+    animation: arrow-movement 2s ease-in-out infinite;
+}
+.arrow-second {
+    animation: arrow-movement 2s 1s ease-in-out infinite;
+}
+
+.arrow:before,
+.arrow:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 3px; 
+    position: absolute;
+        top: 0;
+        left: 0;
+    width: 30px;
+}
+
+.arrow:before {
+    transform: rotate(45deg) translateX(-23%);
+    transform-origin: top left;
+}
+
+.arrow:after {
+    transform: rotate(-45deg) translateX(23%);
+    transform-origin: top right;
+}
+
+/* // Animation */
+@keyframes arrow-movement {
+    0% { 
+        opacity: 0;
+        top: 20%;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% { 
+        opacity: 0;
+    }
 }

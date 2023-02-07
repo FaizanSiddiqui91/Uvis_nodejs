@@ -639,20 +639,29 @@ if (det ==0 && uncer==1 && tr==0 && data==1)
   
 
 }
-
-var txt = document.getElementById('case_text');
- if (txt !== null){
-			var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
-			const number = 8-randomlinks.length;
-			txt.innerHTML = 'Case '+ number;
+var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));
+const number = 8-randomlinks.length;
 			
+var txt = document.getElementById('case_text');
+ if (txt !== null){	
+		
+			txt.innerHTML = 'Case '+ number;
+ }
+ 
+ var txt_des = document.getElementById('des');
+ if (txt_des !== null){	
+			txt_des.innerHTML =  '<b>Case '+number+ ':</b> ' + txt_des.innerHTML;
+ }
+ 
+ 
 		 var prg =  document.getElementById('progressb');
   if (prg !== null){
 	  const pr_number=(number/8)*100;
  prg.style.width= pr_number +'%';
   }	
 
- }
+  
+ 
 
 								
 							let elements = document.querySelectorAll('.form-control');
