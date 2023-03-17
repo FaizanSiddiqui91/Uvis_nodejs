@@ -48,6 +48,7 @@ import vtkVolumeMapper from '@kitware/vtk.js/Rendering/Core/VolumeMapper';
 import vtkITKHelper from '@kitware/vtk.js/Common/DataModel/ITKHelper';
 import vtkPolyDataReader from '@kitware/vtk.js/IO/Legacy/PolyDataReader';
 import vtkXMLPolyDataReader from '@kitware/vtk.js/IO/XML/XMLPolyDataReader';
+import vtkTubeFilter from '@kitware/vtk.js/Filters/General/TubeFilter';
 // import style from './style_1.css';
 
 
@@ -131,13 +132,19 @@ const back = [0.9, 0.9, 0.9]
 
 const renderWindow = vtkRenderWindow.newInstance();
 const renderer = vtkRenderer.newInstance({ background: back });
+renderer.setLayer(0); 
 // renderWindow.addRenderer(renderer);
 
+const renderer2 = vtkRenderer.newInstance({ background: back });
+//renderer2.setActiveCamera(renderer.getActiveCamera())
+//renderer2.setLayer(1); 
 
 
 const openglRenderWindow = vtkOpenGLRenderWindow.newInstance();
 renderWindow.addView(openglRenderWindow);
+renderWindow.setNumberOfLayers(2)
     renderWindow.addRenderer(renderer);
+	//renderWindow.addRenderer(renderer2);
 
 // ----------------------------------------------------------------------------
 // Create a div section to put this into
@@ -206,6 +213,7 @@ actor2.setMapper(mapper2);
 renderer.addActor(imageActorK);
 renderer.addActor(imageActorJ);
 renderer.addActor(imageActorI);
+
 //renderer.addActor(actor1);
 //renderer.addActor(actor_samples_100);
 renderer.addActor(actor2);
@@ -324,20 +332,50 @@ vtkResourceLoader
 
 
   
- if (link_fibers !== null){
+ if (link_fibers !== null){ //representative fibers
 	 //uncer=1;
-const reader = vtkXMLPolyDataReader.newInstance();
-//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-reader.setUrl(link_fibers.innerHTML).then(() => {
-  const polydata = reader.getOutputData(0);
+	 
+	  const tubeFilter = vtkTubeFilter.newInstance();
+	  tubeFilter.setCapping(false);
+	  tubeFilter.setNumberOfSides(50);
+	  tubeFilter.setRadius(0.4);
+
+	
+	const reader = vtkXMLPolyDataReader.newInstance();
+		
+	//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
+				
+	reader.setUrl(link_fibers.innerHTML).then(() => {
+		
+		
+	const polydata = reader.getOutputData(0); 
+	tubeFilter.setInputData(polydata);
+
+  
+  
+  
+ // mapper1.setInputData(tubeFilter);
+  mapper1.setInputConnection(tubeFilter.getOutputPort());
+  mapper1.setResolveCoincidentTopologyToPolygonOffset()
+  mapper1.setResolveCoincidentTopologyPolygonOffsetFaces(-2)
+  mapper1.setResolveCoincidentTopologyPolygonOffsetParameters(-2.0,-2.0)
+  mapper1.setRelativeCoincidentTopologyPolygonOffsetParameters(-2.0,-2.0)
+
+	
+	
+  mapper1.update();
+  
+  
   actor1.getProperty().setColor(215.0 / 255.0, 48.0 / 255.0, 39.0 / 255.0);
+
+ 
   //actor1.getProperty().renderLinesAsTubesOn();
+  //actor1.getProperty().setRenderLinesAsTubes(1);
   actor1.modified();
 
 
   //actor1.setMapper(mapper1);
-  mapper1.setInputData(polydata);
-  mapper1.update();
+  
   renderer.addActor(actor1);
 
   renderer.resetCamera();
@@ -349,11 +387,10 @@ checkStatus();
  }
 
 let uncer_100=0;
-  if (link_fiber_samples !== null){
+ if (link_fiber_samples !== null){
 	  
 const reader_samples_100 = vtkXMLPolyDataReader.newInstance();
-//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
-	
+//reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {	
 reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   const polydata_samples_100 = reader_samples_100.getOutputData(0);
  
@@ -373,9 +410,69 @@ reader_samples_100.setUrl(link_fiber_samples.innerHTML).then(() => {
   uncer_100=1;
 checkStatus();
 });
-
-
 }
+
+// Open a connection to the same IndexedDB database and object store where the blob is stored
+// var request = indexedDB.open("myDatabase", 1);
+// var db;
+
+// request.onerror = function(event) {
+  // console.log("Error opening database");
+// };
+
+// request.onsuccess = function(event) {
+  // db = event.target.result;
+  // var transaction = db.transaction("polyDataStore", "readonly");
+  // var objectStore = transaction.objectStore("polyDataStore");
+
+  // // Retrieve the blob from the object store
+  // var objectStoreRequest = objectStore.get("id");
+  // objectStoreRequest.onsuccess = function(event) {
+    // var blob = event.target.result.data;
+
+    // // Create a FileReader to read the blob as text
+    // var fileReader = new FileReader();
+    // fileReader.onload = function(event) {
+      // var xmlText = event.target.result;
+
+      // // Create a VTK.js reader for VTK XML PolyData
+      // const reader = vtk.vtkXMLPolyDataReader.newInstance();
+
+      // // Parse the VTK XML PolyData file using the VTK.js reader
+      // var polydata_samples_100 = reader.parse(xmlText);
+
+ 
+  // actor_samples_100.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
+  // actor_samples_100.getProperty().setLineWidth(3);
+  // actor_samples_100.getProperty().setOpacity(0.2);
+
+  // mapper_samples_100.setInputData(polydata_samples_100);
+
+  // renderer.addActor(actor_samples_100);
+
+  // renderer.resetCamera();
+  // //renderer.resetCameraClippingRange();
+  // //renderWindow.render();
+  // element_loaded++;
+  // uncer=1;
+  // uncer_100=1;
+// checkStatus();
+    // };
+    // fileReader.readAsText(blob);
+  // };
+
+  // objectStoreRequest.onerror = function(event) {
+    // console.log("Error retrieving data from IndexedDB");
+  // };
+// };
+
+
+
+
+
+
+
+
 
 
 if (link_fiber_samples_25 !== null){
@@ -396,8 +493,8 @@ reader_samples_25.setUrl(link_fiber_samples_25.innerHTML ).then(() => {
 
   renderer.addActor(actor_samples_25);
 
-  renderer.resetCamera();
-  //renderer.resetCameraClippingRange();
+  //renderer.resetCamera();
+  //renderer2.resetCameraClippingRange();
   //renderWindow.render();
   element_loaded++;
   uncer=1;

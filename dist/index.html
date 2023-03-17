@@ -27,11 +27,14 @@
 			<p>
 				
 				You are being invited to participate in a research study titled "Effect of white matter uncertainty visualization in neurosurgical decision making". 
-				This study is a part of a collbration project between ETZ Tilburgh, TU Eindhoven and TU Delft under a research program “Diffusion MRI Tractography with Uncertainty Propagation for the Neurosurgical Workflow” having project number 16338.
+				This study is a part of a collbration project between ETZ Tilburg, TU Eindhoven and TU Delft under a research program “Diffusion MRI Tractography with Uncertainty Propagation for the Neurosurgical Workflow” having NWO project number 16338.
 								
 				<br>
 				<br>
-The purpose of this research study is to analyze whether the uncertainty visualization in fiber tracking affects decision-making in clinical workflow. 
+Visualization of white matter pathways (‘tractography’) is increasingly used in neurosurgical practice. However, there are still many conceptual and technical
+ difficulties to be solved. Tractography is, in principle, a technique that identifies white matter pathways with a certain uncertainty. Results are not necessarily
+ a 1-to-1 reflection of the actual anatomy. The purpose of this research study is to analyze whether the uncertainty visualization in fiber tracking affects
+ decision-making in clinical workflow. 
 The outcome of this evaluation will be anonymously included in a paper. We will be providing several clinical cases of tumor resection surgery and present fiber 
 tracking results with and without uncertainty information via this interactive web-tool. We then ask you to answer questions based on the given results. We really appreciate you giving us a moment of your precious time. 
 </p>
@@ -48,7 +51,7 @@ PhD candidate,  <br>
 TU Delft / TU Einhoven, 
 
 <br>
-F.p.siddiqui@tudelft.nl
+f.p.siddiqui@tudelft.nl
 
 <br> 
 <br> 
@@ -76,6 +79,43 @@ F.p.siddiqui@tudelft.nl
  <div class="col-4 d-flex align-items-center justify-content-center">
  <img src="screenshot_training.png" alt="Screenshot" style="width:460px;height:200px;">
  </div>
+
+ <!-- <script> -->
+
+ <!-- // Open a connection to the IndexedDB database and create an object store to store the VTK XML PolyData files -->
+<!-- var request = indexedDB.open("myDatabase", 8); -->
+<!-- var db; -->
+<!-- request.onerror = function(event) { -->
+  <!-- console.log("Error opening database"); -->
+<!-- }; -->
+<!-- request.onsuccess = function(event) { -->
+  <!-- db = event.target.result; -->
+  <!-- var transaction = db.transaction(["polyDataStore"], "readwrite"); -->
+  <!-- var objectStore = transaction.objectStore("polyDataStore"); -->
+
+  <!-- transaction.oncomplete = function(event) { -->
+    <!-- // Create an XHR request to load the VTK XML PolyData file -->
+    <!-- var xhr = new XMLHttpRequest(); -->
+    <!-- xhr.open("GET", "fiber_100.vtp"); -->
+    <!-- xhr.responseType = "blob"; -->
+    <!-- xhr.onload = function() { -->
+      <!-- // Store the blob in IndexedDB as a new record -->
+      <!-- var dataId = "id"; -->
+      <!-- var blob = xhr.response; -->
+      <!-- var addRequest = objectStore.add({ id: dataId, data: blob }); -->
+      <!-- addRequest.onsuccess = function(event) { -->
+        <!-- console.log("VTK XML PolyData file saved to IndexedDB"); -->
+      <!-- }; -->
+      <!-- addRequest.onerror = function(event) { -->
+        <!-- console.log("Error saving VTK XML PolyData file to IndexedDB"); -->
+      <!-- }; -->
+    <!-- }; -->
+    <!-- xhr.send(); -->
+  <!-- }; -->
+<!-- }; -->
+
+ 
+ <!-- </script> -->
  
  </div>
 
