@@ -41,17 +41,17 @@
 			</div>
 
 			<p>Based on these representation, we would like you to answer the following questions as a check that the representation is well understood:</p>
-			<script>
-	function func(){
-	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
-	const index=Math.floor(Math.random()*randomlinks.length) 
-	window.location=randomlinks[index];
-	var r=randomlinks.splice(index,1);   
-	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
-	}
-	</script>
+			<!-- <script> -->
+	<!-- function func(){ -->
+	<!-- var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	 -->
+	<!-- const index=Math.floor(Math.random()*randomlinks.length)  -->
+	<!-- window.location=randomlinks[index]; -->
+	<!-- var r=randomlinks.splice(index,1);    -->
+	<!-- sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks)); -->
+	<!-- } -->
+	<!-- </script> -->
 
-			<form name="Trainingform" method="POST" action="/navigate" data-netlify="true">
+			<form name="Trainingform" method="POST" action="index0_5" data-netlify="true">
 
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> What does Figure <b>B</b> represent?</legend>
@@ -128,9 +128,7 @@
 				</fieldset>
 				<br>
 				<br>
-				<p>In the <b>next section</b>, we will ask you to evaluate <b>8 cases</b> and would like you to answer a few questions in relation to each case.
-				Please press next to start the evaluation.
-				</p>
+			
 				
 			<!-- </form> -->
 

@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="radio.css">
+
+	<title>
+		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
+	</title>
+
+</head>
+
+<body>
+
+	<main class="flex-shrink-0">
+		<div class="container">
+
+			<br>
+						<div class="container">
+    <!-- <div class="progress" style="height:8px"> -->
+      <!-- <div id="progressb" class="progress-bar bg-secondary" style="width:0%"> -->
+      <!-- </div> -->
+    </div>
+  </div>
+<br>
+
+			<div class="row">
+				<script>
+	function func(){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	if (randomlinks.length>0){
+	window.location=randomlinks[index]; 
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	else{
+	window.location= "Thankyou.html";
+	}
+	}	
+	</script> 
+
+				<div >
+
+				<h1>General Questions</h1>
+					<form name="formGeneral" method="POST" action="/Thankyou" data-netlify="true">
+
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Do the presented uncertainty information in fiber tracking results affect other clinical decisions, for example, the resection path? Which ones and why?</legend>
+<textarea class="form-control" id="case01decisionWhy" rows="3" name="case01decisionWhy"></textarea>
+							
+						</fieldset>
+
+						
+						<fieldset class="row mb-3">
+							<legend class="col-form-label"><b>Q</b> Does the provided uncertainty information give you more confidence in your decision?</legend>
+							<div class="col-sm-10">
+								<input class="form-check-input" type="radio" name="case01decision" id="case01decisionYes" value="Yes">
+								<label class="form-check-label" for="case01decisionYes"> Yes </label>
+								<input class="form-check-input" type="radio" name="case01decision" id="case01decisionNo" value="No">
+								<label class="form-check-label" for="case01decisionNo"> No </label>
+							</div>
+							
+						
+						
+						</fieldset>
+						
+						
+
+						<fieldset class="row mb-3">
+						<div class="row mb-3">
+							<label for="case01decisionWhy" class="form-label"><b>Q</b> Whether you would like to integrate this visualization into your current planning workflow? If yes, why? If not, why not? </label>
+							<textarea class="form-control" id="case01decisionWhy" rows="3" name="case01decisionWhy"></textarea>
+						</div>
+						
+						
+						
+						
+						</fieldset>
+
+
+					<fieldset class="row mb-3">
+						<div class="row mb-3">
+							<label for="case01decisionWhy" class="form-label"><b>Q</b> What are the addition relevant information you would like to have in the visualization?  </label>
+							<textarea class="form-control" id="case01decisionWhy" rows="3" name="case01decisionWhy"></textarea>
+						</div>
+											
+						</fieldset>
+						
+						
+						<fieldset class="row mb-3">
+						<div class="row mb-3">
+							<label for="case01decisionWhy" class="form-label"> If you want to get the results of this study, please fill in your name and email address below.  </label>
+						<div class="row mb-3">
+				  <div class="col">
+					<input type="text" class="form-control" onChange="myFunction();"id="Names" placeholder="Name (Optional)" aria-label="Name" name="name">
+
+			  </div>				 
+				  <div class="col">
+					<input type="email" class="form-control" placeholder="E-mail address (Optional)" aria-label="E-mail address" name="email">
+				  </div>
+				</div>
+						</div>
+											
+						</fieldset>
+						
+						
+						
+
+				</div>
+
+				<div class="col-12 col-md-7 order-1 order-md-5">
+				
+				
+					
+				
+			</div>
+		</div>
+	<!-- </main> -->
+
+	
+
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</footer>
+	
+</body>
+</form>
+	</main>
+
+</html>

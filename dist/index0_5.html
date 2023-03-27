@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+
+	<title>
+		Evaluating Uncertainty Visualization in Clinical Decision Making - Training
+	</title>
+	
+
+<!-- <form method="post"> -->
+<!-- <p><input type="button" name="B1" value="Random Link >>" onclick="randomlink()"></p> </form> -->
+
+<!--Uncomment below to use a regular text link instead
+<a href="javascript:randomlink()">Random Link</a>
+-->
+
+
+
+</head>
+
+<body>
+
+	<main class="flex-shrink-0">
+		<div class="container">
+
+			<h1> Evaluation</h1>
+
+			
+		
+			<script>
+	function func(){
+	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
+	const index=Math.floor(Math.random()*randomlinks.length) 
+	window.location=randomlinks[index];
+	var r=randomlinks.splice(index,1);   
+	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
+	}
+	</script>
+
+			<form name="Trainingform" method="POST" action="/navigate" data-netlify="true">
+
+			
+			
+				<p>In the <b>next section</b>, we will ask you to evaluate <b>8 cases</b> and would like you to answer a few questions in relation to each case.
+				Please press the <b>Start</b> button to start the evaluation.
+				</p>
+				<br>
+				<p>
+				Warning: After answering questions for each case in the next section, you won't be able to go back to the previous case.
+				</p>
+				
+			<!-- </form> -->
+
+		</div>
+	</main>
+	
+	
+
+	<footer class="footer mt-auto py-3 bg-light">
+		<div class="container">
+			<a class="btn btn-danger" href="./index0_1.html" role="button">Back</a>
+			<!-- <a class="btn btn-primary" href="javascript:func();"  role="button">Next</a>  -->
+			<button type="submit" class="btn btn-primary">Start</button>
+			
+		</div>
+	</footer>
+	</form>
+
+</body>
+
+</html>

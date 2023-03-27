@@ -3,6 +3,8 @@ import '@kitware/vtk.js/favicon';
 // Import our custom CSS
 
 
+
+
 // Import our custom CSS
 //import './styles.scss'
 
@@ -412,65 +414,6 @@ checkStatus();
 });
 }
 
-// Open a connection to the same IndexedDB database and object store where the blob is stored
-// var request = indexedDB.open("myDatabase", 1);
-// var db;
-
-// request.onerror = function(event) {
-  // console.log("Error opening database");
-// };
-
-// request.onsuccess = function(event) {
-  // db = event.target.result;
-  // var transaction = db.transaction("polyDataStore", "readonly");
-  // var objectStore = transaction.objectStore("polyDataStore");
-
-  // // Retrieve the blob from the object store
-  // var objectStoreRequest = objectStore.get("id");
-  // objectStoreRequest.onsuccess = function(event) {
-    // var blob = event.target.result.data;
-
-    // // Create a FileReader to read the blob as text
-    // var fileReader = new FileReader();
-    // fileReader.onload = function(event) {
-      // var xmlText = event.target.result;
-
-      // // Create a VTK.js reader for VTK XML PolyData
-      // const reader = vtk.vtkXMLPolyDataReader.newInstance();
-
-      // // Parse the VTK XML PolyData file using the VTK.js reader
-      // var polydata_samples_100 = reader.parse(xmlText);
-
- 
-  // actor_samples_100.getProperty().setColor(253.0 / 255.0, 174.0 / 255.0, 97.0 / 255.0);
-  // actor_samples_100.getProperty().setLineWidth(3);
-  // actor_samples_100.getProperty().setOpacity(0.2);
-
-  // mapper_samples_100.setInputData(polydata_samples_100);
-
-  // renderer.addActor(actor_samples_100);
-
-  // renderer.resetCamera();
-  // //renderer.resetCameraClippingRange();
-  // //renderWindow.render();
-  // element_loaded++;
-  // uncer=1;
-  // uncer_100=1;
-// checkStatus();
-    // };
-    // fileReader.readAsText(blob);
-  // };
-
-  // objectStoreRequest.onerror = function(event) {
-    // console.log("Error retrieving data from IndexedDB");
-  // };
-// };
-
-
-
-
-
-
 
 
 
@@ -529,15 +472,65 @@ checkStatus();
 
 
 let det=0;
-if (link_deterministic !== null){
+if (link_deterministic !== null){           
 	 
 const reader1_3 = vtkXMLPolyDataReader.newInstance();
 //reader.setUrl(`https://faizansiddiqui91.github.io/Data/fibers.vtk`).then(() => {
 reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
 	
-			
+
+	
+	// const DB_NAME = "my-db";
+    // //const OBJECT_STORE_NAME = "vtk-xml-polydata";	
+	// const OBJECT_STORE_NAME = "vtk-xml-polydata";	
+	// const request = indexedDB.open("new-db");	
+	
+	// request.onsuccess = (event) => {		
+	// const db = event.target.result;
+	// console.log("yahan to agya hai")
+	
+	// const objectStore = db.transaction([OBJECT_STORE_NAME]).objectStore(OBJECT_STORE_NAME);
+    // const getRequest = objectStore.get("my-polydata");	
+	
+	
+	
+	// getRequest.onsuccess = (event) => {
+		
+// const vtkXmlPolyData = event.target.result;
+
+// console.log(vtkXmlPolyData);
+
+
+
+	  // const parser = new DOMParser();
+      // const xmlDoc = parser.parseFromString(vtkXmlPolyData, 'text/xml');
+	  // console.log("yahan to check kro");
+	  // console.log(xmlDoc);
+	  // const reader = vtkXMLPolyDataReader.newInstance();
+	  // const textEncoder = new TextEncoder();
+	  // //reader.parseAsArrayBuffer(textEncoder.encode(xmlDoc));
+
+	  // const polydata = vtkXMLPolyDataReader.parse(xmlDoc);
+    // //const polydata = reader.getOutputData(0);
+    // //console.log(polydata); 
+	
+  // };
+  
+  
+  
+	// const polydata1_3=event.target.result.data;	
+
+	
+  // console.log("here");
+  // console.log(polydata1_3);
+
+
+	
+
+		
 		
   const polydata1_3 = reader1_3.getOutputData(0);
+
 
   actor1_3.getProperty().setColor(25.0 / 255.0, 180.0 / 255.0, 25.0 / 255.0);
 
@@ -556,8 +549,9 @@ reader1_3.setUrl(link_deterministic.innerHTML).then(() => {
   element_loaded++;
   det=1;
 checkStatus();
+	// };
 });
-}
+ }
 
 
 if (link_tumor !== null){

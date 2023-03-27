@@ -88,7 +88,7 @@
 				
 				<div class="row mb-3">
 				  <label for="usedYears" class="form-label"><b>Q</b> If yes, for how many years have you been using tractography?</label>
-				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes">
+				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes" required>
 				</div>
 				
 				<div class="row mb-3">
@@ -99,16 +99,16 @@
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> Do you think that tractographic information has clinical relevance, and can potentially influence clinical decision-making?</legend>
 					<div class="col-sm-10">
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes" required>
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeYes" value="Yes">
 						<label class="form-check-label" for="radioCanChangeYes"> Yes </label>
-						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No" required>
+						<input class="form-check-input" type="radio" name="radioCanChange" id="radioCanChangeNo" value="No">
 						<label class="form-check-label" for="radioCanChangeNo"> No </label>
 					</div>
 				</fieldset>
 				
 				<div class="row mb-3">
-				  <label for="textWhyChange" class="form-label"><b>Q</b> Why?</label>
-				  <textarea class="form-control" id="textWhyChange" rows="3" name="tractography_why" required></textarea>
+				  <label for="textWhyChange" class="form-label"><b>Q</b> Why do you think that?</label>
+				  <textarea class="form-control" id="textWhyChange" rows="3" placeholder="Optional" name="tractography_why"></textarea>
 				</div>
 	
 
