@@ -36,15 +36,15 @@
 
 			
 		
-			<script>
-	function func(){
-	var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	
-	const index=Math.floor(Math.random()*randomlinks.length) 
-	window.location=randomlinks[index];
-	var r=randomlinks.splice(index,1);   
-	sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks));
-	}
-	</script>
+			<!-- <script> -->
+	<!-- function func(){ -->
+	<!-- var randomlinks = JSON.parse(sessionStorage.getItem("randomlinks"));	 -->
+	<!-- const index=Math.floor(Math.random()*randomlinks.length)  -->
+	<!-- window.location=randomlinks[index]; -->
+	<!-- var r=randomlinks.splice(index,1);    -->
+	<!-- sessionStorage.setItem('randomlinks', JSON.stringify(randomlinks)); -->
+	<!-- } -->
+	<!-- </script> -->
 
 			<form name="Trainingform" method="POST" action="/navigate" data-netlify="true">
 
