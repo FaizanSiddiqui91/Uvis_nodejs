@@ -41,7 +41,8 @@
 			<!-- var x = document.getElementById('Names').value; -->
 			<!-- sessionStorage.setItem('Name', document.getElementById("Names").value); -->
 			var num = Math.floor(Math.random() * 90000) + 10000;
-			sessionStorage.setItem('Name', 'Rand id '+num);			
+			sessionStorage.setItem('Name', 'Rand id '+num);
+            document.getElementById('case00Name').value='Rand id '+num ; 			
 			}		 
 			</script>
 			
@@ -95,9 +96,9 @@
 				
 				<div class="row mb-3">
 						  <textarea class="form-control" id="case00Name" rows="3" name="Name" style="display:none;" value="FaizanPervezSiddiqui" ></textarea>
-						  <script>
-						  document.getElementById('case00Name').value=sessionStorage.getItem("Name")
-						  </script>
+						  <!-- <script> -->
+						  <!-- document.getElementById('case00Name').value=sessionStorage.getItem("Name") -->
+						  <!-- </script> -->
 				</div>
 						
 				
