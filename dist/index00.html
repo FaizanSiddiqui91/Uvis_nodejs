@@ -38,8 +38,10 @@
 			
 			<script>
 			function myFunction() {
-			var x = document.getElementById('Names').value;
-			sessionStorage.setItem('Name', document.getElementById("Names").value);
+			<!-- var x = document.getElementById('Names').value; -->
+			<!-- sessionStorage.setItem('Name', document.getElementById("Names").value); -->
+			var num = Math.floor(Math.random() * 90000) + 10000;
+			sessionStorage.setItem('Name', 'Rand id'+num);			
 			}		 
 			</script>
 			
@@ -88,13 +90,16 @@
 				
 				<div class="row mb-3">
 				  <label for="usedYears" class="form-label"><b>Q</b> If yes, for how many years have you been using tractography?</label>
-				  <input type="text" class="form-control" id="usedYears" placeholder="years" name="tractography_yes" required>
+				  <input type="text" class="form-control" onChange="myFunction();" id="usedYears" placeholder="years" name="tractography_yes" required>
 				</div>
+				
+
 				
 				<div class="row mb-3">
 				  <label for="textNotUsed" class="form-label"><b>Q</b> If no, what are the reasons for you to not use tractography?</label>
 				  <textarea class="form-control" id="textNotUsed" rows="3" name="tractography_no"></textarea>
 				</div>
+				
 
 				<fieldset class="row mb-3">
 					<legend class="col-form-label"><b>Q</b> Do you think that tractographic information has clinical relevance, and can potentially influence clinical decision-making?</legend>
