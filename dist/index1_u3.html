@@ -59,7 +59,7 @@
 					<form name="form13" method="POST" action="/navigate" data-netlify="true">
 
 						<fieldset class="row mb-3">
-							<legend class="col-form-label"><b>Q</b> Based on the visualization, will you be needing an intraoperative neurophysiological monitoring to perform the surgery?</legend>
+							<legend class="col-form-label"><b>Q</b> Based on this visualization, will you recommend using neurophysiological monitoring during the surgical procedure?</legend>
 							<div class="col-sm-10">
 								<input class="form-check-input" type="radio" name="case01awake" id="case01awakeYes" value="Yes" required>
 								<label class="form-check-label" for="case01awakeYes"> Yes </label>
@@ -76,8 +76,8 @@
 
 
 						<div class="row mb-3">
-							<label for="case01awakeWhy" class="form-label"><b>Q</b> What factors or circumstances influenced you to make this decision?</label>
-							<textarea class="form-control" id="case01awakeWhy" rows="3" name="case01awakeWhy" required></textarea>
+							<label for="case01awakeWhy" class="form-label"><b>Q</b> Would you like to comment on your decision? You may want to discuss, for instance, what arguments led you to this decision?</label>
+							<textarea class="form-control" id="case01awakeWhy" rows="3" name="case01awakeWhy"></textarea>
 						</div>
 						
 						<fieldset class="row mb-3">
@@ -136,17 +136,17 @@
 					
 					<div class="row row-cols-4 pad-bottom">
 						<div class="col">
-							<label for="sliceI" class="form-label">Slice I</label>
+							<label for="sliceI" class="form-label">Slice A/P</label>
 							<input class='form-range sliceI' id='sliceI' type="range" min="0" max="100" step="1" value="1">
 						</div>
 						<div class="col">
-							<label for="sliceJ" class="form-label">Slice J</label>
+							<label for="sliceJ" class="form-label">Slice Up/Down</label>
 							<input class='form-range sliceJ' id='sliceJ' type="range" min="0" max="100" step="1" value="1">
 						</div>
 						<div class="col">
-							<label for="sliceK" class="form-label">Slice K</label>
+							<label for="sliceK" class="form-label">Slice Left/Right</label>
 							<input class='form-range sliceK' id='sliceK' type="range" min="0" max="100" step="1" value="1">
-						</div>
+						</div>						
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" id="tumor_check" checked>
 							<label class="form-check-label" for="tumor_check">Show tumor</label>
