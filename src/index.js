@@ -359,9 +359,9 @@ vtkResourceLoader
  // mapper1.setInputData(tubeFilter);
   mapper1.setInputConnection(tubeFilter.getOutputPort());
   mapper1.setResolveCoincidentTopologyToPolygonOffset()
-  mapper1.setResolveCoincidentTopologyPolygonOffsetFaces(-2)
-  mapper1.setResolveCoincidentTopologyPolygonOffsetParameters(-2.0,-2.0)
-  mapper1.setRelativeCoincidentTopologyPolygonOffsetParameters(-2.0,-2.0)
+  mapper1.setResolveCoincidentTopologyPolygonOffsetFaces(-3)
+  mapper1.setResolveCoincidentTopologyPolygonOffsetParameters(-3.0,-3.0)
+  mapper1.setRelativeCoincidentTopologyPolygonOffsetParameters(-3.0,-3.0)
 
 	
 	
